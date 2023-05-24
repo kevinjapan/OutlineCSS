@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+   <!-- 
+      the 'generic' css for all 'outlinecss' deployments.
+      to do : share them across all my themes.
+   -->
+   <link rel="stylesheet" type="text/css" href="../../../outlinecss.css">
+   <link rel="stylesheet" type="text/css" href="../../../outline-layouts.css">
+   <!-- <link rel="stylesheet" type="text/css" href="../../outline-components.css"> -->
+
+
+   <!-- to do : test if css files not available - still readable? -->
+   
+   <!-- 
+      theme/site specific 'configurable' outlinecss files.
+    -->
+   <link rel="stylesheet" type="text/css" href="assets/education-outline-custom-props.css">
+   <link rel="stylesheet" type="text/css" href="assets/education-outline-utilities.css">
+
+</head>
+
+
+
+<body>
+
+   <nav>
+      <div class="logo_block">
+         <a href="home.html"><img class="logo" src="logo.jpg" alt="logo"/></a>
+      </div>
+
+      <div class="nav_toggle">menu</div>
+   
+      <ul class="nav_list">
+         <li>
+            <a href="Study.html" data-list="services" class="nav_list_label">Study</a>
+            <ul class="nav_list_dropdown">
+               <li>
+                  <a href="Undergraduate.html"><h5>Undergraduate</h5></a>
+                  <a href="Undergraduate-Degrees.html">Undergraduate Degrees</a>
+                  <a href="#" class="lightgray">Subject Areas</a>
+                  <a href="#" class="lightgray">Go Abroad</a>
+                  <a href="#" class="lightgray">Finance and Funding</a>
+                  <a href="Undergraduate-How-To-Apply.html">How to Apply </a>
+               </li>  
+               <li>  
+                  <a href="#" class="lightgray"><h5 class="lightgray">Postgraduate Taught</h5></a>
+                  <a href="#" class="lightgray">Postgraduate Degrees</a>
+                  <a href="#" class="lightgray">Online Degrees</a>
+                  <a href="#" class="lightgray">Part-time Study</a>
+                  <a href="#" class="lightgray">Finance and Funding</a>
+                  <a href="#" class="lightgray">How to Apply</a>
+               </li>  
+               <li>  
+                  <a href="#" class="lightgray"><h5 class="lightgray">Postgraduate Research</h5></a>
+                  <a href="#" class="lightgray">Research Areas</a>
+                  <a href="#" class="lightgray">PhD Opportunities</a>
+                  <a href="#" class="lightgray">Finance and Funding</a>
+                  <a href="#" class="lightgray">How to Apply</a>
+               </li>  
+               <li>  
+                  <a href="#" class="lightgray"><h5 class="lightgray">Online Learning</h5></a>
+                  <a href="#" class="lightgray">Online Degrees</a>
+                  <a href="feature_block.html">Feature Block</a>
+                  <a href="feature_tiles.html">Feature Tiles</a>
+                  <a href="cover_block.html">Cover Block</a>
+                  <a href="animated_feature_tiles.html">Animated Feature Tiles</a>
+               </li> 
+            </ul>
+         </li>
+         <li>
+            <a href="About.html" data-list="services" class="nav_list_label">About</a>
+            <ul class="nav_list_dropdown">
+               <li>  
+                  <a href="About.html">About</a>
+                  <a href="#" class="lightgray">Campus</a>
+                  <a href="#" class="lightgray">Maps and Directions</a>
+                  <a href="#" class="lightgray">Staff Directory</a>
+                  <a href="#" class="lightgray">Contact Information</a>
+               </li>  
+               <li>  
+                  <a href="#" class="lightgray">News</a>
+                  <a href="#" class="lightgray">Events</a>
+                  <a href="#" class="lightgray">History</a>
+                  <a href="#" class="lightgray">Facts & Figures</a>
+               </li>  
+               <li>  
+                  <a href="#" class="lightgray">Schools and Institutes</a>
+                  <a href="#" class="lightgray">Strategy and Governance</a>
+                  <a href="#" class="lightgray">Management</a>
+               </li>  
+            </ul>
+         </li>
+         <li>
+            <a href="Research.html" data-list="services" class="nav_list_label">Research</a>
+            <ul class="nav_list_dropdown">
+               <li> 
+                  <a href="#" class="lightgray">Explore our Research</a>
+                  <a href="#" class="lightgray">Impact</a>
+                  <a href="#" class="lightgray">Find a Centre or Institute Facilities</a> 
+               </li>  
+               <li>  
+                  <a href="#" class="lightgray">Postgraduate Research</a>
+                  <a href="#" class="lightgray">Study</a>
+                  <a href="#" class="lightgray">Research Jobs</a>
+                  <a href="#" class="lightgray">Research Support</a>
+               </li>  
+            </ul>  
+         </li>
+         <li>
+            <a href="QuickLinks.html" data-list="services" class="nav_list_label">Quick Links</a>
+            <ul class="nav_list_dropdown">
+               <li>  
+                  <a href="#" class="lightgray"><h5 class="lightgray">Student Resources</h5></a>
+                  <a href="#" class="lightgray">MyTimetable</a>
+                  <a href="#" class="lightgray">MyCurriculum</a>
+                  <a href="#" class="lightgray">MyAberdeen</a>
+                  <a href="#" class="lightgray">Student Hub</a>
+               </li>  
+               <li>  
+                  <a href="#" class="lightgray"><h5 class="lightgray">StaffNet</h5></a>
+                  <a href="#" class="lightgray">Working Here</a>
+                  <a href="#" class="lightgray">Management Information Systems</a>
+                  <a href="#" class="lightgray">Teaching & Learning</a>
+                  <a href="#" class="lightgray">Policy & Governance</a>
+                  <a href="#" class="lightgray">Staff Email</a>
+               </li>  
+               <li>  
+                  <a href="#" class="lightgray"><h5 class="lightgray">Our Website</h5></a>
+                  <a href="#" class="lightgray">Study</a>
+                  <a href="about.html">About</a>
+                  <a href="#" class="lightgray">Research</a>
+                  <a href="#" class="lightgray">Alumni & Giving</a>
+                  <a href="#" class="lightgray">Business</a>
+               </li>  
+               <li>  
+                  <a href="#" class="lightgray"><h5 class="lightgray">Popular</h5></a>
+                  <a href="#" class="lightgray">For Students</a>
+                  <a href="#" class="lightgray">For Staff</a>
+                  <a href="#" class="lightgray">Online Store</a>
+                  <a href="#" class="lightgray">ePayments</a>
+                  <a href="#" class="lightgray">Jobs</a>
+                  <a href="#" class="lightgray">Library</a>
+                  <a href="#" class="lightgray">Staff Directory</a>
+                  <a href="#" class="lightgray">IT Services</a>
+                  <a href="#" class="lightgray">A to Z</a>
+               </li>  
+            </ul>  
+         </li>
+         <li><a href="Search.html">Search</a></li>
+      </ul>
+   </nav>
+
+
+<h1>cover_block</h1>
+
+
+<!-- 
+   cover_block - ( to do : lose 'section' from title - 'cover_block'?)
+-->
+<!-- to do : 
+   handle scenarios:
+   reduce actual size of all imgs! - good for dev though, since we have to constrain lg img sizes. 
+   - if too lg img?
+   - if no img?
+   - if uneven no. of imgs etc. (vary no. of imgs)
+-->
+
+<div class="ol_specimen_type">Cover Block</div>
+
+<section class="cover_block bg_white">
+   <img class="bg_img" src="imgs/susan-q-yin-2JIvboGLeho-unsplash.jpg" />
+   <div class="overlay">
+      <h1>Study with us in 2023</h1>
+      <p>Start your academic journey with your first step today</p>
+      <button>Find out more ></button>
+   </div>
+</section>
+
+
+<div class="ol_specimen_type">Cover Block - no img</div>
+
+<section class="cover_block">
+   <h1>Contact Us</h1>
+   <p>If you have any questions regarding your course choice, get in touch!</p>
+   <button>Submit a question</button>
+</section>
+
+
+
+
+   
+
+
+
+<footer>
+
+   <ul>
+      <li>
+         <img class="logo" src="footer_logo.jpg" />
+         <ul>
+               <li>University of Aberdeen</li>
+               <li>King's College,</li>
+               <li>Aberdeen,</li>
+               <li>AB24 3FX</li>
+               <li>Tel: +44 (0)1224 272000</li>
+         </ul>
+         
+   
+         
+         <ul>
+               <li>Contacts</li>
+               <li>A to Z</li>
+               <li>Maps and Directions</li>
+               <li>Staff Directory</li>
+         </ul>
+      </li>
+      <li>
+         <button class="tertiary_button">For Students</button>
+         <button class="tertiary_button">For Staff</button>
+         <h3>Connect With Us</h3>
+         <ul>
+               <li>YouTube</li>
+               <li>Twitter</li>
+               <li>Facebook</li>
+               <li>Pinterest</li>
+               <li>Instagram</li>
+               <li>LinkedIn</li>
+         </ul>      
+      </li>
+   </ul>
+
+   <ul class="footnote">
+
+      <li>
+         Privacy Statement
+   
+         Accessibility
+         
+         Cookies
+         
+         Slavery & Human Trafficking Statement
+         
+         Freedom of Information
+      </li>
+      <li>
+         The University of Aberdeen is a charity registered in Scotland, No.SC013683
+      </li>
+   </ul>
+
+</footer>
+
+
+
+</section>
+
+
+
+
+</body>
+</html>

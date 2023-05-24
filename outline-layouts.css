@@ -1,0 +1,936 @@
+/*
+    outline css - layout
+*/
+
+
+/* layout margins */
+body, address, article, aside, footer, header, main, nav, section {
+    margin:0;
+    margin-inline:auto;
+    /* color:var(--body_text_color); */
+}
+h1, h2, h3, h4, h5, h6 {
+    margin:0;
+}
+
+/* custom layout margins */
+.gallery, .grid_1, .button_group {
+    margin:0;
+}
+
+
+
+/* ---------------------------------------------- 
+    SECTIONING ROOT - to do : tie in my parts naming to html elements.
+ ---------------------------------------------- */
+
+body {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    font-size:var(--font-size);
+    /*font-family: "Roboto", serif;*/
+    font-family: poppins,Helvetica Neue,Helvetica,Arial,sans-serif;
+
+        /* color:var(--secondary_1);
+            -   to do : body text is : #44448D */
+    color:var(--body_text_color);
+
+    line-height:1.5rem;
+    /* use % to ensure flex matches sizes w/out scrollbar */
+    width:100%;
+    min-height:100vh;
+    margin:0;
+    padding:0;
+}
+
+
+
+/* ---------------------------------------------- 
+    CONTENT SECTIONING
+ ---------------------------------------------- */
+
+/* contact info */
+address {
+    visibility:visible;
+}
+
+/* self-contained composition - independently distributable */
+article {
+    visibility:visible;
+}
+
+/* indirectly related content */
+aside {
+    visibility:visible;
+}
+
+
+
+
+
+
+
+
+
+/* introductory content */
+header  {
+    max-width:var(--page_content_width);
+}
+
+
+
+/* section headings */
+h1, h2, h3, h4, h5, h6 {
+    /* margin:var(--standard_layout_padding); - we don't assign margins since container will determine layout */
+    line-height:3.25rem;
+    /* color:var(--primary_1);  - to do : review - we allow each section/section-type to define colors */
+}
+h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a {
+    /* color:var(--primary_1); */
+    text-decoration:none;
+}
+
+/* to do : note - we don't use heading elements inside navigation - since they are layout (similar to not using sections in nav) */
+
+h1 {
+    font-size:var(--heading_1_size);
+    line-height:var(--heading_1_line_height);
+    padding-block:1rem;
+}
+
+h2 {
+    font-size:var(--heading_2_size);
+    line-height:var(--heading_2_line_height);
+    padding-block:1rem;
+}
+
+h3 {
+    font-size:var(--heading_3_size);
+    line-height:var(--heading_3_line_height);
+    padding-block:1rem;
+}
+
+h4 {
+    font-size:var(--heading_4_size);
+    line-height:var(--heading_4_line_height);
+    padding-block:1rem;
+}
+
+h5 {
+    font-size:var(--heading_5_size);
+    line-height:var(--heading_5_line_height);
+    padding-block:1rem;
+}
+
+h6 {
+    font-size:var(--heading_6_size);
+    line-height:var(--heading_6_line_height);
+    padding-block:1rem;
+}
+ 
+
+
+/* central content of the body of a document */
+main {
+    visibility:visible;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-box-direction:normal;
+    -webkit-box-pack:start;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    -webkit-box-flex: 0;
+    flex: 0 0 auto;
+
+    width:100%;
+    height:100vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+   main nav component 
+*/
+nav {
+   position:relative;
+   z-index:99999999999;
+   display:flex;
+   align-items:center;
+   width:100%;
+   height:var(--nav_bar_height);
+}
+nav div.logo_block    {
+   position:relative;
+   flex-grow:2;
+   z-index:50;
+   background:white;
+   min-height:var(--nav_bar_height);
+}
+
+nav ul   {list-style:none;}
+nav li * {padding-block:0;}
+nav a    {cursor:pointer;}
+
+nav ul.nav_list {
+   position:absolute;
+   z-index:2;
+   top:calc(var(--nav_bar_height) - 8px);
+   left:0;
+   width:100%;
+   align-self:flex-start;
+   -webkit-transform:translateY(-500px);
+   -ms-transform:translateY(-500px);
+   transform:translateY(-500px);
+   opacity:0;
+   transition:transform .75s ease-in-out .25s,opacity .5s ease-in-out .25s;
+   padding:0;
+   border-bottom:solid 3px hsl(0, 0%, 96%);
+}
+
+/* mobile menu toggle */
+nav > div.nav_toggle {cursor:pointer;position:relative;z-index:3;padding-right:.5rem;}
+
+/* we hide all submenu dropdowns on mobile */
+nav ul.nav_list li ul,
+nav ul.nav_list li a  {
+   display:none;
+   text-decoration:none;
+}
+
+/* then restore the top level label links */
+nav ul.nav_list > li > a  {
+   position:relative;
+   display:block;
+   padding:.5rem;
+   padding-block:1.25rem;
+   background:white;
+}
+
+/* extend dropdown */
+nav > div.nav_toggle:hover + ul.nav_list {
+   -webkit-transform:translateY(0);
+   -ms-transform:translateY(0);
+   transform:translateY(0);
+   opacity:1;
+   transition:transform .5s ease-in-out .25s,opacity .5s ease-in-out .25s;
+
+}
+/* retain extended on nav_list:hover */
+nav > ul.nav_list:hover  {
+   -webkit-transform:translateY(0);
+   -ms-transform:translateY(0);
+   transform:translateY(0);
+   opacity:1;
+   transition:transform .5s ease-in-out .5s,opacity .5s ease-in-out .5s;
+}
+
+/* maintain <a> spacing on transitions */
+nav ul.nav_list li ul li a {margin:1rem; }
+
+@media screen and (min-width: 768px) {
+
+   /* logo_block provides overlay in front of moving dropdown */
+   nav div.logo_block {
+      position:relative;
+      flex-grow:2;
+   }
+   nav ul.nav_list li a.nav_list_label {
+      height:100%;
+   }
+   nav ul.nav_list {
+      position:static;
+      display:flex;
+      justify-content:flex-end;
+      align-items:center;
+      gap:1rem;
+      flex-grow:0;
+      width:unset;
+      height:100%;
+      padding-inline:2rem;
+      padding:.5rem 1rem;
+      background:white;
+      transform:unset;
+      opacity:1;
+      transition:none;
+      border-bottom:none;
+   }
+   /* reset from mobile */
+   nav > div.nav_toggle {display:none;}
+   nav ul.nav_list *, nav ul.nav_list li ul,nav ul.nav_list li a  {display:block;}
+   nav ul.nav_list > li > a,  
+   nav ul.nav_list:hover,  
+   nav ul.nav_list:hover > li > a {
+      transform:unset;
+      opacity:1;
+      transition:none;
+   }  
+   /* md/lg dropdowns */
+   nav ul.nav_list .nav_list_dropdown {
+      flex-direction:row;
+      justify-content:space-between;
+   }
+   nav ul.nav_list:hover li a  {
+      display:block;
+      margin-block:1rem;
+   }
+   .nav_list_dropdown li {
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:.5rem;
+   }
+   nav ul.nav_list .nav_list_dropdown {
+      position:absolute;
+      top:0;
+      left:0;
+      z-index:-99;
+      display:flex;
+      justify-content:space-between;
+      gap:2rem;
+      width:100%;
+      padding:1rem 2rem;
+      background:white;
+      -webkit-transform:translateY(-100%);
+      -ms-transform:translateY(-100%);
+      transform:translateY(-100%);
+      opacity:0;
+      border-bottom:solid 3px transparent;
+      transition:transform .75s ease-in-out .25s,opacity .5s ease-in-out .25s,border .5s ease-in-out;
+   }
+   /* open it and keep it open */
+   nav ul.nav_list li a.nav_list_label:hover + .nav_list_dropdown,
+   nav ul.nav_list li a.nav_list_label + .nav_list_dropdown:hover {
+      -webkit-transform:translateY(var(--nav_bar_height));
+      -ms-transform:translateY(var(--nav_bar_height));
+      transform:translateY(var(--nav_bar_height));
+      opacity:1;
+      border-bottom:solid 3px hsl(0, 0%, 96%);
+      transition:transform .75s ease-in-out,opacity .5s ease-in-out,border .5s ease-in-out;
+   }
+}
+
+
+
+
+
+
+/* 
+   section
+   section is the base element
+*/
+section {
+
+   max-width:100%;
+   overflow-x:hidden;
+
+   margin-block:var(--block_y_margins);   
+   /* padding:var(--block_y_padding); */
+   padding-inline:0;
+
+   /* background-image is specific to each section & defined as inline style */
+   background-attachment:fixed;
+   background-repeat:no-repeat;
+   background-size: cover;
+
+   background-color:white;    /* to do : use a utility class - w/ bg and color */
+}   
+
+
+/* section > ul - to present items/tiles/imgs etc. */
+section > ul {
+   display:flex;
+   flex-direction:column;  /* mobile */
+   padding-inline:var(--section_inline_padding);
+   margin-inline:auto;
+   max-width:100%;
+}
+section > ul > li {
+   flex:1;
+   /* mobile convention stacks w/ image at top - we facilitate w/ a default stack order */
+   order:100;
+}
+/* utilities to re-order stacking */
+section > ul > li.stack_1 {order:1;}
+section > ul > li.stack_2 {order:2;}
+section > ul > li.stack_3 {order:3;}
+section > ul > li.stack_4 {order:4;}
+
+
+@media screen and (min-width: 768px) {
+
+   section {
+      /* limit effective width of all sections - but we allow full width for background imgs : */
+      /* padding-inline:calc((100% - var(--page_content_width)) / 2); */
+
+      margin-block:var(--block_y_margins);
+      margin-inline:auto;
+      /* padding-block:var(--block_y_padding); */
+
+      text-align:var(--default_text_align);
+   }
+   section > ul {
+      flex-direction:row;  /* md/lg screens */
+      padding-inline:var(--section_inline_padding);
+      height:auto;
+      padding-block:0;
+      gap:2.25rem;
+   }
+   section  ul  li  img {
+      width:100%;
+      height:var(--section_img_height);
+      display:block;  /* prevent browser's inline element spacing */
+      object-fit: cover; 
+   }
+
+   /* set all mobile stacking order to default - thus enabling normal flow order */ 
+   section > ul > li.stack_1 {order:100;}
+   section > ul > li.stack_2 {order:100;}
+   section > ul > li.stack_3 {order:100;}
+   section > ul > li.stack_4 {order:100;}
+}
+
+
+
+
+/* ---------------------------------------------- 
+    UTILITIES  - to do : where should we put these? not here...
+ ---------------------------------------------- */
+
+/* bgs for blocks - so we can set other colors to complement - so these are not just single bg-color settings..*/
+.bg_primary {
+   color:var(--primary_color);
+   background-color:var(--bg_dark);
+}
+.bg_accent {
+   color:var(--accent_color);
+   background-color:var(--bg_accent);
+}
+.bg_secondary {
+   color:var(--secondary_color);
+   background-color:var(--secondary_bg);
+}
+
+
+.bg_secondary_2 {
+   color:var(--secondary_2_color);
+   background-color:var(--secondary_2_bg);
+}
+.bg_secondary_3 {
+   color:var(--secondary_3_color);
+   background-color:var(--secondary_3_bg);
+}
+
+.bg_neutral {
+   color:var(--neutral_color);
+   background-color:var(--bg_neutral);
+}
+
+.bg_neutral_2 {
+   color:var(--neutral_2_color);
+   background-color:var(--bg_neutral_2);
+}
+.bg_neutral_3 {
+   color:var(--neutral_3_color);
+   background-color:var(--bg_neutral_3);
+}
+
+.no_block_margin {
+   margin-block:0;
+}
+
+button.primary_button {
+   background-color:var(--button_1_bg);
+   color:var(--button_1_color);
+   border:var(--button_1_border);
+}
+button.primary_button:hover {
+   background-color:var(--button_1_on_hover_bg);
+   color:var(--button_1_on_hover_color);
+}
+button.secondary_button {
+   background-color:var(--button_2_bg);
+   color:var(--button_2_color);
+   border:var(--button_2_border); 
+}
+button.secondary_button:hover {
+   background-color:var(--button_2_on_hover_bg);
+   color:var(--button_2_on_hover_color);
+}
+button.tertiary_button {
+   background-color:var(--button_3_bg);
+   color:var(--button_3_color);
+   border:var(--button_3_border);
+}
+button.tertiary_button:hover {
+   background-color:var(--button_3_on_hover_bg);
+   color:var(--button_3_on_hover_color);
+}
+
+
+/* 
+   utility classes for lg sizes only - since default is stack on sm & md 
+   we specify class in html - but no rule outside of this media query..
+*/
+
+.no_gap {
+   gap:0;
+}
+
+/* width setting - lg only */
+@media screen and (min-width: 768px) {
+
+   .width_50 {
+      width:50%;
+   }
+   .width_60 {
+      width:60%;
+   }
+   .width_70 {
+      width:70%;
+   }
+   .width_80 {
+      width:80%;
+   }
+   .width_90 {
+      width:90%;
+   }
+
+   /* 
+      specify section columns 
+      uncompleted bottom rows are centered
+      : to do : test all these work : .. 
+   */ 
+   section.col_2 > ul, 
+   section.col_3 > ul,
+   section.col_4 > ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap:0;        
+   }
+   section.col_2 > ul > li { flex: 0 50%;}
+   section.col_3 > ul > li { flex: 0 30%;}
+   section.col_4 > ul > li { flex: 0 25%;}
+
+}
+
+/* ---------------------------------------------- 
+    CUSTOM LAYOUTS
+ ---------------------------------------------- */
+
+/* image grid gallery layout - modifies <section> */
+section.gallery {
+   position:relative;
+   display:flex;
+   flex-wrap:wrap;justify-content:flex-start;
+   padding:3rem 1rem;
+}
+section.gallery > h3 {
+   position:absolute;
+   top:0;
+   left:1rem;
+   padding:0;
+   margin:0;
+}
+
+/* no <ul>.. - imgs only */
+section.gallery > img {
+   max-width:25%;
+}
+/* <ul> provided.. */
+section.gallery > ul {
+   display:flex;
+   flex-direction:row;
+   width:100%;
+   list-style:none;
+   margin-inline:auto;
+   padding:0;
+}
+section.gallery li {
+   margin:0;
+   padding:0;
+}
+section.gallery li > img {
+   width:100%;
+}
+section.gallery li > p {
+   width:100%;
+   text-align:center;
+}
+
+
+
+
+
+
+/* 
+   section.animated_tiles 
+*/
+section.animated_tiles {
+   width:100%;
+   margin:0;
+   padding:0;
+   margin-block:5rem; /* to do : temp for dev */
+}
+
+section.animated_tiles > ul {
+   gap:0;
+   flex-wrap:wrap;
+   width:100%;
+   margin:0;
+   margin-inline:auto;
+   padding:0;
+}
+section.animated_tiles > ul > li {
+   position:relative;
+   display:flex;
+   flex-direction:column;
+   justify-content:space-between;
+   align-items:center;
+   min-width:30%;
+   padding:3rem 1rem 4rem 1rem;
+   overflow:hidden;
+}
+section.animated_tiles *:not(button):not(img):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6)  {
+   color:var(--section_overlay_text_color); 
+}
+section.animated_tiles > ul > li *:not(img) {
+   z-index:3;
+}
+section.animated_tiles > ul > li button {
+   width:fit-content;
+}
+section.animated_tiles > ul > li > h3 {
+   padding:0;
+}
+section.animated_tiles > ul > li::before {
+   content:'';
+   position:absolute;top:0;left:0;z-index:2;
+   width:100%;height:100%;
+   background:black;
+   opacity:0;
+}
+section.animated_tiles > ul > li:hover::before {
+   opacity:0.6;
+}
+section.animated_tiles > ul > li > img {
+   position:absolute;top:0;left:0;z-index:1;
+   width:100%;
+   height:100%;
+   transform:scale(1.01);  /* prevent sizing flicker on transform */
+   transition:1s;
+}
+section.animated_tiles > ul > li:hover > img {
+   transform:scale(1.2);
+   transition:1s; 
+}
+/* bring text into focus */
+section.animated_tiles p {
+   width:fit-content;
+   margin-inline:0;
+   font-size:1.1rem;
+   /* background:grey; */
+   padding:.25rem .5rem;
+   opacity:0;
+   scale:0;
+   transition:scale .6s ease-in-out,opacity .5s ease-in-out;
+   text-align:center;
+}
+section.animated_tiles button {
+   opacity:0;
+   scale:0;
+   transition:scale .6s ease-in-out,opacity .5s ease-in-out;
+}
+section.animated_tiles > ul > li:hover > p,
+section.animated_tiles > ul > li:hover > button {
+   opacity:1;
+   scale:1;
+   transition:scale .6s ease-in-out,opacity .5s ease-in-out;
+}
+
+
+/*
+   section.feature_block
+*/
+section.feature_block {
+   display:flex;
+   flex-direction:column;
+   max-width:100%;
+   padding:0;
+}
+section.feature_block > img {
+   width:100%;
+}
+section.feature_block > div {
+   display:flex;
+   flex-direction:column;
+   justify-content:space-around;
+   align-items:flex-start;       
+   /* to do : these kind of settings need utility classes to overwrite locally */
+   gap:1rem;
+   padding:2rem;
+}
+section.feature_block p {
+   margin-inline:0;
+   font-size:1.1rem;
+}
+section.feature_block > div > *:not(button) {
+   margin:0;
+   padding:0;
+}
+section.feature_block.reverse_order {
+   flex-direction:column-reverse;
+}
+@media screen and (min-width: 768px) {
+   section.feature_block {
+      flex-direction:row;
+      max-width:100%;
+   }
+   section.feature_block.reverse_order {
+      flex-direction:row-reverse;
+   }
+   /* section.feature_block.col_reverse {flex-direction:row-reverse;}  */
+   section.feature_block img {
+      width:50%;
+   }
+}
+
+
+
+
+/* 
+   section.feature_tiles
+*/
+section.feature_tiles {
+   width:100%;
+   height:fit-content;
+   padding:2rem;
+}
+section.feature_tiles > ul {
+   display:flex;
+   flex-wrap:wrap;
+   gap:1rem;
+}
+/* to do : space so 'img' always occupies same height - present or not. */
+section.feature_tiles > ul > li {
+   display:flex;
+   flex-direction:column;
+   justify-content:flex-start;
+   
+}
+section.feature_tiles > ul > li > * {
+   flex-grow:0;
+}
+section.feature_tiles  > ul > li > img {
+   max-width:100%;
+   max-height:50%;
+   flex-grow:2;
+}
+section.feature_tiles  > ul > li > h5 {
+   padding-block:1rem 0;
+}
+section.feature_tiles p {
+   margin-inline:0;
+   font-size:1.1rem;
+}
+@media screen and (min-width: 768px) {
+
+}
+
+
+/* 
+   section.cover_block 
+   option for opaque bg under text to simplify img selection
+*/
+section.cover_block {
+   position:relative;
+   width:100%;
+   height:fit-content;
+   padding-block:5rem;
+   overflow:hidden;
+   background:transparent;
+}
+section.cover_block p {
+   margin-inline:0;
+   font-size:1.2rem;
+}
+section.cover_block .bg_img {
+   position:absolute;
+   top:0;
+   left:0;
+   z-index:-1;
+   width:100%;
+   object-fit: cover; 
+   background-attachment:fixed;
+   background-position:bottom;
+}
+section.cover_block div {
+   position:relative;
+   display:flex;
+   flex-direction:column;
+   justify-content:space-around;
+   gap:1rem;
+   width:fit-content;
+   margin-inline:.5rem;
+   padding:.5rem;
+}
+
+
+
+/* to do : styling comes from '   - bg_...' section.cover_block .overlay *:not(button)  {
+   color:var(--section_overlay_text_color);
+} */
+
+/* to do : make each block/component responsive */
+@media screen and (min-width: 768px) {
+    
+}
+
+/* custom classic button group layout */
+.button_group {
+   visibility:visible;
+}
+
+
+
+
+
+
+/* 
+   footer - info. including copyright, links etc 
+*/
+footer {
+   width:100%;
+   margin:0;
+   margin-top:auto;
+   color:white;
+   background-color:var(--primary_1_bg);
+}
+
+footer > ul,
+footer li ul {
+   margin-block:2rem;
+   margin-inline:auto;
+}
+footer * {
+   display:block;
+   width:fit-content;
+   margin-block:.5rem;
+   margin-inline:auto;
+}
+footer li {
+   text-align:center;
+   width:100%;
+}
+/* footnote - absolute bottom line */
+footer ul.footnote li ul {
+   display:flex;
+   flex-wrap:wrap;
+   width:100%;
+   text-align:center; 
+}
+footer ul.footnote li ul li {
+   flex:1 0;
+}
+
+@media screen and (min-width: 768px) {
+
+   footer {
+       width:100%;
+       /* max-width:var(--page_content_width); */
+   }
+   footer > ul {
+       display: flex;
+   }
+   
+   
+   footer li {
+   
+       flex:1;
+   
+       /* flex:1 disables justify-content on flex-container since
+          it occuppies all available space, so we pad items: */
+       padding-inline:1rem;
+   
+       text-align:left;
+   }
+   footer ul {
+       width:100%;
+   }
+   footer li ul {
+       
+       display:flex;
+       flex-direction:column;
+       justify-content:space-around;
+       gap:.5rem;
+   }
+   footer ul.footnote {
+       flex-direction:column;
+   }
+   footer ul.footnote li {
+       flex-direction:row;
+       flex-grow:0;
+       flex-shrink:0;
+       flex-basis:content;
+       justify-content:flex-end;
+   }
+   footer ul.footnote li ul {
+       flex-direction:row;
+       justify-content:flex-end;
+   }
+}
+
+
+.greyed_text {
+   color:lightgrey !important;
+}
+
+
+/* 
+   dev utilities - to do : remove or relocate 
+*/
+div.ol_info,
+div.ol_specimen_type {
+   font-size:.85rem;
+   color:hsl(0, 0%, 60%);
+}
+div.ol_info {
+   width:100%;border:solid 1px blue;padding:0;
+}
+div.ol_info p {margin:0;}
+div.ol_specimen_type {
+   width:fit-content;
+   margin-block:4rem .5rem;
+   margin-inline:1rem auto;
+   padding:.25rem;padding-inline:.5rem;
+   border:solid 1px lightgrey;
+   border-radius:.5rem;
+}
+div.ol_specimen_type::before {
+   content:'specimen type';
+   padding-inline:.5rem 1rem;
+   color:lightgrey;
+}
+
+
+/* to do : duplicates in -component.css */
+/* paragraph block of text */
+p {
+   width:min(100%,var(--paragraph_width));
+   margin-block:1rem;
+   margin-inline:auto;
+   padding:var(--standard_component_padding);
+   
+   line-height:1.5rem;
+}
