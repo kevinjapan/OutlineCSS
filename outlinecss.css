@@ -29,42 +29,30 @@ html {
 */
 :root {
 
-/* to do : review - Segoe UI on windows - ok? - try alternatives */
+ 
+   /* font stacks - enable one */
+   /* Sans-serif */
+   --font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+   /* Serif */
+   /* --font-family: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; */
+   /* Mono */
+   /* --font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace; */
+
    /* fonts */
-   --system-fonts: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
    --font-size:17px;
 
-/* to do : my original prefs.  - repalce Segoe UI ? 
-   --font-family:Verdana, Geneva, Tahoma, sans-serif;*/
-
-
-/* to do : try these font stacks */
-/* Sans-serif
-font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
-Serif
-font-family: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
-Mono
-font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace; */
-
-
-/* margin */
-      --standard-margin:1rem;
-
-/* padding */
---standard-padding:1rem;
-
-/* colors */
+   /* colors */
    --primary-bg-color:orange;
-   --secondary-bg-color:blue;      /* to do : develop system for color palette config here */
+   --secondary-bg-color:blue;
 
    --primary-text-color:blue;
    --secondary-text-color:white; 
 
-/* borders */
+   /* borders */
    --border-color:#CCC;
    --border-radius:.25rem;
 
-/* headings */
+   /* headings */
    --h1-heading:3em;
    --h2-heading:2.5rem;
    --h3-heading:2rem;
@@ -72,10 +60,10 @@ font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace
    --h5-heading:1.25rem;
    --h6-heading:1.15rem;
 
-/* heading line height fraction of heading font-size */
+   /* we calc heading line height from --h?-heading size */
    --line-height-fraction:.95;
 
-/* content */
+   /* content */
    --paragraph-width:66rem;
    --form-width:56rem;
    --indent-lists:1.75rem;
@@ -88,7 +76,6 @@ font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace
 body {
    font-size:var(--font-size);
    font-family: var(--font-family);
-
    margin:0;
    padding:1rem;
 }
@@ -98,28 +85,14 @@ body {
 /* -----------------------------------
    content sectioning 
 ----------------------------------- */
-address {
-   visibility:visible;
-}
 
-
-article {
-   visibility:visible;
-}
-
-
-aside {
-   visibility:visible;
-}
-
-footer {
-   visibility:visible;
-}
-
-header {
-   visibility:visible;
-}
-
+/*
+address {}
+article {}
+aside {}
+footer {}
+header {}
+*/
 
 h1 {
    font-size:var(--h1-heading);
@@ -146,30 +119,8 @@ h6 {
    line-height:calc(var(--line-height-fraction) * var(--h6-heading));
 }
 
-main {
-   visibility:visible;
-}
-/* nav {
-   position:fixed;
-   top:0;
-   left:0;
-   visibility:visible;
-   display:flex;
-   justify-content:end;
-   gap:2rem;
-   width:100%;
-   height:30px;
-   background:white;border-bottom:solid 1px lightgrey;
-}
-.page_nav {
-   position:fixed;
-   top:20px;
-   left:0;
-   width:100px;
-} */
-section {
-   margin-block:5rem;
-}
+/* main {} */
+
 
 
 
@@ -178,21 +129,15 @@ section {
 /* -----------------------------------
    text content 
 ----------------------------------- */
-blockquote {
-   visibility:visible;
-}
-div {
-   visibility:visible;
-}
-figcaption {
-   visibility:visible;
-}
-hr {
-   visibility:visible;
-}
-menu {
-   visibility:visible;
-}
+
+/* 
+blockquote {}
+div {}
+figcaption {}
+hr {}
+menu {}
+*/
+
 ul {
    list-style:none;
    padding-inline:var(--indent-lists);
@@ -200,103 +145,53 @@ ul {
 ol {
    padding-inline:var(--indent-lists);
 }
-li {
-   visibility:visible;
-}
+/* li {} */
 p {
    max-width:var(--paragraph-width);
    margin:auto;
    margin-block:3rem;
 }
-pre {
-   padding-inline:var(--standard-padding);
-}
+/* pre {} */
 
 
 /* -----------------------------------
     inline text semantics 
    ----------------------------------- */
-a {
-   visibility:visible;
-}
-a:hover {
-   visibility:visible;
-}
-a:visited {
-   visibility:visible;
-}
-b {
-   visibility:visible;
-}
-br {
-   visibility:visible;
-}
-cite {
-   visibility:visible;
-}
-code {
-   visibility:visible;
-}
-em {
-   visibility:visible;
-}
-i {
-   visibility:visible;
-}
-mark {
-   visibility:visible;
-}
-q {
-   visibility:visible;
-}
-s {
-   visibility:visible;
-}
-samp {
-   visibility:visible;
-}
-small {
-   visibility:visible;
-}
-span {
-   visibility:visible;
-}
-strong {
-   visibility:visible;
-}
-sub {
-   visibility:visible;
-}
-sup {
-   visibility:visible;
-}
-var {
-   visibility:visible;
-}
-
+/* 
+a {}
+a:hover {}
+a:visited {}
+b {}
+br {}
+cite {}
+code {}
+em {}
+i {}
+mark {}
+q {}
+s {}
+samp {}
+small {}
+span {}
+strong {}
+sub {}
+sup {}
+var {}
+*/
 
 
 
 /* -----------------------------------
     img and multimedia 
    ----------------------------------- */
-img {
-   visibility:visible;
-}
-video {
-   visibility:visible;
-}
-embed {
-   visibility:visible;
-}
-iframe {
-   visibility:visible;
-}
-object {
-   visibility:visible;
-}
 
-
+/*
+img {}
+video {}
+embed {}
+iframe {}
+object {}
+*/
 
 
 /* -----------------------------------
@@ -330,18 +225,12 @@ td {
    margin:0;
    padding-inline:.5rem;
 }
-tfoot {
-   visibility:visible;
-}
-caption {
-   visibility:visible;
-}
-col {
-   visibility:visible;
-}
-colgroup {
-   visibility:visible;
-}
+/* 
+tfoot {}
+caption {}
+col {}
+colgroup {} 
+*/
 
 
 
@@ -362,28 +251,18 @@ fieldset {
 input {
    margin-block:1rem;
 }
-label {
-   visibility:visible;
-   padding:var(--standard-padding);
-}
-legend {
-   visibility:visible;
-}
-option {
-   visibility:visible;
-}
-progress {
-   visibility:visible;
-}
-select {
-   visibility:visible;
-}
-textarea {
-   visibility:visible;
-}
+/* 
+label {}
+legend {}
+option {}
+progress {}
+select {}
+textarea {}
+*/
 
-
-
+/* 
+   button
+*/
 button {
    width:fit-content;
    padding:.8rem 1rem;
@@ -394,7 +273,6 @@ button {
    cursor:pointer;
    font-size:1.1rem;
 }
-
 button:hover {
    color:hsl(0, 0%, 100%);
    border:solid 2px white;
@@ -404,14 +282,8 @@ button:hover {
 /* -----------------------------------
     colors 
    ----------------------------------- */
+.lightgray {color:hsl(0, 0%, 63%);}
 
-.lightgray {color:lightgray;}
-
-/*
-
-DO NOT add all the colors!!!! use properties for a set palette - no single site needs to import all colors!!!!
- - perhaps have file or code block for each palette? (so you can change color palette for a given styleset)
-*/
 
 
 
@@ -431,5 +303,5 @@ DO NOT add all the colors!!!! use properties for a set palette - no single site 
    ----------------------------------- */
 
 .indent {
-   margin-left:3rem; /* to do : variations of.. */
+   margin-left:3rem;
 }

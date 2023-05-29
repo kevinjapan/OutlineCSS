@@ -1,16 +1,11 @@
 
 /* 
-
 Access classes - use these to access the custom props
-to do : review : this file currently must be last - how about utility classes at bottom of other file?
-
 */
-
 
 /*
    bg color schemes
 */
-
 .bg_lightgrey {
    background-color:lightgrey;
 }
@@ -21,15 +16,10 @@ to do : review : this file currently must be last - how about utility classes at
    background-color:lightgreen;
 }
 
-/* to do : example color-combos. 
-- ideally we want to replace w/ custom properties? 
-- want to simplify / normalize these classes  - eg multiple uses of color:white - can we raionalize?
-- set border width to var().
-*/
 
 /* bg_navy */
 .bg_navy                {background-color:navy;color:white;}
-.bg_navy h3,.bg_navy h1 {color:white;} /* to do : w/ all <h> tags? */
+.bg_navy h1, .bg_navy h2, .bg_navy h3, .bg_navy h4, .bg_navy h5, .bg_navy h6 {color:white;}
 .bg_navy button         {color:lightgrey;}
 .bg_navy button:hover   {color:white;}
 
@@ -37,7 +27,7 @@ to do : review : this file currently must be last - how about utility classes at
 .bg_white                     {background-color:white;color:black;}
 .bg_white h1, .bg_white h2, .bg_white h3, .bg_white h4, .bg_white h5, .bg_white h6, 
 .bg_white div.overlay h1,
-.bg_white div.overlay *       {color:black;} /* to do : simplify variations of.. */
+.bg_white div.overlay *       {color:black;}
 .bg_white button              {color:grey;}
 .bg_white button:hover        {color:black;border:solid 2px black;}
 
@@ -48,11 +38,10 @@ to do : review : this file currently must be last - how about utility classes at
 .primary_bg,.primary_1_bg {
    background-color:var(--primary_1_bg);
    color:white;
-   /* to do : default color for each of these 'bg's */
 }
 
 /* 
-   to do : these are ugly but do follow convention... ? 
+   to do : these are awkward but do follow convention... ? 
 */
 .primary_bg h1,.primary_bg h2,.primary_bg h3,.primary_bg h4,.primary_bg h5,.primary_bg h6 {color:white;}
 .primary_bg_dark,.primary_1_bg_dark {

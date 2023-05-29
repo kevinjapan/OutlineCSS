@@ -11,9 +11,6 @@
 </head>
 <body>
 
-<?php // to do : brand as my own web dev agency!  ?>
-
-
    <main>
             <h1>themes</h1>
             <h5  class="lightgray font-100">

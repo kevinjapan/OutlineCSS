@@ -2,23 +2,12 @@
     outline css - Custom Props
 */
 
-/* 
-    to do : look at:
-    color palettes:   mymind website
-                      lapa.ninja (?)
-
-    to do : tidy other props css files to be like this one 
-*/
-
-
 :root {
 
-
-/* 
-    COLORS
-    =============================================
-*/
-
+   /* 
+      COLORS
+      =============================================
+   */
    /*
 
    primary colors - 1 - 3 brand colors 
@@ -118,7 +107,7 @@
    --overlay_text_align:left;
 
 
-   --section_inline_padding:3rem;   /* to do : need some generic means of making responsive */
+   --section_inline_padding:3rem;
 
 
    /* 
@@ -134,8 +123,6 @@
 
    /* logo */
    --logo_width:200px;
-
-      /* to do : note : documtentation : spacing is generally through padding on consecutive blocks - not margins - thus allowing bg colors to occupy spacing */
 
 /* 
    NAVIGATION
@@ -223,7 +210,7 @@
 */
 
    /* buttons 
-      because buttons are one of our most expressive components        -   to do : similar statement starting each block/component in this props css file
+      because buttons are one of our most expressive components
    */
 
    /* primary button */
@@ -254,10 +241,8 @@
    --button_3_on_hover_shadow:none;
 
 
-
-   /* to do : offer several variations - or use hues from primary/secondary/accent etc ? */
    --button_background:var(--accent_1);
-   --button_background_hover:var(--accent_1); /* to do : ? */
+   --button_background_hover:var(--accent_1);
    --button_border:none;
    --button_radius:5rem;
    --button_padding:1rem 2rem;
@@ -268,7 +253,7 @@
    --arrow_on_hover_inline_padding:.75rem 1.75rem;
 
    /* no_fill_button */
-   --no_fill_button_border:solid 1px hsl(0, 0%, 82%);   /* to do : var()? */
+   --no_fill_button_border:solid 1px hsl(0, 0%, 82%);
 
 
 /* 

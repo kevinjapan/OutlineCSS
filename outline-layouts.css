@@ -3,45 +3,34 @@
 */
 
 
-/* layout margins */
+/* block layout margins */
 body, address, article, aside, footer, header, main, nav, section {
     margin:0;
     margin-inline:auto;
-    /* color:var(--body_text_color); */
 }
 h1, h2, h3, h4, h5, h6 {
     margin:0;
 }
 
-/* custom layout margins */
-.gallery, .grid_1, .button_group {
-    margin:0;
-}
 
 
 
 /* ---------------------------------------------- 
-    SECTIONING ROOT - to do : tie in my parts naming to html elements.
+    SECTIONING ROOT
  ---------------------------------------------- */
 
 body {
     display:flex;
     flex-direction:column;
     align-items:center;
-    font-size:var(--font-size);
-    /*font-family: "Roboto", serif;*/
-    font-family: poppins,Helvetica Neue,Helvetica,Arial,sans-serif;
-
-        /* color:var(--secondary_1);
-            -   to do : body text is : #44448D */
-    color:var(--body_text_color);
-
-    line-height:1.5rem;
-    /* use % to ensure flex matches sizes w/out scrollbar */
-    width:100%;
+    width:100%; /* use % to ensure flex matches sizes w/out scrollbar */
     min-height:100vh;
     margin:0;
     padding:0;
+    font-size:var(--font-size);
+    font-family: var(--font-family);
+    color:var(--body_text_color);
+    line-height:1.5rem;
 }
 
 
@@ -51,19 +40,13 @@ body {
  ---------------------------------------------- */
 
 /* contact info */
-address {
-    visibility:visible;
-}
+/* address {} */
 
 /* self-contained composition - independently distributable */
-article {
-    visibility:visible;
-}
+/* article {} */
 
 /* indirectly related content */
-aside {
-    visibility:visible;
-}
+/* aside {} */
 
 
 
@@ -79,19 +62,18 @@ header  {
 }
 
 
+/* to do : tie in w/ headings above? */
 
 /* section headings */
 h1, h2, h3, h4, h5, h6 {
     /* margin:var(--standard_layout_padding); - we don't assign margins since container will determine layout */
     line-height:3.25rem;
-    /* color:var(--primary_1);  - to do : review - we allow each section/section-type to define colors */
+    /* color:var(--primary_1);
 }
 h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a {
     /* color:var(--primary_1); */
     text-decoration:none;
 }
-
-/* to do : note - we don't use heading elements inside navigation - since they are layout (similar to not using sections in nav) */
 
 h1 {
     font-size:var(--heading_1_size);
@@ -130,7 +112,6 @@ h6 {
 }
  
 
-
 /* central content of the body of a document */
 main {
     visibility:visible;
@@ -143,20 +124,9 @@ main {
     justify-content:flex-start;
     -webkit-box-flex: 0;
     flex: 0 0 auto;
-
     width:100%;
     height:100vh;
 }
-
-
-
-
-
-
-
-
-
-
 
 
 /* 
@@ -199,13 +169,24 @@ nav ul.nav_list {
 }
 
 /* mobile menu toggle */
-nav > div.nav_toggle {cursor:pointer;position:relative;z-index:3;padding-right:.5rem;}
+nav > div.nav_toggle {
+   cursor:pointer;
+   position:relative;
+   z-index:3;
+   display:flex;
+   align-items:center;
+   padding-right:.5rem;
+   height:100%;
+   background:white;
+   cursor:pointer;
+}
 
 /* we hide all submenu dropdowns on mobile */
 nav ul.nav_list li ul,
 nav ul.nav_list li a  {
    display:none;
    text-decoration:none;
+   padding-inline:2rem;
 }
 
 /* then restore the top level label links */
@@ -245,20 +226,27 @@ nav ul.nav_list li ul li a {margin:1rem; }
       position:relative;
       flex-grow:2;
    }
+   nav ul.nav_list > li {
+      display:flex;
+      align-items:center;
+      background:white;
+      /* margin:0; */
+   }
    nav ul.nav_list li a.nav_list_label {
-      height:100%;
+      /* height:100%; */
+      padding-inline:2rem;
+      margin:0;
    }
    nav ul.nav_list {
       position:static;
       display:flex;
       justify-content:flex-end;
-      align-items:center;
-      gap:1rem;
+      gap:0rem;
       flex-grow:0;
       width:unset;
       height:100%;
-      padding-inline:2rem;
-      padding:.5rem 1rem;
+      margin:0;
+      padding:0;
       background:white;
       transform:unset;
       opacity:1;
@@ -282,7 +270,7 @@ nav ul.nav_list li ul li a {margin:1rem; }
    }
    nav ul.nav_list:hover li a  {
       display:block;
-      margin-block:1rem;
+      /* margin-block:1rem; to do : not good for label - do I need for dropdown lists? */
    }
    .nav_list_dropdown li {
       display:flex;
@@ -306,7 +294,7 @@ nav ul.nav_list li ul li a {margin:1rem; }
       transform:translateY(-100%);
       opacity:0;
       border-bottom:solid 3px transparent;
-      transition:transform .75s ease-in-out .25s,opacity .5s ease-in-out .25s,border .5s ease-in-out;
+      transition:transform .75s ease-in-out .25s,opacity .75s ease-in-out .25s,border .5s ease-in-out;
    }
    /* open it and keep it open */
    nav ul.nav_list li a.nav_list_label:hover + .nav_list_dropdown,
@@ -321,13 +309,9 @@ nav ul.nav_list li ul li a {margin:1rem; }
 }
 
 
-
-
-
-
 /* 
    section
-   section is the base element
+   section is the base element of several blocks
 */
 section {
 
@@ -342,10 +326,8 @@ section {
    background-attachment:fixed;
    background-repeat:no-repeat;
    background-size: cover;
-
-   background-color:white;    /* to do : use a utility class - w/ bg and color */
+   background-color:white;
 }   
-
 
 /* section > ul - to present items/tiles/imgs etc. */
 section > ul {
@@ -365,7 +347,6 @@ section > ul > li.stack_1 {order:1;}
 section > ul > li.stack_2 {order:2;}
 section > ul > li.stack_3 {order:3;}
 section > ul > li.stack_4 {order:4;}
-
 
 @media screen and (min-width: 768px) {
 
@@ -401,11 +382,7 @@ section > ul > li.stack_4 {order:4;}
 }
 
 
-
-
-/* ---------------------------------------------- 
-    UTILITIES  - to do : where should we put these? not here...
- ---------------------------------------------- */
+/* to do : review below.. */
 
 /* bgs for blocks - so we can set other colors to complement - so these are not just single bg-color settings..*/
 .bg_primary {
@@ -487,29 +464,10 @@ button.tertiary_button:hover {
    gap:0;
 }
 
-/* width setting - lg only */
 @media screen and (min-width: 768px) {
-
-   .width_50 {
-      width:50%;
-   }
-   .width_60 {
-      width:60%;
-   }
-   .width_70 {
-      width:70%;
-   }
-   .width_80 {
-      width:80%;
-   }
-   .width_90 {
-      width:90%;
-   }
-
    /* 
       specify section columns 
       uncompleted bottom rows are centered
-      : to do : test all these work : .. 
    */ 
    section.col_2 > ul, 
    section.col_3 > ul,
@@ -522,14 +480,17 @@ button.tertiary_button:hover {
    section.col_2 > ul > li { flex: 0 50%;}
    section.col_3 > ul > li { flex: 0 30%;}
    section.col_4 > ul > li { flex: 0 25%;}
-
 }
+
 
 /* ---------------------------------------------- 
     CUSTOM LAYOUTS
  ---------------------------------------------- */
 
-/* image grid gallery layout - modifies <section> */
+
+/* 
+   section.gallery 
+*/
 section.gallery {
    position:relative;
    display:flex;
@@ -568,8 +529,9 @@ section.gallery li > p {
    width:100%;
    text-align:center;
 }
+@media screen and (min-width: 768px) {
 
-
+}
 
 
 
@@ -581,7 +543,7 @@ section.animated_tiles {
    width:100%;
    margin:0;
    padding:0;
-   margin-block:5rem; /* to do : temp for dev */
+   margin-block:5rem;
 }
 
 section.animated_tiles > ul {
@@ -644,7 +606,7 @@ section.animated_tiles p {
    padding:.25rem .5rem;
    opacity:0;
    scale:0;
-   transition:scale .6s ease-in-out,opacity .5s ease-in-out;
+   transition:scale .5s ease-in-out,opacity .5s ease-in-out;
    text-align:center;
 }
 section.animated_tiles button {
@@ -656,7 +618,10 @@ section.animated_tiles > ul > li:hover > p,
 section.animated_tiles > ul > li:hover > button {
    opacity:1;
    scale:1;
-   transition:scale .6s ease-in-out,opacity .5s ease-in-out;
+   transition:scale .5s ease-in-out,opacity .5s ease-in-out;
+}
+@media screen and (min-width: 768px) {
+
 }
 
 
@@ -677,7 +642,6 @@ section.feature_block > div {
    flex-direction:column;
    justify-content:space-around;
    align-items:flex-start;       
-   /* to do : these kind of settings need utility classes to overwrite locally */
    gap:1rem;
    padding:2rem;
 }
@@ -722,7 +686,6 @@ section.feature_tiles > ul {
    flex-wrap:wrap;
    gap:1rem;
 }
-/* to do : space so 'img' always occupies same height - present or not. */
 section.feature_tiles > ul > li {
    display:flex;
    flex-direction:column;
@@ -734,6 +697,7 @@ section.feature_tiles > ul > li > * {
 }
 section.feature_tiles  > ul > li > img {
    max-width:100%;
+   min-width:200px;
    max-height:50%;
    flex-grow:2;
 }
@@ -750,8 +714,7 @@ section.feature_tiles p {
 
 
 /* 
-   section.cover_block 
-   option for opaque bg under text to simplify img selection
+   section.cover_block
 */
 section.cover_block {
    position:relative;
@@ -786,21 +749,11 @@ section.cover_block div {
    padding:.5rem;
 }
 
-
-
-/* to do : styling comes from '   - bg_...' section.cover_block .overlay *:not(button)  {
-   color:var(--section_overlay_text_color);
-} */
-
 /* to do : make each block/component responsive */
 @media screen and (min-width: 768px) {
     
 }
 
-/* custom classic button group layout */
-.button_group {
-   visibility:visible;
-}
 
 
 
@@ -838,10 +791,16 @@ footer ul.footnote li ul {
    display:flex;
    flex-wrap:wrap;
    width:100%;
-   text-align:center; 
 }
 footer ul.footnote li ul li {
    flex:1 0;
+}
+footer a {
+   color:white;
+   text-decoration:none;
+}
+footer a:hover {
+   text-decoration:underline;
 }
 
 @media screen and (min-width: 768px) {
@@ -853,23 +812,15 @@ footer ul.footnote li ul li {
    footer > ul {
        display: flex;
    }
-   
-   
    footer li {
-   
        flex:1;
-   
-       /* flex:1 disables justify-content on flex-container since
-          it occuppies all available space, so we pad items: */
-       padding-inline:1rem;
-   
+       padding-inline:1rem; /* counters flex:1 taking all space */
        text-align:left;
    }
    footer ul {
        width:100%;
    }
    footer li ul {
-       
        display:flex;
        flex-direction:column;
        justify-content:space-around;
@@ -880,14 +831,9 @@ footer ul.footnote li ul li {
    }
    footer ul.footnote li {
        flex-direction:row;
-       flex-grow:0;
-       flex-shrink:0;
-       flex-basis:content;
-       justify-content:flex-end;
    }
    footer ul.footnote li ul {
        flex-direction:row;
-       justify-content:flex-end;
    }
 }
 
@@ -898,7 +844,7 @@ footer ul.footnote li ul li {
 
 
 /* 
-   dev utilities - to do : remove or relocate 
+   dev utilities
 */
 div.ol_info,
 div.ol_specimen_type {
@@ -924,13 +870,11 @@ div.ol_specimen_type::before {
 }
 
 
-/* to do : duplicates in -component.css */
 /* paragraph block of text */
 p {
    width:min(100%,var(--paragraph_width));
    margin-block:1rem;
    margin-inline:auto;
    padding:var(--standard_component_padding);
-   
    line-height:1.5rem;
 }

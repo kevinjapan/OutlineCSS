@@ -2,13 +2,6 @@
     outline css - components
 */
 
-/* 
-
-
-to do : take useful things from here into outline and outline-layout...
-
-
-*/
 
 /* text content component margins */
 blockquote, div, figcaption, figure, hr, li, menu, ol, 
@@ -135,9 +128,8 @@ ul {
 
 /* anchor/hyperlink */
 a {
-    display:flex;       /* to do : review : done for nav lists - ok inside paragraphs etc? */
-    align-items:center; /* if not - ensure we support v.centering in nav items */
-
+    display:flex;
+    align-items:center;
     color:var(--primary_1);
     text-decoration:none;
     cursor:pointer;
@@ -146,7 +138,6 @@ a {
 }
 a:hover {
     border-bottom:solid 2px var(--accent_1); 
-    /* to do : for experity nav only */
 }
 
 
@@ -297,15 +288,6 @@ video {
  ---------------------------------------------- */
 
 
-/* 
-    to do : 
-    note - many of these we can cover w/ 
-    a universal rule - eg setting margin on *
-    thus we don't need and can remove these rules 
-*/
-
-
-
 /* embed external content */
 embed {
     visibility:visible;  
@@ -378,21 +360,8 @@ tr {
 
 /* button - interactive clickable element */
 
-/*  to do : it get complicated quickly if various styles of buttons - so
-
-    solution : separate style from behaviour
-
-    behaviour:          flat_button     -  button types - eg arrow_on_hover
-                        arrow_on_hover
-
-    style (colors):     - use utilities - eg bg_primary (sets both color and background-color)
-
-    global:             radius      -   use props
-                        border
-*/
-
 /* 
-    button        - to do : we have button everywhere - eg see outlinecss.css 
+    button
 */
 button {
    color:hsl(0, 0%, 50%);
@@ -401,40 +370,24 @@ button {
    border-radius:var(--border-radius);
    padding:2rem;
    cursor:pointer;
-}
-button {
-    position:relative;
-    margin:1rem;
-    max-width:fit-content;
-    padding:2rem;
 
-    /* global button props */
-    background-color:   var(--button_background);
-    color:              var(--button_text_color);
-    border:             var(--button_border);           /* to do : review : what happens if custom-props.css doesn't define? */
-    border-radius:      var(--button_radius);
-    font-size:          var(--button_font_size);
-    font-weight:        var(--button_font_weight);
+   width:fit-content;
+   padding:.8rem 1rem;
+   background:transparent;
+   color:hsl(0, 0%, 98%);
+   border:solid 2px hsl(0, 0%, 90%);
+   border-radius:.5rem;
+   cursor:pointer;
+   font-size:1.1rem;    border:solid 3px ora
+}
 
-    white-space: nowrap;
-    cursor:pointer;
 
-    transition: all .5s ease;
-}
-button.no_fill_button {
-    color:var(--primary_1);
-    background-color:transparent;
-}
-button.no_fill_button:hover {
-    color:var(--accent_color);
-    background-color:var(--button_background);
-}
+
+
 button:hover {
-   color:hsl(0, 0%, 20%);
-   background-color:hsl(0, 0%, 83%);
-   border:solid 1px hsl(0, 0%, 50%);
+   color:hsl(0, 0%, 100%);
+   border:solid 2px white;
 }
-
 
 /* button types: */
 
@@ -470,14 +423,6 @@ button.arrow_on_hover.no_fill_button:hover::after {
 }
 
 
-/*
-    to do : another type of button here...
-*/
-
-
-
-
-
 /* button_group */
 .button_group {
     margin:var(--standard_component_margin);
@@ -486,8 +431,6 @@ button.arrow_on_hover.no_fill_button:hover::after {
 .button_group button {
     margin:calc(var(--standard_component_margin) );
 }
-/* to do : research : change style on press & activate.. */
-
 button_group button.no_fill {
     background-color:transparen;
 }
@@ -512,7 +455,7 @@ form {
 /* headings */
 /* h1, h2, h3, h4, h5, h6 {
     margin:var(--standard_component_margin);
-    padding:var(--standard_component_padding);      to do : review - should be here - and if here, specific to form only  
+    padding:var(--standard_component_padding); 
 } */
 
 /* interactive control to accept data from user */
@@ -566,14 +509,6 @@ form > button, form > .button_group {
     CUSTOM COMPONENTS
  ---------------------------------------------- */
 
-/* to do : move this to separate outline-custom-components.css */
-
-/* to do : components to add: 
-    - simply modal dlg
-    - video as background to hero/header
-    - sticky nav w/ differentiator when over hero/header
-*/
-
 /* logo in header & footer */
 .logo {
     display:flex;
@@ -581,147 +516,8 @@ form > button, form > .button_group {
     margin-inline:1rem;
     color:var(--logo_font_color);
 }
-
 .logo a {
     color:var(--logo_font_color);
     text-decoration:none;
 }
 
-
-section.nav_toggle_mobile {
-    position:fixed;
-    z-index:calc(var(--nav_z_index) + 999999); /* to do : 99999? */ 
-    top:var(--masthead_height);
-    /* left:0; - allow margin:auto to center this */
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    width:100%;
-    max-width:var(--page_content_width);
-    height:40px;
-    background:white;
-    box-shadow: 0px 2px 5px 0px var(--box_shadow);
-}
-section.nav_toggle_mobile.no_bottom_shadow {
-    box-shadow:none;
-    /* border-bottom:solid 1px lightblue; */
-    /* to do : use palette color */
-    /* transition:all .3s ease-in-out; */
-}
-/* to do : any of this nav stuff being used now? */
-/* hamburger menu */
-button.hamburger {
-    /* top:40px; */
-    /*left:90vw; *//* left align to avoid shift if scrollbar toggles */
-    cursor:pointer;
-    width:20px;
-    height:20px;
-    padding:10px;
-    background:none; 
-    border:none;
-}
-.hamburger_top, 
-.hamburger_middle,
-.hamburger_bottom {
-    position:absolute;
-    top:0;
-    left:0;
-    width:20px;
-    height:2px;
-    background:black;
-    transition:transform .2s ease-in-out;
-}
-.hamburger_middle {
-    transform:translateY(5px);
-}
-.hamburger_bottom {
-    transform:translateY(10px);
-}
-
-/* open hamburger - toggle transforms to an X */
-.open_hamburger .hamburger_top {
-    transform:rotate(45deg) translateY(6px) translateX(6px);
-    transition:transform .2s ease-in-out;
-}
-.open_hamburger .hamburger_middle { 
-    display:none;
-}
-.open_hamburger .hamburger_bottom {
-    transform:rotate(-45deg) translateY(6px) translateX(-6px);
-    transition:transform .2s ease-in-out;
-}
-
-
-.stop_scrolling {
-    overflow:hidden;
-}
-@media screen and (min-width: 1200px) {
-    .hamburger {
-        display:none;
-    }
-    section.nav_toggle_mobile {
-        display:none;
-    }
-}
-
-
-/* full width nav - nav_teaser_card is only activated on lg */
-
-.nav h1,nav h2, nav h3, nav h4, nav h5, nav h6 {
-    padding:0;
-}
-@media screen and (min-width: 1200px) {
-
-    .nav_teaser_card {
-        display:grid;
-        gap:0;
-        grid-template-columns:1fr 4fr;
-        grid-template-rows:80px;
-        border-top:solid 1px #ccc;
-        align-items:center;
-        padding-block:1.5rem 0rem;
-        padding-inline:1rem;
-        cursor:pointer;
-    }
-    /* top two don't show border */
-    .nav_teaser_card:first-of-type {
-        border-top:none;
-    }
-    .nav_teaser_card:nth-of-type(2) {
-        border-top:none;
-    }
-    .nav_teaser_card:nth-child(2n) {
-        border-left:solid 1px #ccc; /* even numbered siblings */
-    }
-    .nav_list_dropdown > section > ul > li:nth-child(2) {border-left:solid 1px #ccc;padding-left:2rem;}
-    .nav_list_dropdown > section > ul > li:last-of-type {border-right:none;}
-
-    .nav_teaser_card:hover {
-        background:var(--neutral_1_bg);
-    }
-    .nav_teaser_card > div {
-        display:flex;
-        flex-direction:column;
-        justify-content:center;
-    }
-    .nav_teaser_card > img {
-        max-width:45px;
-        max-height:45px;
-    }
-    .nav_teaser_card > div > h6 {
-        font-size:1rem;
-        height:fit-content;
-        padding:0;
-    }
-    .nav_teaser_card > div > p {
-        font-size:1rem;
-        height:fit-content;
-        padding:0;
-    }
-
-}
-
-/* teaser_links */
-ul.teaser_links > li {
-    display:flex;
-}
