@@ -65,7 +65,7 @@ html {
 
    /* content */
    --paragraph-width:66rem;
-   --form-width:56rem;
+   --form-width:32rem;
    --indent-lists:1.75rem;
 }
 
@@ -90,9 +90,11 @@ body {
 address {}
 article {}
 aside {}
-footer {}
-header {}
 */
+header {
+   min-width:100%;
+   margin:0;
+}
 
 h1 {
    font-size:var(--h1-heading);
@@ -234,19 +236,30 @@ colgroup {}
 
 
 
-/* -----------------------------------
-    forms 
-   ----------------------------------- */
+/*
+   forms 
+*/
 form {
-   display:grid;
-   grid-template-columns:1fr 1fr;
-   max-width:var(--form-width);
+   display:flex;
+   flex-direction:column;
+   width:var(--form-width);
    margin-inline:auto;
 }
-fieldset {
-   width:100%;
-   grid-column: 1 / span 2;
+form label {
+   display:flex;
+   justify-content:space-between;
+   align-items:center;
+   gap:1rem;
 }
+form label * {
+   width:75%;
+   padding:.5rem; 
+   font-size:1.2rem;
+}
+form label textarea {
+   height:8rem;
+}
+
 
 input {
    margin-block:1rem;
@@ -265,10 +278,10 @@ textarea {}
 */
 button {
    width:fit-content;
-   padding:.8rem 1rem;
+   padding:1rem;
    background:transparent;
-   color:hsl(0, 0%, 98%);
-   border:solid 2px hsl(0, 0%, 90%);
+   color:hsl(0, 0%, 80%);
+   border:solid 2px hsl(0, 0%, 75%);
    border-radius:.5rem;
    cursor:pointer;
    font-size:1.1rem;
@@ -277,6 +290,10 @@ button:hover {
    color:hsl(0, 0%, 100%);
    border:solid 2px white;
 }
+/*
+button styling variations come largely from utility classes - see xxx-outline-utilities.css 
+*/
+
 
 
 /* -----------------------------------
