@@ -40,9 +40,50 @@ Access classes - use these to access the custom props
    color:white;
 }
 
-/* 
-   to do : these are awkward but do follow convention... ? 
-*/
+
+
+
+/* to do : review below.. */
+
+/* bgs for blocks - so we can set other colors to complement - so these are not just single bg-color settings..*/
+.bg_primary {
+   color:var(--primary_color);
+   background-color:var(--bg_dark);
+}
+.bg_accent {
+   color:var(--accent_color);
+   background-color:var(--bg_accent);
+}
+.bg_secondary {
+   color:var(--secondary_color);
+   background-color:var(--secondary_bg);
+}
+
+
+.bg_secondary_2 {
+   color:var(--secondary_2_color);
+   background-color:var(--secondary_2_bg);
+}
+.bg_secondary_3 {
+   color:var(--secondary_3_color);
+   background-color:var(--secondary_3_bg);
+}
+
+.bg_neutral {
+   color:var(--neutral_color);
+   background-color:var(--bg_neutral);
+}
+
+.bg_neutral_2 {
+   color:var(--neutral_2_color);
+   background-color:var(--bg_neutral_2);
+}
+.bg_neutral_3 {
+   color:var(--neutral_3_color);
+   background-color:var(--bg_neutral_3);
+}
+
+
 .primary_bg h1,.primary_bg h2,.primary_bg h3,.primary_bg h4,.primary_bg h5,.primary_bg h6 {color:white;}
 .primary_bg_dark,.primary_1_bg_dark {
    background-color:var(--primary_1_bg_darken);
@@ -125,7 +166,7 @@ Access classes - use these to access the custom props
 
 
 /*
-   behaviours     -   to do : tidy and review..
+   behaviours
 */
 
 /* fade_in hides, then IntersectionObserver resets */

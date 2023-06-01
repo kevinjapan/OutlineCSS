@@ -23,11 +23,9 @@ const footer = () => {
             <li>
                <ul>
                   <li>
-                     <a href="https://www.youtube.com/channel/UCN_YFyV6vAU0Npkk3_QoLPQ"
-                        target=”_blank”>Home</a></li>
+                     <a href="home.html">Home</a></li>
                   <li>
-                     <a href="https://www.facebook.com/kevhastiemusic"
-                        target=”_blank”>QuickLinks</a></li>
+                     <a href="quicklinks.html">QuickLinks</a></li>
                </ul>      
             </li>
          </ul>

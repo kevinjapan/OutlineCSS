@@ -13,8 +13,6 @@ const nav = () => {
       </div>
 
       <div class="nav_toggle">menu</div>
-
-      <!-- to do : make a default set of typical link labels below.. -->
    
       <ul class="nav_list">
          <li>
@@ -22,7 +20,7 @@ const nav = () => {
             <ul class="nav_list_dropdown">
                <li>
                   <a href="Undergraduate.html"><h5>Undergraduate</h5></a>
-                  <a href="river.html">Degrees</a>
+                  <a href="Undergraduate-Degrees.html">Degrees</a>
                   <a href="#" class="lightgray">Go Abroad</a>
                   <a href="#" class="lightgray">Finance and Funding</a>
                   <a href="Undergraduate-How-To-Apply.html">How to Apply</a>
