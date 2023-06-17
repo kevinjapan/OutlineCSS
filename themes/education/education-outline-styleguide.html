@@ -17,14 +17,35 @@
 
    <style>
       body {
-         display:flex;flex-direction:column !important;flex-direction:start !important;align-items:flex-start !important;
+         display:-webkit-box;
+         display:-ms-flexbox;
+         display:flex;
+         
+         flex-direction:column !important;
+         flex-direction:start !important;
+         align-items:flex-start !important;
+
          padding:2rem !important;
       }
-      body > * {width:100% !important;}
-      section {margin-block:1rem 5rem !important;}
-      .flex {display:flex;gap:2rem;}
-      .cols {flex-direction:column;}
-      section ul.colors > li > ul >  li {width:120px;height:120px;}
+      body > * {
+         width:100% !important;
+      }
+      section {
+         margin-top:1rem !important;
+         margin-bottom:5rem !important;}
+      .flex {
+         display:-webkit-box;
+         display:-ms-flexbox;
+         display:flex;
+         gap:2rem;
+      }
+      .cols {
+         flex-direction:column;
+      }
+      section ul.colors > li > ul >  li {
+         width:120px;
+         height:120px;
+      }
    </style>
 </head>
 <body>

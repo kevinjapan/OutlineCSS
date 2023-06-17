@@ -2,34 +2,18 @@
    outline css - main
 */
 
-
 *,*::before,*::after {
    -webkit-box-sizing: border-box;
    box-sizing: border-box;
 }
 
-
 html {
    scroll-behavior: smooth;
 }
 
-/* set up our default settings on all elements */
-* {
-   margin:0;
-   padding:0;
-}
-
-/* .element {
-   font-family: var(--system-ui);
-} */
-
-/* 
-   set up our default props (?) across all elements 
-*/
+/* default props */
 :root {
-
- 
-   /* font stacks - enable one */
+   /* font stacks - enable one of these */
    /* Sans-serif */
    --font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
    /* Serif */
@@ -69,9 +53,7 @@ html {
 }
 
 
-/* -----------------------------------
-   sectioning root  
------------------------------------ */
+/* sectioning root */
 body {
    font-size:var(--font-size);
    font-family: var(--font-family);
@@ -80,11 +62,7 @@ body {
 }
 
 
-
-/* -----------------------------------
-   content sectioning 
------------------------------------ */
-
+/* content sectioning */
 /*
 address {}
 article {}
@@ -122,14 +100,7 @@ h6 {
 
 /* main {} */
 
-
-
-
-
-
-/* -----------------------------------
-   text content 
------------------------------------ */
+/* text content */
 
 /* 
 blockquote {}
@@ -141,18 +112,24 @@ menu {}
 
 ul {
    list-style:none;
-   padding-inline:var(--indent-lists);
+   padding-left:var(--indent-lists);
+   padding-right:var(--indent-lists);
 }
 ol {
-   padding-inline:var(--indent-lists);
+   padding-left:var(--indent-lists);
+   padding-right:var(--indent-lists);
 }
 /* li {} */
 p {
    max-width:var(--paragraph-width);
    margin:auto;
-   margin-block:3rem;
+   margin-top:3rem;
+   margin-bottom:3rem;
 }
-/* pre {} */
+pre {
+   padding:0;
+   text-align:left;
+}
 
 
 /* -----------------------------------
@@ -165,7 +142,12 @@ a:visited {}
 b {}
 br {}
 cite {}
-code {}
+*/
+code {
+   margin:0;
+   padding:0;   
+}
+/*
 em {}
 i {}
 mark {}
@@ -182,10 +164,7 @@ var {}
 
 
 
-/* -----------------------------------
-    img and multimedia 
-   ----------------------------------- */
-
+/* img and multimedia */
 /*
 img {}
 video {}
@@ -195,9 +174,7 @@ object {}
 */
 
 
-/* -----------------------------------
-    table content 
-   ----------------------------------- */
+/* table content */
 table {
    border:solid 1px var(--border-color);
    padding:0;
@@ -211,7 +188,8 @@ thead {
 }
 th {
    font-weight:300;
-   padding-inline:.5rem;
+   padding-left:.5rem;
+   padding-right:.5rem;
    border:solid 1px var(--border-color);
 }
 tbody {
@@ -224,7 +202,8 @@ tr {
 td {
    border:solid 1px var(--border-color);
    margin:0;
-   padding-inline:.5rem;
+   padding-left:.5rem;
+   padding-right:.5rem;
 }
 /* 
 tfoot {}
@@ -235,19 +214,30 @@ colgroup {}
 
 
 
-/*
-   forms 
-*/
+/* forms */
 form {
+   display:-webkit-box;
+   display:-ms-flexbox;
    display:flex;
+
+   -webkit-box-orient:vertical;
+   -webkit-box-direction:normal;
+   -ms-flex-direction:column;
    flex-direction:column;
+
    width:var(--form-width);
-   margin-inline:auto;
+   margin-left:auto;
+   margin-right:auto;
 }
 form label {
+   display:-webkit-box;
+   display:-ms-flexbox;
    display:flex;
+   -webkit-box-pack:justify;
+   -ms-flex-pack:justify;
    justify-content:space-between;
-   align-items:center;
+   -webkit-box-align:center;
+   -ms-flex-align:center;
    gap:1rem;
 }
 form label * {
@@ -258,10 +248,9 @@ form label * {
 form label textarea {
    height:8rem;
 }
-
-
 input {
-   margin-block:1rem;
+   margin-top:1rem;
+   margin-bottom:1rem;
 }
 /* 
 label {}
@@ -272,9 +261,7 @@ select {}
 textarea {}
 */
 
-/* 
-   button
-*/
+/* button */
 button {
    width:fit-content;
    padding:1rem;
@@ -290,34 +277,21 @@ button:hover {
    border:solid 2px white;
 }
 /*
-button styling variations come largely from utility classes - see xxx-outline-utilities.css 
+ - button styling variations come largely from utility classes - see xxx-outline-utilities.css 
 */
 
 
 
-/* -----------------------------------
-    colors 
-   ----------------------------------- */
+/* colors */
 .lightgray {color:hsl(0, 0%, 63%);}
 
 
 
 
-/* -----------------------------------
-    font-weights 
-   ----------------------------------- */
-
+/* font-weights */
 .font-100 {font-weight:100;}
 
 
+/* utilities */
+.indent {margin-left:3rem;}
 
-
-
-
-/* -----------------------------------
-    utilities
-   ----------------------------------- */
-
-.indent {
-   margin-left:3rem;
-}

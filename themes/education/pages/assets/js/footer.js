@@ -18,7 +18,10 @@ const footer = () => {
       footer.innerHTML = `
          <ul>
             <li>
-               <img class="logo" style="max-height:80px;border:solid 5px black;" src="./imgs/logo-outlinecss-education.jpg" alt="logo" />
+               <a href="home.html">
+                  <img class="logo" style="max-height:80px;border:solid 5px black;" 
+                  src="./imgs/logo-outlinecss-education.jpg" alt="logo" />
+               </a>
             </li>
             <li>
                <ul>

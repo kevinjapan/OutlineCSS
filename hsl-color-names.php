@@ -9,7 +9,7 @@
 
     <style>
         table {border:solid 1px #CCC;}
-        td {border:solid 1px #444;padding-block:.75rem;}
+        td {border:solid 1px #444;padding-top:.75rem;padding-bottom:.75rem;}
     </style>
 
 </head>
