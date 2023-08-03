@@ -24,6 +24,9 @@ const footer = () => {
                </a>
             </li>
             <li>
+             middle col.
+            </li>
+            <li>
                <ul>
                   <li>
                      <a href="home.html">Home</a></li>

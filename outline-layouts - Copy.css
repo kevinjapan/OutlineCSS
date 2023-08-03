@@ -78,20 +78,18 @@ nav {
    transition:transform .6s ease-in;
 }
 nav div.logo_block {
-   /* we don't assume a logo aspect-ratio - but assure height is contained by nav_bar */
    position:relative;
    z-index:50;
    -webkit-box-flex:2;
    -ms-flex-positive:2;
    flex-grow:2;
-   background:white;    /* img width may not cover all */
+   background:white;
    height:var(--nav_bar_height);
 }
 nav div.logo_block > a > img {
    max-height:100%;
-   width:auto;
 }
-nav ul.menu {
+nav ul.nav_list {
    position:absolute;
    z-index:2;
 
@@ -178,38 +176,40 @@ nav div.nav_toggle.selected_toggle .toggle_bar:nth-child(2) {
 }
 
 /* we hide all submenu dropdowns on mobile.. */
-nav ul.menu li ul, nav ul.menu li a  {
+nav ul.nav_list li ul, nav ul.nav_list li a  {
    display:none;
    text-decoration:none;
    padding-left:2rem;
    padding-right:2rem;
 }
 /* ..then restore the top level label links */
-nav ul.menu > li > a  {
+nav ul.nav_list > li > a  {
    position:relative;
    display:block;
    padding:1.25rem .5rem 1.25rem .5rem;
    background:white;
 }
 /* toggled sm/mobile nav dropdown */
-nav ul.menu.extended_nav_dropdown {
+nav ul.nav_list.extended_nav_dropdown {
    -webkit-transform:translateY(100vh);
    -ms-transform:translateY(100vh);
    transform:translateY(100vh);
    opacity:1;
    transition:transform .5s ease-in-out,opacity .5s ease-in-out;
 }
-/* wmaintain <a> spacing on transitions */
-nav ul.menu li ul li a {margin:1rem;}
+
+/* workaround to maintain <a> spacing on transitions */
+nav ul.nav_list li ul li a {margin:1rem; }
 
 /* 
-// lg top main nav and full dropdown - we support from 1045px determined by four cols of text in dropdown 
+// lg top main nav and full dropdown - we support from 1045px determined by four cols of reasonable text in dropdown 
 */
 @media screen and (min-width: 1045px) {
+   
    /* reset from mobile */
    nav div.nav_toggle_wrap, nav div.nav_toggle {display:none;}
-   nav ul.menu *, nav ul.menu li ul, nav ul.menu li a {display:block;}
-   nav ul.menu, nav ul.menu > li > a, nav ul.menu.extended_nav_dropdown {
+   nav ul.nav_list *, nav ul.nav_list li ul, nav ul.nav_list li a  {display:block;}
+   nav ul.nav_list, nav ul.nav_list > li > a, nav ul.nav_list.extended_nav_dropdown {
       transform:unset;
       opacity:1;
       transition:none;
@@ -222,10 +222,7 @@ nav ul.menu li ul li a {margin:1rem;}
       -ms-flex-positive:2;
       flex-grow:2;
    }
-   nav ul.menu {
-      max-height:300px;
-   }
-   nav ul.menu > li {
+   nav ul.nav_list > li {
       display:-webkit-box;
       display:-ms-flexbox;
       display:flex;
@@ -234,14 +231,14 @@ nav ul.menu li ul li a {margin:1rem;}
       align-items:center;
       background:white;
    }
-   nav ul.menu li a.menu_label {
+   nav ul.nav_list li a.nav_list_label {
       padding-left:2rem;
       padding-right:2rem;
       margin:0;
    }
-   nav ul.menu {
-      /* create flex row for menu_labels */
+   nav ul.nav_list {
       position:static;
+      
       display:-webkit-box;
       display:-ms-flexbox;
       display:flex;
@@ -259,11 +256,13 @@ nav ul.menu li ul li a {margin:1rem;}
       background:white;
       border-bottom:none;
    }
+
+
    /* md/lg dropdowns */
-   nav ul.menu:hover li a  {
+   nav ul.nav_list:hover li a  {
       display:block;
    }
-   .menu_dropdown li {
+   .nav_list_dropdown li {
       display:-webkit-box;
       display:-ms-flexbox;
       display:flex;
@@ -276,12 +275,11 @@ nav ul.menu li ul li a {margin:1rem;}
       align-items:flex-start;
       gap:.5rem;
    }
-   nav ul.menu .menu_dropdown {
-      /* extract dropdowns from menu_labels flex row */
+   nav ul.nav_list .nav_list_dropdown {
       position:absolute;
       top:0;
       left:0;
-      z-index:-100; /* hide behind menu_labels flex row */
+      /* z-index:-100; */
 
       display:-webkit-box;
       display:-ms-flexbox;
@@ -293,11 +291,10 @@ nav ul.menu li ul li a {margin:1rem;}
 
       width:100%;
       max-width:100%;
-      max-height:500px;
+      height:500px;
       padding:1rem;
       background:white;
 
-      /* slide up */
       -webkit-transform:translateY(-100%);
       -ms-transform:translateY(-100%);
       transform:translateY(-100%);
@@ -306,14 +303,13 @@ nav ul.menu li ul li a {margin:1rem;}
       transition:transform .75s ease-in-out .25s,opacity 3s ease-in-out .25s,border .25s ease-in-out;
    }
    /* open it and keep it open */
-   nav ul.menu li a.menu_label:hover + .menu_dropdown,
-   nav ul.menu li a.menu_label + .menu_dropdown:hover {
-      /* slide down */
+   nav ul.nav_list li a.nav_list_label:hover + .nav_list_dropdown,
+   nav ul.nav_list li a.nav_list_label + .nav_list_dropdown:hover {
       -webkit-transform:translateY(var(--nav_bar_height));
       -ms-transform:translateY(var(--nav_bar_height));
       transform:translateY(var(--nav_bar_height));
       opacity:1;
-      border-bottom:solid 3px hsl(0, 0%, 93%);
+      border-bottom:solid 3px hsl(0, 0%, 96%);
       transition:transform .75s ease-in-out,opacity .5s ease-in-out,border .5s ease-in-out;
    }
 }
@@ -343,6 +339,7 @@ section.gallery {
    -webkit-box-pack:start;
    -ms-flex-pack:start;
    justify-content:flex-start;
+
    padding:3rem 1rem;
 }
 /* no <ul> - imgs only */

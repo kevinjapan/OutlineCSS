@@ -1,10 +1,5 @@
 
-
-
-
 const init_fade_ins = () => {
-
-
    const faders = document.querySelectorAll('.fade_in')
    const appearOptions = {
       threshold: 0,
@@ -13,11 +8,8 @@ const init_fade_ins = () => {
    return create_observers(faders,'appear',appearOptions)
 }
 
-
 const create_observers = (elements,active_class,options) => {
-
    let observers_created = false
-
    const appearOnScroll = new IntersectionObserver(
       function(entries,appearOnScroll){
          entries.forEach(entry => {
@@ -26,7 +18,6 @@ const create_observers = (elements,active_class,options) => {
             appearOnScroll.unobserve(entry.target)
          })
    },options)
-
    if(elements) {
       elements.forEach(element => {
          appearOnScroll.observe(element)
@@ -36,16 +27,16 @@ const create_observers = (elements,active_class,options) => {
    return observers_created
 }
 
-// const init_nav_behaviour = () => {
 
+// orig code for nav transparent over frontpage cover img :
+//
+// const init_nav_behaviour = () => {
 //    const nav = document.querySelector('.nav_bar')
 //    const frontcover = document.querySelectorAll('.frontcover') // only interested in first one
-   
 //    const newOptions = {
 //       threshold: 0,
 //       rootMargin: "-400px 0px 0px 0px"
 //    }
-
 //    const modifyNav = new IntersectionObserver(
 //       function(entries,modifyNav){
 //          if(nav) {
@@ -68,13 +59,12 @@ const create_observers = (elements,active_class,options) => {
 // }
 
 
-
-let last_scroll_pos = 0
-
-const init_nav_scroll_observer = () => {
-
+//
+// hide nav_bar on scrolling downwards, slide into view on scrolling up
+//
+const init_nav_scroll_listener = () => {
    let last_scroll = 0 
-   const nav_bar = document.querySelector('nav') // to do : tidy and naming...
+   const nav_bar = document.querySelector('nav')
    if(nav_bar) {
       window.addEventListener('scroll', () => {
          let current_scroll = window.scrollY
@@ -89,5 +79,54 @@ const init_nav_scroll_observer = () => {
    }
 }
 
+
+//
+// if any issues arise with fade_in not taking effect..
+// we have fixed fade_in failing on 'back' button & '#' links in wda and te projects.
+//
 init_fade_ins()
-init_nav_scroll_observer()
+init_nav_scroll_listener()
+
+
+//
+// toggle sm/mobile menu
+//
+const nav_toggle = document.querySelector('.nav_toggle')
+const dropdown = document.querySelector('nav ul.menu')
+
+nav_toggle.addEventListener('click',() => {
+   if(dropdown) {
+
+      // drop the nav list
+      dropdown.classList.toggle('extended_nav_dropdown')
+
+      // modify the toggle      
+      nav_toggle.classList.toggle('selected_toggle')
+   }
+})
+
+
+//
+// page transition - we retract dropdown on item clicked & fade out content
+//
+const menu_items = document.querySelectorAll('.menu-item')
+
+menu_items.forEach((menu_item) => {
+   menu_item.addEventListener('click',() => {
+      if(dropdown) {
+         dropdown.classList.remove('extended_nav_dropdown')
+      }
+      
+      // Fade out any 'fade_in' class elements while waiting for new page.
+      // Does rely on fade out (.fade_in) being quick or looks awkward.
+      const faders = document.querySelectorAll('.fade_in')
+      if(faders) {
+         faders.forEach(fader => {
+            fader.classList.toggle('appear')
+         })
+      }
+      
+   })
+})
+
+

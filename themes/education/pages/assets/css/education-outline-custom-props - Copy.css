@@ -130,7 +130,7 @@
    --masthead_height:0px;
    
    /* mobile navigation */
-   --nav_mobile_height:100px;          /* to do : what exactly is this? */
+   --nav_mobile_height:100px;
    --nav_mobile_dropdown_bg:    white;
    --nav_mobile_dropdown_color: black;
    --toggle_bg_color:white;
