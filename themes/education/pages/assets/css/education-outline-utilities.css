@@ -4,15 +4,14 @@ Access classes - use these to access the custom props
 */
 
 /*
-   bg color schemes
+//    BG COLOR SCHEMES
+//    scenario - utility classes set up colors for all elements within their assigned section
 */
-.bg_lightgrey {
-   background-color:lightgrey;
-}
-.bg_lightgreen {
-   background-color:lightgreen;
-}
 
+
+/* 
+// to do : for eg feature_block bg colors - we need to consider buttons and headings etc. 
+*/
 
 /* bg_navy */
 .bg_navy                {background-color:navy;color:white;}
@@ -34,130 +33,31 @@ Access classes - use these to access the custom props
 
 
 
-
-.primary_bg,.primary_1_bg {
-   background-color:var(--primary_1_bg);
-   color:white;
-}
-
-
-
-
-/* to do : review below.. */
-
-/* bgs for blocks - so we can set other colors to complement - so these are not just single bg-color settings..*/
-.bg_primary {
-   color:var(--primary_color);
-   background-color:var(--bg_dark);
-}
-.bg_accent {
-   color:var(--accent_color);
-   background-color:var(--bg_accent);
-}
-.bg_secondary {
-   color:var(--secondary_color);
-   background-color:var(--secondary_bg);
-}
-
-
-.bg_secondary_2 {
-   color:var(--secondary_2_color);
-   background-color:var(--secondary_2_bg);
-}
-.bg_secondary_3 {
-   color:var(--secondary_3_color);
-   background-color:var(--secondary_3_bg);
-}
-
-.bg_neutral {
-   color:var(--neutral_color);
-   background-color:var(--bg_neutral);
-}
-
-.bg_neutral_2 {
-   color:var(--neutral_2_color);
-   background-color:var(--bg_neutral_2);
-}
-.bg_neutral_3 {
-   color:var(--neutral_3_color);
-   background-color:var(--bg_neutral_3);
-}
-
-
-.primary_bg h1,.primary_bg h2,.primary_bg h3,.primary_bg h4,.primary_bg h5,.primary_bg h6 {color:white;}
-.primary_bg_dark,.primary_1_bg_dark {
-   background-color:var(--primary_1_bg_darken);
-}
-.primary_bg_light,.primary_1_bg_light {
-  background-color:var(--primary_1_bg_lighten);
-}
-.accent_bg,.accent_1_bg {
-  background-color:var(--accent_1_bg);
-}
-.accent_bg_dark,.accent_1_bg_dark {
-   background-color:var(--accent_1_bg_darken);
-}
-.accent_bg_light,.accent_1_bg_light {
-   background-color:var(--accent_1_bg_lighten);
-}
-.secondary_bg,.secondary_1_bg {
-   color:var(secondary_1_color);
-   background-color:var(--secondary_1_bg);
-}
-.secondary_bg_dark,.secondary_1_bg_dark {
-   background-color:var(--secondary_1_bg_darken);
-}
-.secondary_bg_light,.secondary_1_bg_light {
-   background-color:var(--secondary_1_bg_lighten);
-}
-.secondary_2_bg,.secondary_2_bg {
-   background-color:var(--secondary_2_bg);
-}
-.secondary_2_bg_dark,.secondary_2_bg_dark {
-   background-color:var(--secondary_2_bg_darken);
-}
-.secondary_2_bg_light,.secondary_2_bg_light {
-   background-color:var(--secondary_2_bg_lighten);
-}
-.secondary_3_bg,.secondary_3_bg {
-   background-color:var(--secondary_3_bg);
-}
-.secondary_3_bg_dark,.secondary_3_bg_dark {
-   background-color:var(--secondary_3_bg_darken);
-}
-.secondary_3_bg_light,.secondary_3_bg_light {
-   background-color:var(--secondary_3_bg_lighten);
-}
-.neutral_bg,.neutral_1_bg {
-   background-color:var(--neutral_1_bg);
-}
-.neutral_bg_dark,.neutral_1_bg_dark {
-   background-color:var(--neutral_1_bg_darken);
-}
-.neutral_bg_light,.neutral_1_bg_light {
-   background-color:var(--neutral_1_bg_lighten);
-}
-.neutral_2_bg {
-   background-color:var(--neutral_2_bg);
-}
-.neutral_2_bg_dark {
-   background-color:var(--neutral_2_bg_darken);
-}
-.neutral_2_bg_light {
-   background-color:var(--neutral_2_bg_lighten);
-}
-.semantic_negative_bg {
-   background-color:var(--semantic_negative_bg);
-}
-.semantic_positive_bg {
-   background-color:var(--semantic_positive_bg);
-}
-.semantic_warning_bg {
-   background-color:var(--semantic_warning_bg);
-}
-.semantic_neutral_bg {
-   background-color:var(--semantic_neutral_bg);
-}
+/* 
+// UTILITY COLOR COMBO CLASSES
+*/
+.bg_primary             {background:var(--bg_primary);            color:var(--bg_primary_text);}
+.bg_primary_lighter     {background:var(--bg_primary_lighter);    color:var(--bg_primary_lighter_text);}
+.bg_primary_darker      {background:var(--bg_primary_darker);     color:var(--bg_primary_darker_text);}
+.bg_secondary           {background:var(--bg_secondary);          color:var(--bg_secondary_text);}
+.bg_secondary_lighter   {background:var(--bg_secondary_lighter);  color:var(--bg_secondary_lighter_text);}
+.bg_secondary_darker    {background:var(--bg_secondary_darker);   color:var(--bg_secondary_darker_text);}
+.bg_light               {background:var(--bg_light);              color:var(--bg_light_text);}
+.bg_light_lighter       {background:var(--bg_light_lighter);      color:var(--bg_light_lighter_text);}
+.bg_light_darker        {background:var(--bg_light_darker);       color:var(--bg_light_darker_text);}
+.bg_dark                {background:var(--bg_dark);               color:var(--bg_dark_text);}
+.bg_dark_lighter        {background:var(--bg_dark_lighter);       color:var(--bg_dark_lighter_text);}
+.bg_dark_darker         {background:var(--bg_dark_darker);        color:var(--bg_dark_darker_text);}
+.bg_accent              {background:var(--bg_accent);             color:var(--bg_accent_text);}
+.bg_accent_lighter      {background:var(--bg_accent_lighter);     color:var(--bg_accent_lighter_text);}
+.bg_accent_darker       {background:var(--bg_accent_darker);      color:var(--bg_accent_darker_text);}
+.bg_neutral             {background:var(--bg_neutral);            color:var(--bg_neutral_text);}
+.bg_neutral_lighter     {background:var(--bg_neutral_lighter);    color:var(--bg_neutral_lighter_text);}
+.bg_neutral_darker      {background:var(--bg_neutral_darker);     color:var(--bg_neutral_darker_text);}
+.bg_semantic_positive   {background:var(--bg_semantic_positive);  color:var(--bg_semantic_positive_text);}
+.bg_semantic_negative   {background:var(--bg_semantic_negative);  color:var(--bg_semantic_negative_text);}
+.bg_semantic_warning    {background:var(--bg_semantic_warning);   color:var(--bg_semantic_warning_text);}
+.bg_semantic_neutral    {background:var(--bg_semantic_neutral);   color:var(--bg_semantic_neutral_text);}
 
 
 .grey_text {
@@ -170,10 +70,10 @@ Access classes - use these to access the custom props
 
 
 /*
-   behaviours
+//    TRANSITION BEHAVIOURS
 */
 
-/* fade_in hides, then IntersectionObserver resets */
+/* '.fade_in' hides..  ..IntersectionObserver uncovers */
 .fade_in {
    opacity:0;
    transition:opacity .75s ease-in;
@@ -187,3 +87,13 @@ Access classes - use these to access the custom props
    transform:translateY(-100%);
    transition:transform .6s ease-in;
 }
+
+
+/*
+to do :  
+
+- utility class - fixed position bg imgs (on cover_block)
+- utility class on cover_block - cycle through various imgs  eg https://pricedimensions.com/
+- slide-in effects etc. - utility classes on each block type.
+
+*/

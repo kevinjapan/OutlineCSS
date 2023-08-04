@@ -27,7 +27,8 @@ const create_observers = (elements,active_class,options) => {
    return observers_created
 }
 
-
+// to do : 
+// - enable transparent (configurable) nav over frontpage cover_block (hero)
 // orig code for nav transparent over frontpage cover img :
 //
 // const init_nav_behaviour = () => {
@@ -58,7 +59,6 @@ const create_observers = (elements,active_class,options) => {
 //    }  
 // }
 
-
 //
 // hide nav_bar on scrolling downwards, slide into view on scrolling up
 //
@@ -79,7 +79,6 @@ const init_nav_scroll_listener = () => {
    }
 }
 
-
 //
 // if any issues arise with fade_in not taking effect..
 // we have fixed fade_in failing on 'back' button & '#' links in wda and te projects.
@@ -87,36 +86,29 @@ const init_nav_scroll_listener = () => {
 init_fade_ins()
 init_nav_scroll_listener()
 
-
 //
 // toggle sm/mobile menu
 //
 const nav_toggle = document.querySelector('.nav_toggle')
 const dropdown = document.querySelector('nav ul.menu')
-
 nav_toggle.addEventListener('click',() => {
    if(dropdown) {
-
       // drop the nav list
       dropdown.classList.toggle('extended_nav_dropdown')
-
       // modify the toggle      
       nav_toggle.classList.toggle('selected_toggle')
    }
 })
 
-
 //
 // page transition - we retract dropdown on item clicked & fade out content
 //
 const menu_items = document.querySelectorAll('.menu-item')
-
 menu_items.forEach((menu_item) => {
    menu_item.addEventListener('click',() => {
       if(dropdown) {
          dropdown.classList.remove('extended_nav_dropdown')
       }
-      
       // Fade out any 'fade_in' class elements while waiting for new page.
       // Does rely on fade out (.fade_in) being quick or looks awkward.
       const faders = document.querySelectorAll('.fade_in')
@@ -125,8 +117,5 @@ menu_items.forEach((menu_item) => {
             fader.classList.toggle('appear')
          })
       }
-      
    })
 })
-
-

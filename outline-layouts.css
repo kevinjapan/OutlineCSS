@@ -386,7 +386,7 @@ section.animated_tiles > ul > li {
    -ms-flex-align:center;
    align-items:center;
 
-   padding:3rem 1rem 4rem 1rem;
+   padding:1rem;
    overflow:hidden;
 }
 section.animated_tiles > ul > li *:not(img) {
@@ -605,11 +605,14 @@ section.feature_tiles_flex  > ul > li > img {
 section.cover_block {
    position:relative;
    width:100%;
-   height:fit-content;
+   height:var(--cover_block_height);      /* defaults if no text/content */
    padding-top:5rem;
    padding-bottom:5rem;
    overflow:hidden;
    background:transparent;
+}
+section.cover_block:has(div) {
+   height:fit-content;        /* fit height to content if exists */
 }
 section.cover_block p {
    margin-left:0;
@@ -653,7 +656,7 @@ footer {
    margin-top:var(--footer_top_margin);
    margin-bottom:var(--footer_bottom_margin);
    color:white;
-   background-color:var(--footer_bg);
+   background-color:var(--bg_dark_darker);
 }
 footer > ul:not(.footnote) {
    display:grid;
@@ -677,3 +680,18 @@ footer a {color:white;text-decoration:none;}
       grid-area:footnote;
    }
 }
+
+/* 
+to do :
+
+- form
+- .cover_block_video - video background cover_block
+- .feature_block_text : feature block but title one side, text on other side - no img
+- title & lead / big title & lead
+- cards - simple tiles w/out imgs - adapt/utility class on feature_tiles?
+- profile - eg person/name/role/link - adapt feature_tiles?
+- timeline/history - ol w/ blocks
+- faq_block - list w/ open items inlin
+
+
+*/

@@ -41,7 +41,6 @@ p {
    width:min(100%,var(--paragraph_width));
    max-width:var(--paragraph-width);
    margin:auto;
-   background:pink;
    padding:.5rem;
    line-height:1.5rem;
 }
@@ -123,6 +122,7 @@ input {
 */
 button {
    width:fit-content;
+   margin:2rem auto 2rem auto;
    padding:.5rem 1rem .5rem 1rem;
    background:transparent;
    color:hsl(0, 0%, 80%);
@@ -135,6 +135,10 @@ button:hover {
    color:hsl(0, 0%, 100%);
    border:solid 1px white;
 }
+/* 
+to do : 
+- button styles 
+*/
 
 /* colors */
 .lightgray {color:hsl(0, 0%, 63%);}
