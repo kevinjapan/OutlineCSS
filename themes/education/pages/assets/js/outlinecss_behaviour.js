@@ -27,7 +27,7 @@ const create_observers = (elements,active_class,options) => {
    return observers_created
 }
 
-// to do : 
+// future : 
 // - enable transparent (configurable) nav over frontpage cover_block (hero)
 // orig code for nav transparent over frontpage cover img :
 //
@@ -99,9 +99,8 @@ nav_toggle.addEventListener('click',() => {
       nav_toggle.classList.toggle('selected_toggle')
    }
 })
-
 //
-// page transition - we retract dropdown on item clicked & fade out content
+// page transitions - we retract dropdown on item clicked & fade out content
 //
 const menu_items = document.querySelectorAll('.menu-item')
 menu_items.forEach((menu_item) => {
@@ -117,5 +116,27 @@ menu_items.forEach((menu_item) => {
             fader.classList.toggle('appear')
          })
       }
+   })
+})
+
+
+//
+//    faqs_block
+//
+const close_open_faq = () => {
+   const faq = document.querySelector('.open_faq')
+   if(faq) faq.classList.remove('open_faq')
+}
+const faq_toggles = document.querySelectorAll('.faq_toggle')
+faq_toggles.forEach((faq_toggle) => {
+   faq_toggle.addEventListener('click',() => {
+
+      // get immediate sibling <p>
+      let faq_text = faq_toggle.nextElementSibling
+
+      if(!faq_text.classList.contains('open_faq')) {
+         close_open_faq()
+      }
+      faq_text.classList.toggle('open_faq')
    })
 })

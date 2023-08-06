@@ -9,10 +9,6 @@ Access classes - use these to access the custom props
 */
 
 
-/* 
-// to do : for eg feature_block bg colors - we need to consider buttons and headings etc. 
-*/
-
 /* bg_navy */
 .bg_navy                {background-color:navy;color:white;}
 .bg_navy h1, .bg_navy h2, .bg_navy h3, .bg_navy h4, .bg_navy h5, .bg_navy h6 {color:white;}
@@ -90,10 +86,19 @@ Access classes - use these to access the custom props
 
 
 /*
-to do :  
-
+future : 
 - utility class - fixed position bg imgs (on cover_block)
-- utility class on cover_block - cycle through various imgs  eg https://pricedimensions.com/
+- utility class on cover_block - cycle through various imgs
 - slide-in effects etc. - utility classes on each block type.
-
 */
+
+/* 
+//    CARDS - modify feature_tiles w/ border and spacing
+*/
+section.feature_tiles.cards > ul {
+   padding:1rem;
+}
+section.feature_tiles.cards > ul > li {
+   border:solid 1px lightgrey;
+   border-radius:.25rem;
+}

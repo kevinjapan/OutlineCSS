@@ -8,7 +8,7 @@ body, address, article, aside, footer, header, main, nav, section {
 }
 
 body {
-   font-family: var(--font-family);
+   font-family: var(--font_family);
    font-size:var(--font-size);
    color:var(--body_text_color);
    line-height:1.5rem;
@@ -25,31 +25,37 @@ body {
 h1, h2, h3, h4, h5, h6 {margin:0;}
 h1 {
    font-size:var(--h1_size);
+   font-weight:var(--h1_weight);
    line-height:var(--h1_line_height);
    padding:1rem 1rem 2rem 1rem;
 }
 h2 {
    font-size:var(--h2_size);
+   font-weight:var(--h2_weight);
    line-height:var(--h2_line_height);
    padding:.8rem 1rem 1.5rem 1rem;
 }
 h3 {
    font-size:var(--h3_size);
+   font-weight:var(--h3_weight);
    line-height:var(--h3_line_height);
    padding:.6rem 1rem 1.25rem 1rem;
 }
 h4 {
    font-size:var(--h4_size);
+   font-weight:var(--h4_weight);
    line-height:var(--h4_line_height);
    padding:.5rem 1rem 1rem 1rem;
 }
 h5 {
    font-size:var(--h5_size);
+   font-weight:var(--h5_weight);
    line-height:var(--h5_line_height); 
    padding:.3rem 1rem .5rem 1rem;
 }
 h6 {
    font-size:var(--h6_size);
+   font-weight:var(--h6_weight);
    line-height:var(--h6_line_height);
    padding:.25rem 1rem .25rem 1rem;
 }
@@ -57,7 +63,7 @@ h6 {
 
 /* 
 //   MAIN NAV COMPONENT
-//   future : refactor/reduce code length
+//   
 */
 nav {
    position:relative;
@@ -65,27 +71,24 @@ nav {
    position:sticky;
    top:0;
    z-index:900;
-   
    display:-webkit-box;
    display:-ms-flexbox;
    display:flex;
    -webkit-box-align:center;
    -ms-flex-align:center;
    align-items:center;
-
    width:100%;
    height:var(--nav_bar_height);
-   transition:transform .6s ease-in;
+   transition:transform .5s ease-in;
 }
 nav div.logo_block {
-   /* we don't assume a logo aspect-ratio - but assure height is contained by nav_bar */
    position:relative;
    z-index:50;
    -webkit-box-flex:2;
    -ms-flex-positive:2;
    flex-grow:2;
-   background:white;    /* img width may not cover all */
    height:var(--nav_bar_height);
+   background:white; /* hides sliding menu */
 }
 nav div.logo_block > a > img {
    max-height:100%;
@@ -94,13 +97,10 @@ nav div.logo_block > a > img {
 nav ul.menu {
    position:absolute;
    z-index:2;
-
    top:-100vh;   /* default - dropdown is hidden */
    left:0;
-   
    -ms-flex-item-align:start;
    align-self:flex-start;
-
    height:100vh;
    padding-top:var(--nav_bar_height);
    border-bottom:solid 3px hsl(0, 0%, 96%);
@@ -122,19 +122,15 @@ nav > div.nav_toggle_wrap {
 nav div.nav_toggle {
    position:relative;
    z-index:3;
-   padding:0;
    width:100%;
    height:var(--nav_toggle_size);
-   background-color:var(--toggle_bg_color);
    cursor:pointer;
 }
 nav div.nav_toggle .toggle_bar {
    position:absolute;
    top:0;
-   display:block;
    width:var(--nav_toggle_size) ;
    height:calc(var(--nav_toggle_size) / 10);
-   margin-bottom:15px;
    background:var(--toggle_bar_color);
 
    -webkit-transform:rotate(0);
@@ -142,7 +138,6 @@ nav div.nav_toggle .toggle_bar {
    transform:rotate(0deg);
    transition:.5s ease-in-out;
 }
-
 nav div.nav_toggle .toggle_bar:nth-child(1) {top:calc(var(--nav_toggle_size) / 5);}
 nav div.nav_toggle .toggle_bar:nth-child(3) {top:calc(var(--nav_toggle_size) - var(--nav_toggle_size) / 5);}
 nav div.nav_toggle .toggle_bar:nth-child(2) {
@@ -152,7 +147,6 @@ nav div.nav_toggle .toggle_bar:nth-child(2) {
    opacity:1;
    transition:all .5s ease-in-out,opacity .25s ease-in-out;
 }
-
 /* on open dropdown */
 nav div.nav_toggle.selected_toggle .toggle_bar:nth-child(1),
 nav div.nav_toggle.selected_toggle .toggle_bar:nth-child(3) {
@@ -181,15 +175,12 @@ nav div.nav_toggle.selected_toggle .toggle_bar:nth-child(2) {
 nav ul.menu li ul, nav ul.menu li a  {
    display:none;
    text-decoration:none;
-   padding-left:2rem;
-   padding-right:2rem;
+   padding:0 2rem 0 2rem;
 }
 /* ..then restore the top level label links */
 nav ul.menu > li > a  {
-   position:relative;
    display:block;
    padding:1.25rem .5rem 1.25rem .5rem;
-   background:white;
 }
 /* toggled sm/mobile nav dropdown */
 nav ul.menu.extended_nav_dropdown {
@@ -199,8 +190,7 @@ nav ul.menu.extended_nav_dropdown {
    opacity:1;
    transition:transform .5s ease-in-out,opacity .5s ease-in-out;
 }
-/* wmaintain <a> spacing on transitions */
-nav ul.menu li ul li a {margin:1rem;}
+nav ul.menu li ul li a {margin:1rem;} /* maintain <a> spacing on transitions */
 
 /* 
 // lg top main nav and full dropdown - we support from 1045px determined by four cols of text in dropdown 
@@ -213,26 +203,17 @@ nav ul.menu li ul li a {margin:1rem;}
       transform:unset;
       opacity:1;
       transition:none;
-   }
-   
-   /* logo_block provides overlay in front of moving dropdown */
+   }   
+   /* logo_block overlay hides moving dropdown */
    nav div.logo_block {
-      position:relative;
       -webkit-box-flex:2;
       -ms-flex-positive:2;
       flex-grow:2;
-   }
-   nav ul.menu {
-      max-height:300px;
    }
    nav ul.menu > li {
       display:-webkit-box;
       display:-ms-flexbox;
       display:flex;
-      -webkit-box-align:center;
-      -ms-flex-align:center;
-      align-items:center;
-      background:white;
    }
    nav ul.menu li a.menu_label {
       padding-left:2rem;
@@ -240,7 +221,7 @@ nav ul.menu li ul li a {margin:1rem;}
       margin:0;
    }
    nav ul.menu {
-      /* create flex row for menu_labels */
+      /* create row for menu_labels */
       position:static;
       display:-webkit-box;
       display:-ms-flexbox;
@@ -255,14 +236,11 @@ nav ul.menu li ul li a {margin:1rem;}
 
       width:unset;
       height:100%;
+      max-height:300px;
       padding-top:0;
-      background:white;
       border-bottom:none;
    }
    /* md/lg dropdowns */
-   nav ul.menu:hover li a  {
-      display:block;
-   }
    .menu_dropdown li {
       display:-webkit-box;
       display:-ms-flexbox;
@@ -277,7 +255,7 @@ nav ul.menu li ul li a {margin:1rem;}
       gap:.5rem;
    }
    nav ul.menu .menu_dropdown {
-      /* extract dropdowns from menu_labels flex row */
+      /* extract dropdowns from menu_labels row */
       position:absolute;
       top:0;
       left:0;
@@ -292,7 +270,6 @@ nav ul.menu li ul li a {margin:1rem;}
       gap:.25rem;
 
       width:100%;
-      max-width:100%;
       max-height:500px;
       padding:1rem;
       background:white;
@@ -329,27 +306,21 @@ section {
 
 
 /* 
+//    SECTION.TITLE_LEAD_BLOCK
+//    - title & lead / big title & lead block component
+*/
+section.title_lead_block {
+   text-align:center;
+}
+
+
+/* 
 //   SECTION.GALLERY
 //   
 */
 section.gallery {
-   position:relative;
-
-   display:-webkit-box;
-   display:-ms-flexbox;
-   display:flex;
-   -ms-flex-wrap:wrap;
-   flex-wrap:wrap;
-   -webkit-box-pack:start;
-   -ms-flex-pack:start;
-   justify-content:flex-start;
    padding:3rem 1rem;
 }
-/* no <ul> - imgs only */
-section.gallery > img {
-   max-width:25%;
-}
-/* <ul> provided.. */
 section.gallery > ul {
    display:grid;
    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
@@ -388,6 +359,8 @@ section.animated_tiles > ul > li {
 
    padding:1rem;
    overflow:hidden;
+   background:hsl(0, 0%, 20%);
+   color:white;
 }
 section.animated_tiles > ul > li *:not(img) {
    z-index:3;
@@ -451,14 +424,8 @@ section.feature_block {
    -webkit-box-direction:normal;
    -ms-flex-direction:column;
    flex-direction:column;
-
    max-width:100%;
-   margin-top:var(--feature_block_y_margin);
-   margin-bottom:var(--feature_block_y_margin);
-   padding:0;
-}
-section.feature_block > img {
-   width:100%;
+   margin:var(--feature_block_y_margin) 0 var(--feature_block_y_margin) 0;
 }
 section.feature_block > div {
    display:-webkit-box;
@@ -474,12 +441,10 @@ section.feature_block > div {
    -ms-flex-align:start;
    align-items:flex-start;
    gap:1rem;
-
    padding:2rem;
 }
 section.feature_block p {
-   margin-left:0;
-   margin-right:0;
+   margin:auto 0 auto 0;
    font-size:1.1rem;
 }
 section.feature_block > div > *:not(button) {
@@ -487,9 +452,24 @@ section.feature_block > div > *:not(button) {
    padding:0;
 }
 section.feature_block.reverse_order {
-   flex-direction:column-reverse;
+   flex-direction:column-reverse;   /* to do : webkit? */
 }
+
+/* feature block with no img - we assign title on left (1st child) , text & button (any other) on right */
+section.feature_block > div:only-child {
+   display:grid;
+   grid-template-columns:1fr;
+   grid-template-areas:
+      "title"
+      "text"
+      "buttons";
+}
+section.feature_block > div:only-child > *:first-child  {grid-area:title;}
+section.feature_block > div:only-child > *:nth-child(2) {grid-area:text;}
+section.feature_block > div:only-child > *:nth-child(3) {grid-area:buttons;}
+
 @media screen and (min-width: 768px) {
+
    section.feature_block {
       -webkit-box-orient:horizontal;
       -webkit-box-direction:normal;
@@ -500,9 +480,15 @@ section.feature_block.reverse_order {
    section.feature_block.reverse_order {
       flex-direction:row-reverse;
    }
-   /* section.feature_block.col_reverse {flex-direction:row-reverse;}  */
    section.feature_block img {
       width:50%;
+   }
+   /* feature block with no img - we assign title on left (1st child) , text & button (any other) on right */
+   section.feature_block > div:only-child {
+      grid-template-columns:1fr 1fr;
+      grid-template-areas:
+         "title text"
+         "title buttons";
    }
 }
 
@@ -610,13 +596,13 @@ section.cover_block {
    padding-bottom:5rem;
    overflow:hidden;
    background:transparent;
+   color:white;
 }
 section.cover_block:has(div) {
    height:fit-content;        /* fit height to content if exists */
 }
 section.cover_block p {
-   margin-left:0;
-   margin-right:0;
+   margin:auto 0 auto 0;
    font-size:1.2rem;
 }
 section.cover_block .bg_img {
@@ -647,6 +633,37 @@ section.cover_block div {
    margin-right:.5rem;
    padding:.5rem;
 }
+/* 
+future : .cover_block_video - video background cover_block 
+*/
+
+
+/* 
+//   SECTION.FAQS_BLOCK
+//   expand-inline faqs list
+*/
+section.faqs_block > ul > li {
+   display:-webkit-box;
+   display:-ms-flexbox;
+   display:flex;
+   -webkit-box-orient:vertical;
+   -webkit-box-direction:normal;
+   -ms-flex-direction:column;
+   flex-direction:column;
+   margin:1rem 2rem 1rem 2rem;
+}
+section.faqs_block > ul > li *:nth-child(2) {
+   padding:0 0 0 2rem;
+   width:100%;
+   max-height:0;  /* we use max-height to enable since it needs to calc transition */
+   overflow:hidden;
+   transition:max-height .35s ease-in-out; 
+}
+section.faqs_block > ul > li *:nth-child(2).open_faq {
+   max-height:200px;
+   transition:max-height .35s ease-in-out .1s;
+}
+.faq_toggle {cursor:pointer;}
 
 
 /* 
@@ -680,18 +697,3 @@ footer a {color:white;text-decoration:none;}
       grid-area:footnote;
    }
 }
-
-/* 
-to do :
-
-- form
-- .cover_block_video - video background cover_block
-- .feature_block_text : feature block but title one side, text on other side - no img
-- title & lead / big title & lead
-- cards - simple tiles w/out imgs - adapt/utility class on feature_tiles?
-- profile - eg person/name/role/link - adapt feature_tiles?
-- timeline/history - ol w/ blocks
-- faq_block - list w/ open items inlin
-
-
-*/

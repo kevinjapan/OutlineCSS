@@ -91,18 +91,19 @@
    //
    */
 
-   --font-size:17px;
+   --font-size:18px;
 
    /* Sans-serif */
-   --font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+   --font_family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
    
    /* Serif */
-   /* --font-family: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; */
+   /* --font_family: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; */
    
    /* Mono */
-   /* --font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace; */
+   /* --font_family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace; */
 
 
+   --form_font_family: var(--font_family);   /* font inside form controls */
 
    /*  
    //   LAYOUTS
@@ -146,7 +147,7 @@
    --nav_mobile_dropdown_color: black;
    --toggle_bg_color:white;
    --toggle_bar_color:black;
-   --nav_toggle_size:50px;
+   --nav_toggle_size:30px;
    
    /* md-lg screen navigation */
    --nav_bar_height:80px; /* used by header/header bg_img */
@@ -166,21 +167,27 @@
    //
    */
    --h1_size:4.5rem;
+   --h2_weight:100;
    --h1_line_height:5rem;
 
-   --h2_size:3.5rem;
+   --h2_size:3rem;
+   --h2_weight:100;
    --h2_line_height:4rem;
 
    --h3_size:2.75rem;
+   --h3_weight:100;
    --h3_line_height:3.5rem;
 
    --h4_size:2rem;
+   --h4_weight:300;
    --h4_line_height:2.5rem;
 
    --h5_size:1.5rem;
+   --h5_weight:400;
    --h5_line_height:2rem;
    
    --h6_size:1.25rem;
+   --h6_weight:400;
    --h6_line_height:1.5rem;
 
 

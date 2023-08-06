@@ -1,4 +1,3 @@
-
 const copyright_from = (from_year) => {
    const today = new Date()
    const current_year = today.getFullYear()
@@ -9,7 +8,6 @@ const copyright_from = (from_year) => {
    return from_year
 }
 
-
 const footer = () => {
 
    const footer = document.getElementById('footer')
@@ -18,27 +16,20 @@ const footer = () => {
       footer.innerHTML = `
          <ul>
             <li>
-               <a href="home.html">
-                  <img class="logo" style="max-height:80px;border:solid 5px black;" 
-                  src="./imgs/logo-outlinecss-education.jpg" alt="logo" />
-               </a>
+               <a href="home.html"><img class="logo" src="./imgs/logo-outlinecss-education.jpg" alt="logo" /></a>
             </li>
             <li>
-             middle col.
+               middle col.
             </li>
             <li>
                <ul>
-                  <li>
-                     <a href="home.html">Home</a></li>
-                  <li>
-                     <a href="quicklinks.html">QuickLinks</a></li>
+                  <li><a href="home.html">Home</a></li>
+                  <li><a href="quicklinks.html">QuickLinks</a></li>
                </ul>      
             </li>
          </ul>
          <ul class="footnote">
-            <li>
-               Copyright &#169; ` + copyright_from(2022) + `
-            </li>
+            <li>Copyright &#169; ` + copyright_from(2022) + `</li>
          </ul>`
    }
 }
