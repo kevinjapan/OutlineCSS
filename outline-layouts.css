@@ -452,7 +452,10 @@ section.feature_block > div > *:not(button) {
    padding:0;
 }
 section.feature_block.reverse_order {
-   flex-direction:column-reverse;   /* to do : webkit? */
+   -webkit-box-orient:vertical;
+   -webkit-box-direction:reverse;
+   -ms-flex-direction:column-reverse;
+   flex-direction:column-reverse;
 }
 
 /* feature block with no img - we assign title on left (1st child) , text & button (any other) on right */
