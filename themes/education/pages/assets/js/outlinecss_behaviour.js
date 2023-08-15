@@ -59,25 +59,32 @@ const create_observers = (elements,active_class,options) => {
 //    }  
 // }
 
+
+
 //
-// hide nav_bar on scrolling downwards, slide into view on scrolling up
+//    Dynamic nav bar
+//    hides when user is scrolling down
+//    to prevent nav disappearing in ios safari bounce, we don't hide < 80px from top
 //
 const init_nav_scroll_listener = () => {
-   let last_scroll = 0 
+
+   let last_scroll = 0
    const nav_bar = document.querySelector('nav')
+
    if(nav_bar) {
       window.addEventListener('scroll', () => {
-         let current_scroll = window.scrollY
-         if(current_scroll - last_scroll > 0) {
-            nav_bar.classList.add('invisible_nav')
-         }
-         else {
-            nav_bar.classList.remove('invisible_nav')
+         let current_scroll = window.scrollY         
+         if((current_scroll > last_scroll) && (current_scroll > 80)) {
+            nav_bar.classList.add('invisible_nav')    // user is scrolling downwards - hide nav bar ( if below 80px )
+         } else {
+            nav_bar.classList.remove('invisible_nav')    // scrolling upwards - show hide bar
          }
          last_scroll = current_scroll
       })
    }
 }
+
+
 
 //
 // if any issues arise with fade_in not taking effect..
