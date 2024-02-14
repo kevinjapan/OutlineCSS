@@ -23,10 +23,10 @@
 
 ## Styled HTML Elements
 
-## Nav
+### Nav
 
-## Footer
+### Footer
 
-## Button
+### Button
 
-## Form
+### Form
