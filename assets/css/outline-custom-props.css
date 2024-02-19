@@ -1,0 +1,227 @@
+/* 
+    outline css - Custom Props
+*/
+
+:root {
+
+   /*  
+   //   COLORS
+   //
+   */
+   --primary:  hsl(41, 44%, 57%);   /* #c2a361 */
+   --secondary:hsl(64, 53%, 57%);   /* #c4cb57 */
+   --light:    hsl(49, 8%, 62%);    /* #a6a396 */
+   --dark:     hsl(206, 3%, 46%);   /* #727679 */
+
+   /*
+   // primary colors - 1 - 4 brand colors
+   */
+   --bg_primary:hsl(41, 44%, 57%);   /* #c2a361 */
+   --bg_primary_text: white;
+   --bg_primary_lighter: hsl(41, 44%, 67%);
+   --bg_primary_lighter_text: white;
+   --bg_primary_darker: hsl(41, 44%, 47%);
+   --bg_primary_darker_text: white;
+   
+   --bg_secondary: hsl(64, 53%, 57%);  /* #c4cb57 */
+   --bg_secondary_text: white;
+   --bg_secondary_lighter:hsl(64, 53%, 67%); 
+   --bg_secondary_lighter_text: white;
+   --bg_secondary_darker: hsl(64, 53%, 47%);
+   --bg_secondary_darker_text: white;
+
+   --bg_light: hsl(49, 8%, 62%);  /* #a6a396 */
+   --bg_light_text: white;
+   --bg_light_lighter: hsl(49, 8%, 72%);
+   --bg_light_lighter_text: white;
+   --bg_light_darker: hsl(49, 8%, 52%);
+   --bg_light_darker_text: white;
+
+   --bg_dark: hsl(206, 3%, 46%);  /* #727679 */
+   --bg_dark_text: white;
+   --bg_dark_lighter: hsl(206, 3%, 56%);
+   --bg_dark_lighter_text: white;
+   --bg_dark_darker: hsl(206, 3%, 30%);
+   --bg_dark_darker_text: white;
+
+   /* 
+   // accent color - highlight components / cta's / links  - complement primary color
+   */
+   --bg_accent:hsl(50, 99%, 48%);
+   --bg_accent_text:white;
+   --bg_accent_lighter:hsl(50, 99%, 68%);
+   --bg_accent_lighter_text:white;
+   --bg_accent_darker:hsl(50, 99%, 28%);
+   --bg_accent_darker_text:white;
+
+   /* 
+   // neutral colors - 2 -3 - light to dark - w/ some tint - perhaps tint of brand color
+   // - these may match --bg_light and --bg_dark
+   */
+   --neutral_1:hsl(220, 23%, 97%);     /* section background */
+   --neutral_1_bg_darken: hsl(220, 23%, 92%);
+   --neutral_1_bg:hsl(220, 23%, 97%);
+   --neutral_1_bg_lighten:hsl(220, 23%, 100%);
+   --neutral_2_bg_darken:hsl(240, 100%, 85%);
+   --neutral_2_bg:hsl(240, 100%, 90%);    /* neutral - 2 - blue */
+   --neutral_2_bg_lighten:hsl(240, 100%, 95%); 
+
+   /* 
+   // semantic colors - informative colors 
+   */
+   --bg_semantic_positive:hsl(120, 93%, 79%);     /* green  - positive */
+   --bg_semantic_positive_text:white;
+   --bg_semantic_negative:hsl(0, 100%, 75%);      /* red    - negative / error */
+   --bg_semantic_negative_text:white;
+   --bg_semantic_warning: hsl(39, 100%, 75%);     /* orange - warning  */
+   --bg_semantic_warning_text:white;
+   --bg_semantic_neutral: hsl(240, 100%, 75%);    /* blue   - neutral  */
+   --bg_semantic_neutral_text:white;
+
+
+   /* 
+   // text colors 
+   */
+   --body_text_color:hsl(0, 0%, 10%);
+   --grey_text:lightgrey;
+
+
+   /*  
+   //   FONTS
+   //
+   */
+
+   --font-size:18px;
+
+   /* Sans-serif */
+   --font_family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+   
+   /* Serif */
+   /* --font_family: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; */
+   
+   /* Mono */
+   /* --font_family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace; */
+
+
+   --form_font_family: var(--font_family);   /* font inside form controls */
+
+   /*  
+   //   LAYOUTS
+   //
+   */
+
+   --header_height:450px;
+   --default_text_align: left;
+   --logo_font_color:var(--primary_1);
+   --logo_font_size:3rem;
+
+   --hero_text_color:     white;
+   --hero_text_width:100%;
+
+   --overlay_text_align:left;
+
+   --section_inline_padding:3rem;
+
+   /* page */
+   --page_content_width:1100px;
+
+   /* logo */
+   --logo_width:200px;
+
+   /* cover_block */
+   --cover_block_height:500px;
+
+   /*  
+   //   NAVIGATION
+   //
+   */
+
+   /* nav behaviour  */
+   --nav_position:static;
+
+   /* masthead - set height to 0 if absent */
+   --masthead_height:0px;
+   
+   /* mobile navigation */
+   --nav_mobile_dropdown_bg:    white;
+   --nav_mobile_dropdown_color: black;
+   --toggle_bg_color:white;
+   --toggle_bar_color:black;
+   --nav_toggle_size:30px;
+   
+   /* md-lg screen navigation */
+   --nav_bar_height:80px; /* used by header/header bg_img */
+   --nav_bar_label_gap:3rem;
+   --nav_bar_bg:          white;
+   --nav_bar_text_color:  hsl(0, 24%, 35%);
+   --nav_dropdown_bg:      white;
+   --nav_dropdown_color:  white;
+
+   /* item link highlight on hover */
+   --nav_item_bottom_border:solid 1px transparent;
+   --nav_item_on_hover_bottom_border:solid 1px hsl(50, 99%, 48%);
+
+   --align_items_lg_dropdown:flex-end;
+
+
+   /*  
+   //   HEADINGS 
+   //
+   */
+   --h1_size:4.5rem;
+   --h2_weight:100;
+   --h1_line_height:5rem;
+
+   --h2_size:3rem;
+   --h2_weight:100;
+   --h2_line_height:4rem;
+
+   --h3_size:2.75rem;
+   --h3_weight:100;
+   --h3_line_height:3.5rem;
+
+   --h4_size:2rem;
+   --h4_weight:300;
+   --h4_line_height:2.5rem;
+
+   --h5_size:1.5rem;
+   --h5_weight:400;
+   --h5_line_height:2rem;
+   
+   --h6_size:1.25rem;
+   --h6_weight:400;
+   --h6_line_height:1.5rem;
+
+
+   /*  
+   //   PARAGRAPHS 
+   */
+   --paragraph_width:50rem;
+   --paragraph_padding:1rem;
+
+
+   /*  
+   //   BUTTONS
+   */ 
+   /* arrow_on_hover button inline text adjustment - fine-tune */
+   --arrow_on_hover_inline_padding:.75rem 1.75rem;
+
+   /* no_fill_button */
+   --no_fill_button_border:solid 1px hsl(0, 0%, 82%);
+
+
+   /*  
+   //   FOOTER
+   */ 
+   --footer_bg:var(--primary_1_bg_darken);
+   --footer_color:white;
+   --footer_top_margin:2rem;
+
+
+   /*  
+   //    Z-INDEX LAYERS     
+   //    0 - body     100 -       ...      800 - modal dlg      900 - navigation dropdown
+   //    -1 / 1  etc  inside local layers
+   */ 
+   
+}
