@@ -139,3 +139,48 @@ section.feature_tiles.cards > ul > li {
    color:var(--neutral_3_color);
    background-color:var(--bg_neutral_3);
 }
+
+
+/* flex utilities */
+
+.flex {
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+   flex-wrap:nowrap;
+   border:solid 2px orange;
+   width:300px;
+}
+/* .flex > * {
+   display:block;border:solid 1px blue;
+} */
+.align_items_center {
+   align-items:center;
+}
+
+
+/* 
+Dropdown Menu Arrow Icons
+*/
+/* dropdown icon  */
+li.menu-item a.with_dropdown_icon {
+   position:relative;
+   display:inline-block;
+}
+/* padding for icons */
+li.menu-item:has(a.with_dropdown_icon){
+   margin-right:1rem;
+}
+/* svg icon positioning */
+.dropdown_icon {
+   display:none;
+   position:absolute;
+   top:.82rem;
+   right:-1rem;
+}
+/* to do : review - is 1045px too wide to drop to hamburger menu - eg change to say 910px? (rollout required) */
+@media screen and (min-width: 1045px) {
+   .dropdown_icon {
+      display:block;
+   }
+}
