@@ -184,3 +184,13 @@ li.menu-item:has(a.with_dropdown_icon){
       display:block;
    }
 }
+
+
+/* utilities */
+/* to do : review */
+section.m_2  {margin:2rem;}
+section.mt_2 {margin-top:2rem;}
+.p_5  {padding:5rem;}
+
+.border {border:solid 1px hsl(0, 0%, 70%);}
+
