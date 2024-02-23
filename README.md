@@ -15,11 +15,11 @@ Repeating blocks within components are defined using the &lt;ul&gt; element:
 ```
 <ul>
    <li>
-      <img src="../assets/imgs/marvin-meyer-SYTO3xs06fU-unsplash-sm.jpg" />
+      <img src="../assets/imgs/img_1.jpg" />
       <h3>Lorem ipsum</h3>
    </li>
    <li>
-      <img src="../assets/imgs/marvin-meyer-SYTO3xs06fU-unsplash-sm.jpg" />
+      <img src="../assets/imgs/img_2.jpg" />
       <h3>Lorem ipsum</h3>
    </li>
 </ul>
