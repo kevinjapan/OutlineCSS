@@ -6,19 +6,19 @@
 
 ## Outline CSS Components
 
-The <section> element is the base of Outline CSS components:
+The &lt;section&gt; element is the base of Outline CSS components:
 
-`<section class="cover_block"></section`
+`&lt;section class="cover_block">&lt;/section&gt;`
 
-Repeating blocks within components are defined using the <ul> element:
+Repeating blocks within components are defined using the &lt;ul&gt; element:
 
-`<ul>
-   <li>
-      <img src="../assets/imgs/marvin-meyer-SYTO3xs06fU-unsplash-sm.jpg" />
-      <h3>Lorem ipsum</h3>
-   </li>
-   <li>
-      <img src="../assets/imgs/marvin-meyer-SYTO3xs06fU-unsplash-sm.jpg" />
-      <h3>Lorem ipsum</h3>
-   </li>
-</ul>`
+`&lt;ul&gt;
+   &lt;li&gt;
+      &lt;img src="../assets/imgs/marvin-meyer-SYTO3xs06fU-unsplash-sm.jpg" /&gt;
+      &lt;h3&gt;Lorem ipsum&lt;/h3&gt;
+   &lt;/li&gt;
+   &lt;li&gt;
+      &lt;img src="../assets/imgs/marvin-meyer-SYTO3xs06fU-unsplash-sm.jpg" /&gt;
+      &lt;h3&gt;Lorem ipsum&lt;/h3&gt;
+   &lt;/li&gt;
+&lt;/ul&gt;`
