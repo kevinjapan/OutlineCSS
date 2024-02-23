@@ -6,27 +6,19 @@
 
 ## Outline CSS Components
 
-### Animated Tiles
+The <section> element is the base of Outline CSS components:
 
-### Cover Block
+`<section class="cover_block"></section`
 
-### Title & Lead
+Repeating blocks within components are defined using the <ul> element:
 
-### FAQs Block
-
-### Feature Block
-
-### Feature Tiles
-
-### Gallery
-
-
-## Styled HTML Elements
-
-### Nav
-
-### Footer
-
-### Button
-
-### Form
+`<ul>
+   <li>
+      <img src="../assets/imgs/marvin-meyer-SYTO3xs06fU-unsplash-sm.jpg" />
+      <h3>Lorem ipsum</h3>
+   </li>
+   <li>
+      <img src="../assets/imgs/marvin-meyer-SYTO3xs06fU-unsplash-sm.jpg" />
+      <h3>Lorem ipsum</h3>
+   </li>
+</ul>`
