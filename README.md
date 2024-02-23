@@ -8,7 +8,7 @@
 
 The &lt;section&gt; element is the base of Outline CSS components:
 
-`&lt;section class="cover_block">&lt;/section&gt;`
+`&lt;section class="cover_block"%gt;&lt;/section&gt;`
 
 Repeating blocks within components are defined using the &lt;ul&gt; element:
 
