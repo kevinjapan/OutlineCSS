@@ -59,17 +59,17 @@
                </a>
                <ul class="sub-menu">
                   <li class="menu-item">
-                     <a href="/pages/animated_feature_tiles.html">Animated Feature Tiles</a></li>
+                     <a href="/pages/animated_tiles.html">Animated Tiles</a></li>
                   <li class="menu-item">
                      <a href="/pages/cover_block.html">Cover Block</a></li>
                   <li class="menu-item">
                      <a href="/pages/feature_block.html">Feature Block</a></li>
                   <li class="menu-item">
                      <a href="/pages/feature_tiles.html">Feature Tiles</a></li>
+                  <!--<li class="menu-item">
+                     <a href="/pages/gallery.html">Gallery</a></li>-->
                   <li class="menu-item">
-                     <a href="/pages/gallery.html">Gallery</a></li>
-                  <li class="menu-item">
-                     <a href="/pages/faqs.html">FAQs</a></li>
+                     <a href="/pages/faqs_block.html">FAQs Block</a></li>
                </ul>
             </li>
 
@@ -96,7 +96,11 @@
       <h1>cover_block</h1>
 
 
-      <pre><code>&lt;section class="cover_block"&gt;&lt;/section&gt;</code></pre>
+      <pre>
+         <code>
+&lt;section class="cover_block"&gt;&lt;/section&gt;
+         </code>
+      </pre>
 
 
       <section class="cover_block bg_navy fade_in darken_img_3">
@@ -108,7 +112,39 @@
          </div>
       </section>
 
+      <pre><code>
+&lt;section class="cover_block"&gt;  
+   &lt;img class="bg_img" src="../assets/imgs/susan-q-yin-2JIvboGLeho-unsplash.jpg" /&gt; 
+   &lt;div class="text_overlay"&gt; 
+      &lt;h1&gt;Study with us in 2024&lt;/h1&gt;   
+      &lt;p&gt;Start your academic journey with your first step today&lt;/p&gt;  
+      &lt;button&gt;Find out more&gt;&lt;/button&gt; 
+   &lt;/div&gt;   
+&lt;/section&gt;  
+      </code></pre>
 
+
+      <section class="feature_tiles">
+         <h4>Applicable Utility Classes</h4>
+         <ul>
+            <li>
+               <h6>darken_img_<span class="italic">n</span></h6>
+               <p>Darken background images to enhance overlay text readability.</p>
+               <pre><code class="p_1 break_words">&lt;section <br/>class="cover_block darken_img_3"&gt;<br/>...<br/>&lt;/section&gt;</code></pre>
+               <p class="sm_text">
+                  darken_img_1, darken_img_2, ... , darken_img_4
+               </p>
+            </li>
+            <li>
+               <h6>fade_in</h6>
+               <p>Fade in components as they appear in the viewport.</p>
+               <pre><code class="p_1 break_words">&lt;section <br/>&nbsp;&nbsp;class="cover_block fade_in"&gt;<br/>...<br/>&lt;/section&gt;</code></pre>
+            </li>
+            <!-- align_left  ? -->
+         </ul>
+      </section>
+
+      
    </main>
       
    <footer id="footer"></footer>
