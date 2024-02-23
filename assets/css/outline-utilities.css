@@ -190,7 +190,30 @@ li.menu-item:has(a.with_dropdown_icon){
 /* to do : review */
 section.m_2  {margin:2rem;}
 section.mt_2 {margin-top:2rem;}
+
+.p_1  {padding:1rem;}
+.p_2  {padding:2rem;}
 .p_5  {padding:5rem;}
 
 .border {border:solid 1px hsl(0, 0%, 70%);}
 
+.sm_text,
+section p.sm_text {
+   font-size:.9rem;
+}
+.lg_text,
+p.lg_text {
+   font-size:2rem;
+}
+
+
+.break_words {
+   white-space:normal; 
+   word-wrap:break-word;
+   overflow-wrap:break-word;
+   word-break:break-word;
+}
+
+span.italic {
+   font-style:italic;
+}
