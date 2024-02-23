@@ -8,17 +8,17 @@
 
 The &lt;section&gt; element is the base of Outline CSS components:
 
-`&lt;section class="cover_block"%gt;&lt;/section&gt;`
+```<section class="cover_block"></sectio>```
 
-Repeating blocks within components are defined using the &lt;ul&gt; element:
+Repeating blocks within components are defined using the <ul> element:
 
-`&lt;ul&gt;
-   &lt;li&gt;
-      &lt;img src="../assets/imgs/marvin-meyer-SYTO3xs06fU-unsplash-sm.jpg" /&gt;
-      &lt;h3&gt;Lorem ipsum&lt;/h3&gt;
-   &lt;/li&gt;
-   &lt;li&gt;
-      &lt;img src="../assets/imgs/marvin-meyer-SYTO3xs06fU-unsplash-sm.jpg" /&gt;
-      &lt;h3&gt;Lorem ipsum&lt;/h3&gt;
-   &lt;/li&gt;
-&lt;/ul&gt;`
+```<ul>
+   <li>
+      <img src="../assets/imgs/marvin-meyer-SYTO3xs06fU-unsplash-sm.jpg" />
+      <h3>Lorem ipsum</h3>
+   </li>
+   <li>
+      <img src="../assets/imgs/marvin-meyer-SYTO3xs06fU-unsplash-sm.jpg" />
+      <h3>Lorem ipsum</h3>
+   </li>
+</ul>```
