@@ -8,11 +8,12 @@
 
 The &lt;section&gt; element is the base of Outline CSS components:
 
-```<section class="cover_block"></sectio>```
+```<section class="cover_block"></section>```
 
-Repeating blocks within components are defined using the <ul> element:
+Repeating blocks within components are defined using the &lt;ul&gt; element:
 
-```<ul>
+```
+<ul>
    <li>
       <img src="../assets/imgs/marvin-meyer-SYTO3xs06fU-unsplash-sm.jpg" />
       <h3>Lorem ipsum</h3>
@@ -21,4 +22,5 @@ Repeating blocks within components are defined using the <ul> element:
       <img src="../assets/imgs/marvin-meyer-SYTO3xs06fU-unsplash-sm.jpg" />
       <h3>Lorem ipsum</h3>
    </li>
-</ul>```
+</ul>
+```
