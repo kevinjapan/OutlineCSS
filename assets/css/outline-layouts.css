@@ -1,6 +1,8 @@
 /* outline css - layout */
 
-/* block layouts */
+/* 
+   Block layouts 
+*/
 body, address, article, aside, footer, header, main, nav, section {
    width:100%;
    margin:0 auto 0 auto;
@@ -19,9 +21,9 @@ body {
    overflow-x:hidden;
 }
 
-/* 
-//   SECTION HEADINGS
-*/
+/* ---------------------------------------------------------
+   SECTION HEADINGS
+------------------------------------------------------------*/
 h1, h2, h3, h4, h5, h6 {margin:0;}
 h1 {
    font-size:var(--h1_size);
@@ -61,10 +63,10 @@ h6 {
 }
 
 
-/* 
-//   MAIN NAV COMPONENT
-//   
-*/
+
+/* ---------------------------------------------------------
+   MAIN NAV COMPONENT
+------------------------------------------------------------*/
 nav {
    position:relative;
    position:-webkit-sticky;
@@ -533,28 +535,35 @@ we support from 1045px determined by four cols of reasonable text in dropdown
 
 
 
-/* 
-//   SECTION
-//   section is the base element of several component blocks
-*/
+/* ---------------------------------------------------------
+   SECTION
+   section is the base element of several component blocks 
+------------------------------------------------------------*/
+
 section {
    overflow-x:hidden;
 }
 
 
-/* 
-//    SECTION.TITLE_LEAD_BLOCK
-//    - title & lead / big title & lead block component
-*/
+
+/* SECTION.TITLE_LEAD_BLOCK
+   title & lead / big title & lead block component */
+
 section.title_lead_block {
    text-align:center;
 }
+section.title_lead_block > * {
+   padding-top:0.25rem;
+   padding-bottom:0.25rem;
+}
+/* to do : utility classes across components: 'align_left' etc   cf darken_img */
+section.title_lead_block.align_left {text-align:left;}
+section.title_lead_block.align_right {text-align:right;}
 
 
-/* 
-//   SECTION.GALLERY
-//   
-*/
+/* ---------------------------------------------------------
+   SECTION.GALLERY   
+------------------------------------------------------------*/
 section.gallery {
    padding:3rem 1rem;
 }
@@ -569,10 +578,9 @@ section.gallery li > img {
 }
 
 
-/* 
-//   SECTION.ANIMATED_TILES
-//   
-*/
+/* ---------------------------------------------------------
+   section.animated_tiles 
+------------------------------------------------------------*/
 section.animated_tiles > ul {
    display:grid;
    grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
@@ -656,10 +664,11 @@ section.animated_tiles > ul > li:hover > button {
 }
 
 
-/* 
-//   SECTION.FEATURE_BLOCK
-//   two panel block - img on left, text on right (reversible)
-*/
+
+/* ---------------------------------------------------------
+   section.feature_block
+   two panel block - img on left, text on right (reversible) 
+------------------------------------------------------------*/
 section.feature_block {
    position:relative;
    display:-webkit-box;
@@ -673,7 +682,9 @@ section.feature_block {
    margin:var(--feature_block_y_margin) 0 var(--feature_block_y_margin) 0;
 }
 /* text overlay */
-section.feature_block > div.text_overlay {
+   /* to do : give default in-case user forgets to add specific class - rollout - we know div will be.. */
+section.feature_block > div,
+section.feature_block > div.feature_text {      
    display:-webkit-box;
    display:-ms-flexbox;
    display:flex;
@@ -687,12 +698,22 @@ section.feature_block > div.text_overlay {
    -ms-flex-align:start;
    align-items:flex-start;
    gap:1rem;
+   min-width:50%;
    padding:2rem;
+   
+   /* stack */
+   order:2;
+}
+section.feature_block img {
+   min-width:50%;
+   /* stack */
+   order:1;
 }
 section.feature_block p {
    margin:auto 0 auto 0;
    font-size:1.1rem;
 }
+section.feature_block p.lg_text {font-size:1.5rem;}
 section.feature_block > div > *:not(button) {
    margin:0;
    padding:0;
@@ -704,6 +725,7 @@ section.feature_block.reverse_order {
    flex-direction:column-reverse;
 }
 
+/*  to do : review this : */
 /* feature block with no img - we assign title on left (1st child) , text & button (any other) on right */
 section.feature_block > div:only-child {
    display:grid;
@@ -729,8 +751,13 @@ section.feature_block > div:only-child > *:nth-child(3) {grid-area:buttons;}
    section.feature_block.reverse_order {
       flex-direction:row-reverse;
    }
+   section.feature_block > div,
+   section.feature_block > div.feature_text {
+      order:unset;
+   }
    section.feature_block img {
       width:50%;
+      order:unset;
    }
    /* feature block with no img - we assign title on left (1st child) , text & button (any other) on right */
    section.feature_block > div:only-child {
@@ -742,102 +769,204 @@ section.feature_block > div:only-child > *:nth-child(3) {grid-area:buttons;}
 }
 
 
-/* 
-//   SECTION.FEATURE_TILES
-//   we use grid since we want fixed column widths, spacing is from gap
-*/
-/* list */
+/* ---------------------------------------------------------
+   section.feature_tiles
+------------------------------------------------------------*/
+section.feature_tiles {
+   width:100%;
+   height:fit-content;
+   margin-left:auto;
+   margin-right:auto;
+}
 section.feature_tiles > ul {
-   display:-ms-grid;
-   display:grid;
-   grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
-   gap:1rem;
-}
-/* tile */
-section.feature_tiles > ul > li {
-   min-width:100%;
-   text-align:center;
-   overflow-x:hidden;   /* manage images */
-   padding:0 0 3rem 0;
-}
-section.feature_tiles  > ul > li > img {
-   max-width:100%;
-   min-width:300px;
-   max-height:75%;    /* ensure img width matches parent in sm sizes */
-}
-
-
-/* 
-//   SECTION.FEATURE_TILES_FLEX
-//   flex version - images dynamically clip, spacing is from <li>, supports '.stagger_tiles' modifier
-*/
-/* list */
-section.feature_tiles_flex > ul {
    display:-webkit-box;
    display:-ms-flexbox;
    display:flex;
    -ms-flex-wrap:wrap;
    flex-wrap:wrap;
-   gap:1rem;
+   margin:0;
+   padding:0;
 }
-/* tile */
-section.feature_tiles_flex > ul > li {
+section.feature_tiles > ul > li {
+
+   /* we don't necessarily want everything centering
+      so we use flex rather than text-align */
+   display:-webkit-box;
+   display:-ms-flexbox;
+   display:flex;
+   -webkit-box-orient:vertical;
+   -webkit-box-direction:normal;
+   -ms-flex-direction:column;
+   flex-direction:column;
+
+   /* we don't want images to lose aspect ratio */
    width:100%;
-   min-width:340px;
-   padding:0 .5rem 0 .5rem;
-   overflow-x:hidden; /* in combo w/ <img> object-fit we get dynamic clipping imgs */
+   margin:0;
+   padding:1rem;
+   overflow-x:hidden;
+   
    border:solid 1px lightgrey;
    border-radius:.25rem;
-   text-align:center;
 }
-section.feature_tiles_flex  > ul > li > img {
-   width:100%;
-   height:300px;
-   border-radius:.25rem;
-   display:block;          /* prevent browser's inline element spacing */
-   object-fit: cover;      /* in combo w/ <li> overflow-x we get dynamic clipping imgs */
+section.feature_tiles > ul > li > * {
+   -webkit-box-flex:0;
+   -ms-flex-positive:0;
+   flex-grow:0;
 }
-@media screen and (min-width: 660px) {
-   section.feature_tiles_flex > ul {
+section.feature_tiles h1,
+section.feature_tiles h2,
+section.feature_tiles h3,
+section.feature_tiles h4,
+section.feature_tiles h5,
+section.feature_tiles h6 {
+   width:fit-content;
+   align-self:center;
+   text-align:left;
+   margin:2rem auto 0 auto;
+}
+
+section.feature_tiles  > ul > li > img {
+
+   /* we don't want images to lose aspect ratio */
+   /* width:100%; - their width can expand.. containing li has overflow-x:hidden */
+   height:100%;
+  
+   /* since we rely on hiding x-overflow for image aspect-ratio, we can't show img right-side border effect  
+   - future : rounded border on imgs - use wrapper div?
+   border-radius:.25rem; */
+      border-radius:.25rem;
+}
+section.feature_tiles > ul > li > h5 {
+   padding-top:1rem;
+   padding-bottom:0;
+}
+
+section.feature_tiles > ul > li > h4 {
+   font-size:1.5rem;
+   margin-bottom:0;
+   padding-top:1.5rem;
+   padding-bottom:0;
+   font-size:1.8rem;
+}
+section.feature_tiles > ul > li > p {
+   padding-top:0;
+}
+section.feature_tiles > ul > li > div:not(.te_button) {  /* to do : replace .te_button */
+   position:relative;
+   z-index:300;
+   width:94%;
+   margin:auto;
+   margin-top:-30px;
+   background:white;
+   padding:0 1.5rem 1rem 1.5rem;
+   /* border:solid 1px lightgrey;
+   border-radius:.25rem; */
+}
+section.feature_tiles p {
+   align-self:center;
+   font-size:1.1rem;
+   margin-top:1rem;
+}
+section.feature_tiles a {
+   margin-top:1rem;
+   margin-bottom:1rem;
+   text-decoration:none;
+}
+section.feature_tiles > ul > li > button {
+   align-self:center;
+   margin-top:auto;
+   margin-bottom:1rem;
+}
+
+
+@media screen and (min-width: 660px) {   
+   section.feature_tiles {
+      width:100%; 
+   }
+   section.feature_tiles > ul {
+
       -webkit-box-orient:horizontal;
       -webkit-box-direction:normal;
       -ms-flex-direction:row;
       flex-direction:row;
-      gap:0; /* for predictable spacing, we pad inside <li> */
+      gap:var(--feature_tiles_gap);
+      padding-left:var(--feature_tiles_gap);
+      padding-right:var(--feature_tiles_gap);
+     
+      width:100%;
+      padding-left:auto;
+      padding-right:auto;
    }
-   section.feature_tiles_flex > ul > li {
-      /* this seems contradictory, but has desired effects */
-      min-width:50%;          /* ensures both of two cols occupy 50% */
-      max-width:25%;   /* ensures any incomplete rows don't fill out to occupy the space (retain col width) */
+   section.feature_tiles > ul > li {
+      min-width:calc(50% - var(--feature_tiles_gap));
+      max-width:calc(50% - var(--feature_tiles_gap));
+
+      /* to do : if we want to 'center' items on less-than-full row */
+      /* margin-left:auto;
+      margin-right:auto; */
+   }
+
+   /* stagger feature tiles   1 1 2 3 / 4 5 6 6 / ... */
+   section.feature_tiles.stagger_tiles > ul > li {
+      width:50%;
+      margin-top:1rem;
+   }
+   /* we modify every 6th <li> starting at indexes 1 and 6. */
+   section.feature_tiles.stagger_tiles > ul > li:nth-child(6n+1),
+   section.feature_tiles.stagger_tiles > ul > li:nth-child(6n+6) {
+      min-width:calc(100% - var(--feature_tiles_gap));
+   }    
+   section.feature_tiles.stagger_tiles > ul > li > img {
+      max-width:100%;
+      border-radius:.25rem;
    }
 }
-@media screen and (min-width: 982px) {
-   section.feature_tiles_flex > ul {
-      gap:0;padding:0;
+
+
+
+@media screen and (min-width: 910px) {
+
+   /* section.feature_tiles {} */
+
+   section.feature_tiles > ul {
+      gap:var(--feature_tiles_gap);
+      padding-left:var(--feature_tiles_gap);
+      padding-right:var(--feature_tiles_gap);
    }
-   section.feature_tiles_flex > ul > li {
-      min-width:33.333333%;
+   section.feature_tiles > ul > li {
+      min-width:calc(33.3% - var(--feature_tiles_gap));
+      max-width:calc(33.3% - var(--feature_tiles_gap));
+      
+      /* to do : if we want to 'center' items on less-than-full row */
+      /* margin-left:auto;
+      margin-right:auto; */
    }
-   /* .stagger_tiles - we modify every 6th <li> starting at indexes 1 and 6. */
-   section.feature_tiles_flex.stagger_tiles > ul > li {
-      min-width:25%;
+
+   /* stagger feature tiles */
+   section.feature_tiles.stagger_tiles > ul > li {
+      min-width:calc(25% - var(--feature_tiles_gap));
    }
-   section.feature_tiles_flex.stagger_tiles > ul > li:nth-child(6n+1),
-   section.feature_tiles_flex.stagger_tiles > ul > li:nth-child(6n+6) {
-      /* to do : see changes made to WDA version of stagger and feature_tiles (spacing using gap) */
-      min-width:50%;
+   section.feature_tiles.stagger_tiles > ul > li:nth-child(6n+1),
+   section.feature_tiles.stagger_tiles > ul > li:nth-child(6n+6) {
+      min-width:calc(50% - var(--feature_tiles_gap));
    }
-   section.feature_tiles_flex.teasers > ul > li > img {
+   section.feature_tiles > ul > li > h4 {
+      font-size:2rem;
+   }
+   section.feature_tiles.teasers > ul > li > img {
       min-height:160px;
       max-height:160px;
    }
 }
 
 
-/* 
+
+
+
+/* --------------------------------------------------------- 
 //   SECTION.COVER_BLOCK
 //   large heading over background img - plus optional text & button
-*/
+------------------------------------------------------------*/
 section.cover_block {
    position:relative;
    width:100%;
@@ -909,10 +1038,11 @@ future : .cover_block_video - video background cover_block
 */
 
 
-/* 
-//   SECTION.FAQS_BLOCK
-//   expand-inline faqs list
-*/
+
+/* --------------------------------------------------------- 
+   SECTION.FAQS_BLOCK
+   expand-inline faqs list
+------------------------------------------------------------*/
 section.faqs_block > ul > li {
    display:-webkit-box;
    display:-ms-flexbox;
@@ -937,14 +1067,15 @@ section.faqs_block > ul > li *:nth-child(2).open_faq {
 .faq_toggle {cursor:pointer;}
 
 
-/* 
-//   FOOTER
-*/
+/* ---------------------------------------------------------
+   FOOTER
+------------------------------------------------------------*/
 footer {
    min-height:12rem;
    margin-top:var(--footer_top_margin);
    margin-bottom:var(--footer_bottom_margin);
    padding:2rem;
+   padding-bottom:0.5rem;
    color:white;
    background-color:var(--bg_dark_darker);
 }
@@ -955,6 +1086,8 @@ footer > ul:not(.footnote) {
 footer ul.footnote   {
    font-size:.9rem;
    text-align:center;
+   margin-top:5rem;
+   margin-bottom:0;
 }
 footer a {color:white;text-decoration:none;}
 
