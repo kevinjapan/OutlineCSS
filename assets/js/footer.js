@@ -14,19 +14,22 @@ const footer = () => {
 
    if(footer) {
 
-      console.log('here')
+      // to do : replace this!
       footer.innerHTML = `
          <ul>
             <li>
                <a href="home.html"><img class="logo" src="./imgs/logo-outlinecss-education.jpg" alt="logo" /></a>
             </li>
             <li>
-               middle col.
+               <ul>
+                  <li><a href="/index.html">Home</a></li>
+                  <li><a href="/pages/components.html">Components</a></li>
+                  <li><a href="/pages/about.html">About</a></li>
+               </ul> 
             </li>
             <li>
                <ul>
-                  <li><a href="home.html">Home</a></li>
-                  <li><a href="quicklinks.html">QuickLinks</a></li>
+                  <li><a href="https://github.com/kevinjapan/OutlineCSS" target="_blank">Github</a></li>
                </ul>      
             </li>
          </ul>
