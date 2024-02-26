@@ -1,75 +1,174 @@
-
 /* 
-Access classes - use these to access the custom props
+   Default Color Schemes
 */
+.bg_navy {
+   background-color:navy;
+   color:white;
+}
+.bg_navy h1, .bg_navy h2, .bg_navy h3, .bg_navy h4, .bg_navy h5, .bg_navy h6 {
+   color:white;
+}
+.bg_navy button {
+   color:lightgrey;
+}
+.bg_navy button:hover{
+   color:white;
+   border:solid 1px white;
+}
 
-/*
-//    BG COLOR SCHEMES
-//    scenario - utility classes set up colors for all elements within their assigned section
-*/
 
-
-/* bg_navy */
-.bg_navy                {background-color:navy;color:white;}
-.bg_navy h1, .bg_navy h2, .bg_navy h3, .bg_navy h4, .bg_navy h5, .bg_navy h6 {color:white;}
-.bg_navy button         {color:lightgrey;}
-.bg_navy button:hover   {color:white;border:solid 1px white;}
-
-/* bg_white */
-.bg_white                     {background-color:white;color:black;}
+.bg_white {
+   background-color:white;
+   color:black;
+}
 .bg_white h1, .bg_white h2, .bg_white h3, .bg_white h4, .bg_white h5, .bg_white h6, 
-.bg_white div.overlay h1,
-.bg_white div.overlay *       {color:black;}
-.bg_white button              {color:grey;border:solid 1px grey;}
-.bg_white button:hover        {color:black;border:solid 1px black;}
+.bg_white div.overlay h1,.bg_white div.overlay * {
+   color:black;
+}
+.bg_white button {
+   color:grey;
+   border:solid 1px grey;
+}
+.bg_white button:hover {
+   color:black;
+   border:solid 1px black;
+}
 
-.bg_lightblue {background-color:lightblue;color:blue;}
-.bg_lightblue button              {color:grey;border:solid 1px grey;}
-.bg_lightblue button:hover        {color:black;border:solid 1px black;}
+
+
+.bg_lightblue {
+   background-color:lightblue;
+   color:blue;
+}
+.bg_lightblue button {
+   color:grey;
+   border:solid 1px grey;
+}
+.bg_lightblue button:hover {
+   color:black;
+   border:solid 1px black;
+}
 
 
 
 /* 
-// UTILITY COLOR COMBO CLASSES
+   Custom Props Color Schemes
+   to do : review & simplify - maybe only primary and secondary (and tertiary?) - no light/dark variations..
 */
-.bg_primary             {background:var(--bg_primary);            color:var(--bg_primary_text);}
-.bg_primary_lighter     {background:var(--bg_primary_lighter);    color:var(--bg_primary_lighter_text);}
-.bg_primary_darker      {background:var(--bg_primary_darker);     color:var(--bg_primary_darker_text);}
-.bg_secondary           {background:var(--bg_secondary);          color:var(--bg_secondary_text);}
-.bg_secondary_lighter   {background:var(--bg_secondary_lighter);  color:var(--bg_secondary_lighter_text);}
-.bg_secondary_darker    {background:var(--bg_secondary_darker);   color:var(--bg_secondary_darker_text);}
-.bg_light               {background:var(--bg_light);              color:var(--bg_light_text);}
-.bg_light_lighter       {background:var(--bg_light_lighter);      color:var(--bg_light_lighter_text);}
-.bg_light_darker        {background:var(--bg_light_darker);       color:var(--bg_light_darker_text);}
-.bg_dark                {background:var(--bg_dark);               color:var(--bg_dark_text);}
-.bg_dark_lighter        {background:var(--bg_dark_lighter);       color:var(--bg_dark_lighter_text);}
-.bg_dark_darker         {background:var(--bg_dark_darker);        color:var(--bg_dark_darker_text);}
-.bg_accent              {background:var(--bg_accent);             color:var(--bg_accent_text);}
-.bg_accent_lighter      {background:var(--bg_accent_lighter);     color:var(--bg_accent_lighter_text);}
-.bg_accent_darker       {background:var(--bg_accent_darker);      color:var(--bg_accent_darker_text);}
-.bg_neutral             {background:var(--bg_neutral);            color:var(--bg_neutral_text);}
-.bg_neutral_lighter     {background:var(--bg_neutral_lighter);    color:var(--bg_neutral_lighter_text);}
-.bg_neutral_darker      {background:var(--bg_neutral_darker);     color:var(--bg_neutral_darker_text);}
-.bg_semantic_positive   {background:var(--bg_semantic_positive);  color:var(--bg_semantic_positive_text);}
-.bg_semantic_negative   {background:var(--bg_semantic_negative);  color:var(--bg_semantic_negative_text);}
-.bg_semantic_warning    {background:var(--bg_semantic_warning);   color:var(--bg_semantic_warning_text);}
-.bg_semantic_neutral    {background:var(--bg_semantic_neutral);   color:var(--bg_semantic_neutral_text);}
+.bg_primary {
+   background:var(--bg_primary);
+   color:var(--bg_primary_text);
+}
+.bg_primary button {color:grey;border:solid 1px grey;}            /* to do : assign custom props / test front-end / rollout below */
+.bg_primary button:hover {color:black;border:solid 1px black;}
 
 
-.grey_text {
-   color:var(--grey_text);
+.bg_primary_lighter {
+   background:var(--bg_primary_lighter);  
+   color:var(--bg_primary_lighter_text);
+}
+.bg_primary_lighter button {color:grey;border:solid 1px grey;}
+.bg_primary_lighter button:hover {color:black;border:solid 1px black;}
+
+
+.bg_primary_darker {
+   background:var(--bg_primary_darker);   
+   color:var(--bg_primary_darker_text);
+}
+.bg_primary_darker button {color:grey;border:solid 1px grey;}
+.bg_primary_darker button:hover {color:black;border:solid 1px black;}
+
+
+.bg_secondary {
+   background:var(--bg_secondary);  
+   color:var(--bg_secondary_text);
+}
+.bg_secondary_lighter {
+   background:var(--bg_secondary_lighter);
+   color:var(--bg_secondary_lighter_text);
+}
+.bg_secondary_darker {
+   background:var(--bg_secondary_darker); 
+   color:var(--bg_secondary_darker_text);
+}
+.bg_light {
+   background:var(--bg_light);  
+   color:var(--bg_light_text);
+}
+.bg_light_lighter    {
+   background:var(--bg_light_lighter);
+   color:var(--bg_light_lighter_text);
+}
+.bg_light_darker{background:var(--bg_light_darker);
+   color:var(--bg_light_darker_text);
+}
+.bg_dark {
+   background:var(--bg_dark);
+   color:var(--bg_dark_text);
+}
+.bg_dark_lighter {
+   background:var(--bg_dark_lighter);  
+   color:var(--bg_dark_lighter_text);
+}
+.bg_dark_darker {
+   background:var(--bg_dark_darker);   
+   color:var(--bg_dark_darker_text);
+}
+.bg_accent {
+   background:var(--bg_accent);   
+   color:var(--bg_accent_text);
+}
+.bg_accent_lighter {
+   background:var(--bg_accent_lighter);
+   color:var(--bg_accent_lighter_text);
+}
+.bg_accent_darker {
+   background:var(--bg_accent_darker); 
+   color:var(--bg_accent_darker_text);
+}
+.bg_neutral{background:var(--bg_neutral);  
+   color:var(--bg_neutral_text);
+}
+.bg_neutral_lighter {
+   background:var(--bg_neutral_lighter);    
+   color:var(--bg_neutral_lighter_text);
+}
+.bg_neutral_darker {
+   background:var(--bg_neutral_darker);
+   color:var(--bg_neutral_darker_text);
+}
+.bg_semantic_positive {
+   background:var(--bg_semantic_positive);  
+   color:var(--bg_semantic_positive_text);
+}
+.bg_semantic_negative {
+   background:var(--bg_semantic_negative);  
+   color:var(--bg_semantic_negative_text);
+}
+.bg_semantic_warning {
+   background:var(--bg_semantic_warning);   
+   color:var(--bg_semantic_warning_text);
+}
+.bg_semantic_neutral {
+   background:var(--bg_semantic_neutral);   
+   color:var(--bg_semantic_neutral_text);
 }
 
-.greyed_text {
-   color:lightgrey !important;
-}
+
+/* 
+   Background Colors
+   to do : review & tidy - useful set here?
+*/
+.bg_blue {background:blue;}
+.bg_teal {background:teal;}
+.bg_yellow {background:yellow;}
+
 
 
 /*
-//    TRANSITION BEHAVIOURS
+   Transition Behaviours
 */
-
-/* '.fade_in' hides..  ..IntersectionObserver uncovers */
+/* .fade_in hides element initially, .appear reveals on Intersection Obs. */
 .fade_in {
    opacity:0;
    transition:opacity .75s ease-in;
@@ -85,82 +184,23 @@ Access classes - use these to access the custom props
 }
 
 
-/*
-future : 
-- utility class - fixed position bg imgs (on cover_block)
-- utility class on cover_block - cycle through various imgs
-- slide-in effects etc. - utility classes on each block type.
-*/
-
 /* 
-//    CARDS - modify feature_tiles w/ border and spacing
+   Flex
 */
-section.feature_tiles.cards > ul {
-   padding:1rem;
-}
-section.feature_tiles.cards > ul > li {
-   border:solid 1px lightgrey;
-   border-radius:.25rem;
-}
-
-/* utility color schemes */.bg_primary {
-   color:var(--primary_color);
-   background-color:var(--bg_dark);
-}
-.bg_accent {
-   color:var(--accent_color);
-   background-color:var(--bg_accent);
-}
-.bg_secondary {
-   color:var(--secondary_color);
-   background-color:var(--secondary_bg);
-}
-
-
-.bg_secondary_2 {
-   color:var(--secondary_2_color);
-   background-color:var(--secondary_2_bg);
-}
-.bg_secondary_3 {
-   color:var(--secondary_3_color);
-   background-color:var(--secondary_3_bg);
-}
-
-.bg_neutral {
-   color:var(--neutral_color);
-   background-color:var(--bg_neutral);
-}
-
-.bg_neutral_2 {
-   color:var(--neutral_2_color);
-   background-color:var(--bg_neutral_2);
-}
-.bg_neutral_3 {
-   color:var(--neutral_3_color);
-   background-color:var(--bg_neutral_3);
-}
-
-
-/* flex utilities */
-
 .flex {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    flex-wrap:nowrap;
-   border:solid 2px orange;
    width:300px;
 }
-/* .flex > * {
-   display:block;border:solid 1px blue;
-} */
 .align_items_center {
    align-items:center;
 }
 
 
 /* 
-Dropdown Menu Arrow Icons
+   Nav Dropdown Menu Arrow Icons
 */
 /* dropdown icon  */
 li.menu-item a.with_dropdown_icon {
@@ -178,7 +218,6 @@ li.menu-item:has(a.with_dropdown_icon){
    top:.82rem;
    right:-1rem;
 }
-/* to do : review - is 1045px too wide to drop to hamburger menu - eg change to say 910px? (rollout required) */
 @media screen and (min-width: 1045px) {
    .dropdown_icon {
       display:block;
@@ -186,27 +225,60 @@ li.menu-item:has(a.with_dropdown_icon){
 }
 
 
-/* utilities */
-/* to do : review */
-section.m_2  {margin:2rem;}
-section.mt_2 {margin-top:2rem;}
-
+/* 
+   Margins & Padding
+*/
+.m_1,section.m_1  {margin:1rem;}
+.m_2,section.m_2  {margin:2rem;}
+.m_3,section.m_3  {margin:3rem;}
+.m_4,section.m_4  {margin:4rem;}
+.mt_1,section.mt_1 {margin-top:1rem;}
+.mt_2,section.mt_2 {margin-top:2rem;}
+.mt_3,section.mt_3 {margin-top:3rem;}
+.mt_4,section.mt_4 {margin-top:4rem;}
+.mb_1,section.mb_1 {margin-bottom:1rem;}
+.mb_2,section.mb_2 {margin-bottom:2rem;}
+.mb_3,section.mb_3 {margin-bottom:3rem;}
 .p_1  {padding:1rem;}
 .p_2  {padding:2rem;}
+.p_3  {padding:3rem;}
+.p_4  {padding:4rem;}
 .p_5  {padding:5rem;}
+.pt_1  {padding-top:1rem;}
+.pt_2  {padding-top:2rem;}
+.pt_3  {padding-top:3rem;}
+.pb_1  {padding-bottom:1rem;}
+.pb_2  {padding-bottom:2rem;}
+.pb_3  {padding-bottom:3rem;}
 
+
+/*
+   Text & Font Sizes
+*/
+.text_lg,p.text_lg {font-size:var(--text_lg);}
+.text_sm,section p.text_sm {font-size:var(--text_sm);}
+
+/*
+   Text & Font Styles
+*/
+span.italic {font-style:italic;}
+span.bold   {font-weight:bold;}
+
+/*
+   Text & Font Colors
+*/
+.text_blue {color:blue;}
+
+
+/* 
+   Borders
+*/
 .border {border:solid 1px hsl(0, 0%, 70%);}
 
-.sm_text,
-section p.sm_text {
-   font-size:.9rem;
-}
-.lg_text,
-p.lg_text {
-   font-size:2rem;
-}
 
-
+/* 
+   Word Wrapping / Breaks
+*/
 .break_words {
    white-space:normal; 
    word-wrap:break-word;
@@ -214,6 +286,6 @@ p.lg_text {
    word-break:break-word;
 }
 
-span.italic {
-   font-style:italic;
-}
+/* 
+   Alignment
+*/
