@@ -68,7 +68,7 @@ h6 {
    MAIN NAV COMPONENT
 ------------------------------------------------------------*/
 nav {
-   position:relative;
+   position:var(--nav_position);
    position:-webkit-sticky;
    position:sticky;
    top:0;
@@ -148,9 +148,7 @@ nav ul.menu {
    color:black;
    background-color:white;   
    
-   /* to do : set this to toggle-bar / nav-bar height custom prop */
-   padding-top:5rem;
-
+   padding-top:var(--nav_bar_height);
    border-bottom:none;
    
    -webkit-transform:translateY(-100vh);
@@ -556,7 +554,6 @@ section.title_lead_block > * {
    padding-top:0.25rem;
    padding-bottom:0.25rem;
 }
-/* to do : utility classes across components: 'align_left' etc   cf darken_img */
 section.title_lead_block.align_left {text-align:left;}
 section.title_lead_block.align_right {text-align:right;}
 
@@ -682,7 +679,6 @@ section.feature_block {
    margin:var(--feature_block_y_margin) 0 var(--feature_block_y_margin) 0;
 }
 /* text overlay */
-   /* to do : give default in-case user forgets to add specific class - rollout - we know div will be.. */
 section.feature_block > div,
 section.feature_block > div.feature_text {      
    display:-webkit-box;
@@ -692,8 +688,8 @@ section.feature_block > div.feature_text {
    -webkit-box-direction:normal;
    -ms-flex-direction:column;
    flex-direction:column;
-   -ms-flex-pack:distribute;
-   justify-content:space-around;
+   /* -ms-flex-pack:distribute;
+   justify-content:space-around; */
    -webkit-box-align:start;
    -ms-flex-align:start;
    align-items:flex-start;
@@ -704,6 +700,10 @@ section.feature_block > div.feature_text {
    /* stack */
    order:2;
 }
+section.feature_block *.align_start {
+   margin-left:0;
+   margin-right:auto;
+}
 section.feature_block img {
    min-width:50%;
    /* stack */
@@ -713,7 +713,7 @@ section.feature_block p {
    margin:auto 0 auto 0;
    font-size:1.1rem;
 }
-section.feature_block p.lg_text {font-size:1.5rem;}
+section.feature_block p.text_lg {font-size:1.5rem;}
 section.feature_block > div > *:not(button) {
    margin:0;
    padding:0;
@@ -724,8 +724,6 @@ section.feature_block.reverse_order {
    -ms-flex-direction:column-reverse;
    flex-direction:column-reverse;
 }
-
-/*  to do : review this : */
 /* feature block with no img - we assign title on left (1st child) , text & button (any other) on right */
 section.feature_block > div:only-child {
    display:grid;
@@ -799,8 +797,11 @@ section.feature_tiles > ul > li {
    -ms-flex-direction:column;
    flex-direction:column;
 
+   gap:.5rem;
+
    /* we don't want images to lose aspect ratio */
    width:100%;
+   height:fit-content;
    margin:0;
    padding:1rem;
    overflow-x:hidden;
@@ -822,7 +823,12 @@ section.feature_tiles h6 {
    width:fit-content;
    align-self:center;
    text-align:left;
-   margin:2rem auto 0 auto;
+   margin:0 auto 0 auto;
+}
+
+section.feature_tiles *.align_start {
+   margin-left:0;
+   margin-right:auto;
 }
 
 section.feature_tiles  > ul > li > img {
@@ -834,11 +840,12 @@ section.feature_tiles  > ul > li > img {
    /* since we rely on hiding x-overflow for image aspect-ratio, we can't show img right-side border effect  
    - future : rounded border on imgs - use wrapper div?
    border-radius:.25rem; */
-      border-radius:.25rem;
+   border-radius:.25rem;
 }
 section.feature_tiles > ul > li > h5 {
-   padding-top:1rem;
+   padding-top:0;
    padding-bottom:0;
+   margin-bottom:0;
 }
 
 section.feature_tiles > ul > li > h4 {
@@ -850,8 +857,9 @@ section.feature_tiles > ul > li > h4 {
 }
 section.feature_tiles > ul > li > p {
    padding-top:0;
+   margin-top:0;
 }
-section.feature_tiles > ul > li > div:not(.te_button) {  /* to do : replace .te_button */
+section.feature_tiles > ul > li > div:not(button) {
    position:relative;
    z-index:300;
    width:94%;
@@ -859,8 +867,6 @@ section.feature_tiles > ul > li > div:not(.te_button) {  /* to do : replace .te_
    margin-top:-30px;
    background:white;
    padding:0 1.5rem 1rem 1.5rem;
-   /* border:solid 1px lightgrey;
-   border-radius:.25rem; */
 }
 section.feature_tiles p {
    align-self:center;
@@ -874,11 +880,9 @@ section.feature_tiles a {
 }
 section.feature_tiles > ul > li > button {
    align-self:center;
-   margin-top:auto;
-   margin-bottom:1rem;
+   margin-top:1rem;
+   margin-bottom:.5rem;
 }
-
-
 @media screen and (min-width: 660px) {   
    section.feature_tiles {
       width:100%; 
@@ -901,8 +905,8 @@ section.feature_tiles > ul > li > button {
       min-width:calc(50% - var(--feature_tiles_gap));
       max-width:calc(50% - var(--feature_tiles_gap));
 
-      /* to do : if we want to 'center' items on less-than-full row */
-      /* margin-left:auto;
+      /* if we want to 'center' items on less-than-full row
+      margin-left:auto;
       margin-right:auto; */
    }
 
@@ -937,8 +941,8 @@ section.feature_tiles > ul > li > button {
       min-width:calc(33.3% - var(--feature_tiles_gap));
       max-width:calc(33.3% - var(--feature_tiles_gap));
       
-      /* to do : if we want to 'center' items on less-than-full row */
-      /* margin-left:auto;
+      /* if we want to 'center' items on less-than-full row
+      margin-left:auto;
       margin-right:auto; */
    }
 
@@ -1003,6 +1007,10 @@ section.cover_block:has(div) {
 section.cover_block p {
    margin:auto 0 auto 0;
    font-size:1.2rem;
+}
+section.cover_block *.align_start {
+   margin-left:0;
+   margin-right:auto;
 }
 section.cover_block .bg_img {
    position:absolute;
