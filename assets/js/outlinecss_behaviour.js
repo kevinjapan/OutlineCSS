@@ -93,6 +93,8 @@ const init_nav_scroll_listener = () => {
 init_fade_ins()
 init_nav_scroll_listener()
 
+console.log('got inside time to go, time to go away')
+
 //
 // toggle sm/mobile menu
 //
