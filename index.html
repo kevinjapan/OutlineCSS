@@ -9,6 +9,10 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>OutlineCSS</title>
+   
+   <link rel="icon" href="./assets/imgs/site_icon.png" sizes="32x32" />
+   <link rel="apple-touch-icon" href="./assets/imgs/site_icon.png" />
+   <meta name="msapplication-TileImage" content="./assets/imgs/site_icon.png" />
 
    <!-- 
       the 'generic' css for all 'outlinecss' deployments.
@@ -30,13 +34,13 @@
 
 
 <body>
-      
 
    <nav class="nav">
       
       <div class="logo_block">
-         <a href="/index.html" style="text-decoration:none;">
-            <a href="/index.html" class="custom_logo_link" rel="home" aria-current="page">Outline CSS</a>
+         <a href="/index.html" class="custom_logo_link" rel="home" aria-current="page" style="text-decoration:none;">
+            <img src="./assets/imgs/site_icon.png" style="width:32px;"/>
+            Outline CSS
          </a>
       </div>
 
@@ -83,7 +87,7 @@
                </a>
             <ul class="sub-menu">
                <li class="menu-item"><a href="/pages/about.html">About</a></li>
-               <li class="menu-item"><a href="/pages/outlinecss_faqs.html">FAQs</a></li>
+               <!--<li class="menu-item"><a href="/pages/outlinecss_faqs.html">FAQs</a></li>-->
             </ul>
             </li>
 
@@ -104,58 +108,66 @@
        -->
        <section class="feature_block bg_white mt_2 fade_in">
          <div class="feature_text">
-            <h1>Outline CSS</h1>
-            <p class="lg_text">Off-the-shelf open-source CSS components.</p>
-            <button>Find out more ></button>
+            <h1>deploy common components rapidly</h1>
+            <p>
+               Outline CSS maps common UI components found on most websites
+               to the <span class="bold">&lt;section&gt;</span> HTML element,
+               and repeating sub-components to the <span class="bold">&lt;ul&gt;</span>
+               element - providing a simple, 
+               consistent framework.
+            </p>
+            <button>
+               <a href="https://github.com/kevinjapan/OutlineCSS" target="_blank">Download From GitHub</a>
+            </button>
          </div>
          <img src="../assets/imgs/susan-q-yin-2JIvboGLeho-unsplash.jpg" />
       </section>
 
 
-      <section class="feature_tiles bg_white fade_in">
-         <h3>Components</h3>
+      <section class="feature_tiles bg_white fade_in mt_4">
+         <h3 id="#components">Components</h3>
          <ul>
             <li>
                <img src="../assets/imgs/animated_tiles.jpg" />
                <h5>Animated Tiles</h5>
-               <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus recusandae ratione quo inventore distinctio!<p> -->
-               <button><a href="/pages/animated_tiles.html">Explore</a></button>
+               <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus recusandae ratione quo inventore distinctio!</p> -->
+               <button><a href="/pages/animated_tiles.html">Read More</a></button>
             </li>
             <li>
                <img src="../assets/imgs/cover_block.jpg" />
                <h5>Cover Block</h5>
-               <!-- <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem eveniet sit unde.<p> -->
-               <button><a href="/pages/cover_block.html">Explore</a></button>
+               <!-- <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem eveniet sit unde.</p> -->
+               <button><a href="/pages/cover_block.html">Read More</a></button>
             </li>
             <li>
                <img src="../assets/imgs/faqs_block.jpg" />
                <h5>FAQs Block</h5>
-               <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima.<p> -->
-               <button><a href="/pages/faqs_block.html">Explore</a></button>
+               <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima.</p> -->
+               <button><a href="/pages/faqs_block.html">Read More</a></button>
             </li>
             <li>
                <img src="../assets/imgs/feature_block.jpg" />
                <h5>Feature Block</h5>
-               <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus recusandae ratione quo inventore distinctio!<p> -->
-               <button><a href="/pages/feature_block.html">Explore</a></button>
+               <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus recusandae ratione quo inventore distinctio!</p> -->
+               <button><a href="/pages/feature_block.html">Read More</a></button>
             </li>
             <li>
                <img src="../assets/imgs/feature_tiles.jpg" />
                <h5>Feature Tiles</h5>
-               <!-- <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem eveniet sit unde.<p> -->
-               <button><a href="/pages/feature_tiles.html">Explore</a></button>
+               <!-- <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem eveniet sit unde.</p> -->
+               <button><a href="/pages/feature_tiles.html">Read More</a></button>
             </li>
             <!-- <li>
                <img src="../assets/imgs/gallery.jpg" />
                <h5>Gallery</h5>
-               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima.<p> 
-               <button><a href="/pages/gallery.html">Explore</a></button>
+               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima.</p> 
+               <button><a href="/pages/gallery.html">Read More</a></button>
             </li> -->
          </ul>
       </section>
    </main>
    
    <footer id="footer"></footer>
-   
+
 </body>
 </html>
