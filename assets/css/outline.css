@@ -11,7 +11,7 @@ Blaise Pascal, 17th Century French philosopher and mathematician.
 html {scroll-behavior: smooth;}
 
 /* 
-// SECTIONING ROOT
+   SECTIONING ROOT
 */
 body {
    font-size:var(--font-size);
@@ -21,20 +21,16 @@ body {
 }
 
 /* 
-// CONTENT SECTIONING
+   CONTENT SECTIONING
 */
 address,article,aside,header{
    margin:0;
 }
 
-
-
 header {
    min-width:100%;
    margin:0;
 }
-
-/* to do : bring in ideas/classes from WDA outline files */
 
 h1 {
    font-size:var(--h1-heading);
@@ -64,7 +60,7 @@ h6 {
 
 
 /* 
-// LISTS we utilize <ul> as main list organizer in <section> components 
+   LISTS we utilize <ul> as main list organizer in <section> components 
 */
 ul {
    width:100%;
@@ -74,7 +70,7 @@ ul {
 }
 
 /* 
-// PARAGRAPH
+   PARAGRAPH
 */
 p {
    width:min(100%,var(--paragraph_width));
@@ -89,7 +85,7 @@ pre {
 }
 
 /* 
-//   INLINE TEXT SEMANTICS
+   INLINE TEXT SEMANTICS
 */
 a {
    text-decoration:none;
@@ -119,7 +115,7 @@ pre code {
 }
 
 /* 
-//   IMG & MULTIMEDIA
+   IMG & MULTIMEDIA
 */
 /* img and multimedia */
 img {
@@ -127,8 +123,7 @@ img {
 }
 
 /* 
-//   FORM   - complete/prove on fe/move to outline-layouts?
-//   
+   FORM   - complete/prove on fe/move to outline-layouts? 
 */
 form {
    width:var(--paragraph_width);
@@ -166,8 +161,7 @@ form textarea {
 
 
 /* 
-//   BUTTON
-//   
+   BUTTON   
 */
 button {
    width:fit-content;
@@ -176,7 +170,7 @@ button {
    background:transparent;
    color:hsl(0, 0%, 60%);
    border:solid 1px hsl(0, 0%, 60%);
-   border-radius:5rem;
+   border-radius:.25rem;
    cursor:pointer;
    font-size:1.1rem;
 }
@@ -185,9 +179,7 @@ button:hover {
    color:hsl(0, 0%, 10%);
    border:solid 1px hsl(0, 0%, 10%);
 }
-/* 
-//    for blocks typically having darker bgs 
-*/
+/*  for blocks typically having darker bgs */
 section.cover_block button {
    color:hsl(0, 0%, 90%);
    border:solid 1px hsl(0, 0%, 90%);

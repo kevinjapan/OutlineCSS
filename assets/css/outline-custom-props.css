@@ -5,8 +5,7 @@
 :root {
 
    /*  
-   //   COLORS
-   //
+      Custom Props Color Schemes
    */
    --primary:  hsl(41, 44%, 57%);   /* #c2a361 */
    --secondary:hsl(64, 53%, 57%);   /* #c4cb57 */
@@ -14,7 +13,7 @@
    --dark:     hsl(206, 3%, 46%);   /* #727679 */
 
    /*
-   // primary colors - 1 - 4 brand colors
+   primary colors - 1 - 4 brand colors
    */
    --bg_primary:hsl(41, 44%, 57%);   /* #c2a361 */
    --bg_primary_text: white;
@@ -45,7 +44,7 @@
    --bg_dark_darker_text: white;
 
    /* 
-   // accent color - highlight components / cta's / links  - complement primary color
+   accent color - highlight components / cta's / links  - complement primary color
    */
    --bg_accent:hsl(50, 99%, 48%);
    --bg_accent_text:white;
@@ -55,8 +54,8 @@
    --bg_accent_darker_text:white;
 
    /* 
-   // neutral colors - 2 -3 - light to dark - w/ some tint - perhaps tint of brand color
-   // - these may match --bg_light and --bg_dark
+   neutral colors - 2 -3 - light to dark - w/ some tint - perhaps tint of brand color
+   - these may match --bg_light and --bg_dark
    */
    --neutral_1:hsl(220, 23%, 97%);     /* section background */
    --neutral_1_bg_darken: hsl(220, 23%, 92%);
@@ -67,7 +66,7 @@
    --neutral_2_bg_lighten:hsl(240, 100%, 95%); 
 
    /* 
-   // semantic colors - informative colors 
+   semantic colors - informative colors 
    */
    --bg_semantic_positive:hsl(120, 93%, 79%);     /* green  - positive */
    --bg_semantic_positive_text:white;
@@ -80,18 +79,16 @@
 
 
    /* 
-   // text colors 
+   text colors 
    */
-   --body_text_color:hsl(0, 0%, 10%);
-   --grey_text:lightgrey;
 
 
    /*  
-   //   FONTS
-   //
+      Text & Font Sizes
    */
-
    --font-size:18px;
+   --text_lg:2rem;
+   --text_sm:.92rem;
 
    /* Sans-serif */
    --font_family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
@@ -101,43 +98,36 @@
    
    /* Mono */
    /* --font_family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace; */
-
-
+   
    --form_font_family: var(--font_family);   /* font inside form controls */
 
-   /*  
-   //   LAYOUTS
-   //
-   */
 
+   /*  
+      Text & Font Colors
+   */
+   --body_text_color:hsl(0, 0%, 10%);
+   --grey_text:lightgrey;
+
+   
+   /*  
+      Layouts
+   */
    --header_height:450px;
    --default_text_align: left;
    --logo_font_color:var(--primary_1);
    --logo_font_size:3rem;
-
    --hero_text_color:     white;
    --hero_text_width:100%;
-
    --overlay_text_align:left;
-
    --section_inline_padding:3rem;
-
-   /* page */
    --page_content_width:1100px;
-
-   /* logo */
    --logo_width:200px;
 
-   /* cover_block */
-   --cover_block_height:500px;
 
    /*  
-   //   NAVIGATION
-   //
+      Navigation
    */
-
-   /* nav behaviour  */
-   --nav_position:static;
+   --nav_position:relative;
 
    /* masthead - set height to 0 if absent */
    --masthead_height:0px;
@@ -165,8 +155,7 @@
 
 
    /*  
-   //   HEADINGS 
-   //
+      Headings 
    */
    --h1_size:4.5rem;
    --h2_weight:100;
@@ -194,14 +183,14 @@
 
 
    /*  
-   //   PARAGRAPHS 
+      Paragraphs 
    */
    --paragraph_width:50rem;
    --paragraph_padding:1rem;
 
 
    /*  
-   //   BUTTONS
+      Buttons
    */ 
    /* arrow_on_hover button inline text adjustment - fine-tune */
    --arrow_on_hover_inline_padding:.75rem 1.75rem;
@@ -211,7 +200,7 @@
 
 
    /*  
-   //   FOOTER
+      Footer
    */ 
    --footer_bg:var(--primary_1_bg_darken);
    --footer_color:white;
@@ -219,9 +208,20 @@
 
 
    /*  
-   //    Z-INDEX LAYERS     
-   //    0 - body     100 -       ...      800 - modal dlg      900 - navigation dropdown
-   //    -1 / 1  etc  inside local layers
+       Z-Index Layers    
+       0 - body     100 -       ...      800 - modal dlg      900 - navigation dropdown
+       -1 / 1  etc  inside local layers
    */ 
    
+
+
+
+   /*  
+      Components
+   */ 
+   
+   --cover_block_height:500px;
+   
+   --feature_tiles_gap:1rem;
+
 }
