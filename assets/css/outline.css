@@ -79,10 +79,6 @@ p {
    padding:.5rem;
    line-height:1.5rem;
 }
-pre {
-   padding:0;
-   text-align:left;
-}
 
 /* 
    INLINE TEXT SEMANTICS
@@ -96,9 +92,27 @@ a:hover {
 a:visited {
    text-decoration:none;
 }
-b,br,cite,code {
+b,br,cite {
    margin:0;
    padding:0;   
+}
+
+
+/* 
+   PRE, CODE
+*/
+pre {
+   padding:0;
+   text-align:left;
+}
+pre {
+   /* we prefer wrapping over scrolling in sm */
+   white-space:pre-wrap;
+   white-space:-moz-pre-wrap;
+   white-space:-pre-wrap;
+   white-space:-o-pre-wrap;
+   word-wrap:break-word;
+
 }
 code {
    margin:.5rem;
