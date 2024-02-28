@@ -194,9 +194,13 @@
    flex-wrap:nowrap;
    width:300px;
 }
-.align_items_center {
+.align_center {
    align-items:center;
 }
+.center_self {
+   align-self:center;
+}
+.justify_center {justify-content:center;}
 
 
 /* 
@@ -223,6 +227,9 @@ li.menu-item:has(a.with_dropdown_icon){
       display:block;
    }
 }
+
+.w_5  {width:5rem;}
+
 
 
 /* 
@@ -263,6 +270,7 @@ li.menu-item:has(a.with_dropdown_icon){
 */
 span.italic {font-style:italic;}
 span.bold   {font-weight:bold;}
+.text_center   {text-align:center;}
 
 /*
    Text & Font Colors
