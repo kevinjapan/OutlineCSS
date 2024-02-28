@@ -687,14 +687,10 @@ section.animated_tiles > ul > li:hover > button {
    two panel block - img on left, text on right (reversible) 
 ------------------------------------------------------------*/
 section.feature_block {
-   position:relative;
-   display:-webkit-box;
-   display:-ms-flexbox;
-   display:flex;
-   -webkit-box-orient:vertical;
-   -webkit-box-direction:normal;
-   -ms-flex-direction:column;
-   flex-direction:column;
+   display:-ms-grid;
+   display:grid;
+   -ms-grid-columns:1fr;
+   grid-template-columns:1fr;
    max-width:100%;
    margin:var(--feature_block_y_margin) 0 var(--feature_block_y_margin) 0;
 }
@@ -708,8 +704,6 @@ section.feature_block > div.feature_text {
    -webkit-box-direction:normal;
    -ms-flex-direction:column;
    flex-direction:column;
-   /* -ms-flex-pack:distribute;
-   justify-content:space-around; */
    -webkit-box-align:start;
    -ms-flex-align:start;
    align-items:flex-start;
@@ -717,7 +711,7 @@ section.feature_block > div.feature_text {
    min-width:50%;
    padding:2rem;
    
-   /* stack */
+   /* stack in sm */
    order:2;
 }
 section.feature_block *.align_start {
@@ -725,8 +719,8 @@ section.feature_block *.align_start {
    margin-right:auto;
 }
 section.feature_block img {
-   min-width:50%;
-   /* stack */
+   width:100%;
+   /* stack in sm */
    order:1;
 }
 section.feature_block div.feature_text > h1 {margin-bottom:0.5rem;}
@@ -734,7 +728,9 @@ section.feature_block p {
    margin:auto 0 auto 0;
    font-size:1.1rem;
 }
-section.feature_block p.text_lg {font-size:1.5rem;}
+section.feature_block p.text_lg {
+   font-size:1.5rem;
+}
 section.feature_block > div > *:not(button) {
    margin:0;
    padding:0;
@@ -745,7 +741,8 @@ section.feature_block.reverse_order {
    -ms-flex-direction:column-reverse;
    flex-direction:column-reverse;
 }
-/* feature block with no img - we assign title on left (1st child) , text & button (any other) on right */
+/* feature block with no img - we assign title (1st child) on left, 
+   text & button (any other) on right */
 section.feature_block > div:only-child {
    display:grid;
    grid-template-columns:1fr;
@@ -758,14 +755,10 @@ section.feature_block > div:only-child > *:first-child  {grid-area:title;}
 section.feature_block > div:only-child > *:nth-child(2) {grid-area:text;}
 section.feature_block > div:only-child > *:nth-child(3) {grid-area:buttons;}
 
-@media screen and (min-width: 768px) {
-
+@media screen and (min-width: 910px) {
    section.feature_block {
-      -webkit-box-orient:horizontal;
-      -webkit-box-direction:normal;
-      -ms-flex-direction:row;
-      flex-direction:row;
-      max-width:100%;
+      -ms-grid-columns:1fr 1fr;
+      grid-template-columns:1fr 1fr;
    }
    section.feature_block.reverse_order {
       flex-direction:row-reverse;
@@ -775,7 +768,7 @@ section.feature_block > div:only-child > *:nth-child(3) {grid-area:buttons;}
       order:unset;
    }
    section.feature_block img {
-      width:50%;
+      width:100%;
       order:unset;
    }
    /* feature block with no img - we assign title on left (1st child) , text & button (any other) on right */
@@ -786,6 +779,7 @@ section.feature_block > div:only-child > *:nth-child(3) {grid-area:buttons;}
          "title buttons";
    }
 }
+
 
 
 /* ---------------------------------------------------------
