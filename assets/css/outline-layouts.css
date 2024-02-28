@@ -299,14 +299,14 @@ nav ul.nav_list > li {
 nav ul.menu > li > a  {
    position:relative;
    display:block;
-   margin:0 auto 0 auto;
-   margin-top:1rem;
+   margin:.5rem;
+   margin-left:5rem;
    padding:.5rem;
    padding-top:.5rem;
    padding-bottom:.5rem;
    color:black;
    background-color:white;
-
+   font-size:1.5rem;
 }
 
 /* toggle sm/mobile nav dropdown */
@@ -435,7 +435,12 @@ we support from 1045px determined by four cols of reasonable text in dropdown
       margin-left:0;
    }  
 
-   nav a    {
+   nav ul.menu > li > a {
+      margin:0 auto 0 auto;
+      margin-top:1rem;
+      font-size:var(--nav_font_size);
+   }
+   nav a {
       font-size:var(--nav_font_size);
    }
    /* 
@@ -879,9 +884,6 @@ section.feature_tiles > ul > li > button {
    margin-bottom:.5rem;
 }
 @media screen and (min-width: 660px) {   
-   section.feature_tiles {
-      width:100%; 
-   }
    section.feature_tiles > ul {
       -ms-grid-columns:1fr 1fr;
       grid-template-columns:1fr 1fr;
