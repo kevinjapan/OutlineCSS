@@ -86,7 +86,11 @@ nav {
    margin:0;
    height:var(--nav_bar_height);
    background-color:white;
-   transition:transform .6s ease-in;         
+   -webkit-transition:-webkit-transform .6s ease-in;
+   transition:-webkit-transform .6s ease-in;
+   -o-transition:transform .6s ease-in;
+   transition:transform .6s ease-in;
+   transition:transform .6s ease-in, -webkit-transform .6s ease-in;   
 
 }
 
@@ -175,7 +179,11 @@ nav ul.menu {
    -ms-transform:translateY(-100vh);
    transform:translateY(-100vh);
    opacity:0;
+   -webkit-transition:opacity 3s ease-in-out,-webkit-transform .5s ease-in-out;
+   transition:opacity 3s ease-in-out,-webkit-transform .5s ease-in-out;
+   -o-transition:transform .5s ease-in-out,opacity 3s ease-in-out;
    transition:transform .5s ease-in-out,opacity 3s ease-in-out;
+   transition:transform .5s ease-in-out,opacity 3s ease-in-out,-webkit-transform .5s ease-in-out; 
 }
 
 /* mobile menu toggle */
@@ -247,6 +255,8 @@ nav div.nav_toggle .toggle_bar {
    -webkit-transform:rotate(0);
    -ms-transform:rotate(0);
    transform:rotate(0deg);
+   -webkit-transition:.5s ease-in-out;
+   -o-transition:.5s ease-in-out;
    transition:.5s ease-in-out;
 }
 nav div.nav_toggle .toggle_bar:nth-child(3) {
@@ -259,7 +269,13 @@ future : the toggle appears small (as does nav bar height) in mobile emulator
 */
 
 nav div.nav_toggle .toggle_bar:nth-child(1) {top:15px;}
-nav div.nav_toggle .toggle_bar:nth-child(2) {top:30px;opacity:1;transition:.5s ease-in-out;left:0;width:100%;}
+nav div.nav_toggle .toggle_bar:nth-child(2) {
+   top:30px;opacity:1;
+   -webkit-transition:.5s ease-in-out;
+   -o-transition:.5s ease-in-out;
+   transition:.5s ease-in-out;
+   left:0;width:100%;
+}
 nav div.nav_toggle .toggle_bar:nth-child(3) {top:45px;}
 
 /* on open dropdown */
@@ -268,20 +284,26 @@ nav div.nav_toggle.selected_toggle .toggle_bar:nth-child(1) {
    -webkit-transform:rotate(135deg);
    -ms-transform:rotate(135deg);
    transform:rotate(135deg);
-   transition:.25s ease-in-out;
+   -webkit-transition:.25s ease-in-out;
+   -o-transition:.25s ease-in-out;
+   transition:.25s ease-in-out; 
 }
 nav div.nav_toggle.selected_toggle .toggle_bar:nth-child(2) {
    opacity:0;
    left:30px;
    width:0;
-   transition:.5s ease-in-out;
+   -webkit-transition:.5s ease-in-out;
+   -o-transition:.5s ease-in-out;
+   transition:.5s ease-in-out; 
 }
 nav div.nav_toggle.selected_toggle .toggle_bar:nth-child(3) {
    top:30px;
    -webkit-transform:rotate(-135deg);
    -ms-transform:rotate(-135deg);
    transform:rotate(-135deg);
-   transition:.25s ease-in-out;
+   -webkit-transition:.25s ease-in-out;
+   -o-transition:.25s ease-in-out;
+   transition:.25s ease-in-out; 
 }
 /* we hide all submenu dropdowns on mobile */
 nav ul.menu li ul,
@@ -314,8 +336,12 @@ nav ul.menu.extended_nav_dropdown {
    -webkit-transform:translateY(100vh);
    -ms-transform:translateY(100vh);
    transform:translateY(100vh);
-   opacity:1;
+   opacity:1;   
+   -webkit-transition:opacity .5s ease-in-out,-webkit-transform .5s ease-in-out;
+   transition:opacity .5s ease-in-out,-webkit-transform .5s ease-in-out;
+   -o-transition:transform .5s ease-in-out,opacity .5s ease-in-out;
    transition:transform .5s ease-in-out,opacity .5s ease-in-out;
+   transition:transform .5s ease-in-out,opacity .5s ease-in-out,-webkit-transform .5s ease-in-out; 
 }
 
 /* maintain <a> spacing on transitions */
@@ -358,6 +384,8 @@ we support from 1045px determined by four cols of reasonable text in dropdown
    nav ul.menu, nav ul.menu > li > a, nav ul.menu.extended_nav_dropdown {
       transform:unset;
       opacity:1;
+      -webkit-transition:none;
+      -o-transition:none;
       transition:none;
    }
    
@@ -421,6 +449,8 @@ we support from 1045px determined by four cols of reasonable text in dropdown
 
       transform:unset;
       opacity:1;
+      -webkit-transition:none;
+      -o-transition:none;
       transition:none;
    }
    /* reset from mobile */
@@ -431,6 +461,8 @@ we support from 1045px determined by four cols of reasonable text in dropdown
    nav ul.menu:hover > li > a {
       transform:unset;
       opacity:1;
+      -webkit-transition:none;
+      -o-transition:none;
       transition:none;
       margin-left:0;
    }  
@@ -457,6 +489,7 @@ we support from 1045px determined by four cols of reasonable text in dropdown
       -ms-flex-direction:column;
       flex-direction:column;
 
+      -ms-flex-wrap:wrap;
       flex-wrap:wrap;
 
       -webkit-box-pack:justify;
@@ -464,6 +497,8 @@ we support from 1045px determined by four cols of reasonable text in dropdown
       justify-content:space-between;
 
       /* for */
+      -webkit-box-align:var(--align_items_lg_dropdown);
+      -ms-flex-align:var(--align_items_lg_dropdown);
       align-items:var(--align_items_lg_dropdown);
 
 
@@ -520,6 +555,7 @@ we support from 1045px determined by four cols of reasonable text in dropdown
 
       gap:.25rem;
 
+      -ms-flex-wrap:wrap;
       flex-wrap:wrap;
 
       max-width:100%;
@@ -531,7 +567,11 @@ we support from 1045px determined by four cols of reasonable text in dropdown
       transform:translateY(-100%);
       opacity:0;
       border-bottom:solid 3px transparent;
+      -webkit-transition:opacity 3s ease-in-out .25s,border .25s ease-in-out,-webkit-transform .6s ease-in-out .25s;
+      transition:opacity 3s ease-in-out .25s,border .25s ease-in-out,-webkit-transform .6s ease-in-out .25s;
+      -o-transition:transform .6s ease-in-out .25s,opacity 3s ease-in-out .25s,border .25s ease-in-out;
       transition:transform .6s ease-in-out .25s,opacity 3s ease-in-out .25s,border .25s ease-in-out;
+      transition:transform .6s ease-in-out .25s,opacity 3s ease-in-out .25s,border .25s ease-in-out,-webkit-transform .6s ease-in-out .25s;
       
       color:var(--nav_dropdown_color);
       background:var(--nav_dropdown_bg);
@@ -547,7 +587,11 @@ we support from 1045px determined by four cols of reasonable text in dropdown
       transform:translateY(var(--nav_bar_height));
       opacity:1;
       border-bottom:solid 3px hsl(0, 0%, 96%);
+      -webkit-transition:opacity .5s ease-in-out,border .1s ease-in-out,-webkit-transform .75s ease-in-out;
+      transition:opacity .5s ease-in-out,border .1s ease-in-out,-webkit-transform .75s ease-in-out;
+      -o-transition:transform .75s ease-in-out,opacity .5s ease-in-out,border .1s ease-in-out;
       transition:transform .75s ease-in-out,opacity .5s ease-in-out,border .1s ease-in-out;
+      transition:transform .75s ease-in-out,opacity .5s ease-in-out,border .1s ease-in-out,-webkit-transform .75s ease-in-out;
    }
 }
 
@@ -585,6 +629,7 @@ section.gallery {
    padding:3rem 1rem;
 }
 section.gallery > ul {
+   display:-ms-grid;
    display:grid;
    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
    gap:1rem;
@@ -599,6 +644,7 @@ section.gallery li > img {
    section.animated_tiles 
 ------------------------------------------------------------*/
 section.animated_tiles > ul {
+   display:-ms-grid;
    display:grid;
    grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
    gap:0;
@@ -657,26 +703,40 @@ section.animated_tiles > ul > li > img {
    z-index:1;
    width:100%;
    height:100%;
+   -webkit-transform:scale(1.01);
+   -ms-transform:scale(1.01);
    transform:scale(1.01);  /* prevents sizing flicker on transform */
+   -webkit-transition:1s;
+   -o-transition:1s;
    transition:1s;
 }
 section.animated_tiles > ul > li:hover > img {
+   -webkit-transform:scale(1.2);
+   -ms-transform:scale(1.2);
    transform:scale(1.2);
+   -webkit-transition:1s;
+   -o-transition:1s;
    transition:1s; 
 }
 section.animated_tiles p {
    font-size:1.3rem;
    text-align:center;
    opacity:0;
+   -webkit-transition:opacity .5s ease-in-out;
+   -o-transition:opacity .5s ease-in-out;
    transition:opacity .5s ease-in-out;
 }
 section.animated_tiles button {
    opacity:0;
+   -webkit-transition:opacity .5s ease-in-out;
+   -o-transition:opacity .5s ease-in-out;
    transition:opacity .5s ease-in-out;
 }
 section.animated_tiles > ul > li:hover > p,
 section.animated_tiles > ul > li:hover > button {
    opacity:1;
+   -webkit-transition:opacity .5s ease-in-out;
+   -o-transition:opacity .5s ease-in-out;
    transition:opacity .5s ease-in-out;
 }
 
@@ -692,7 +752,7 @@ section.feature_block {
    -ms-grid-columns:1fr;
    grid-template-columns:1fr;
    max-width:100%;
-   margin:var(--feature_block_y_margin) 0 var(--feature_block_y_margin) 0;
+   margin:var(--feature_block_y_margin);
 }
 /* text overlay */
 section.feature_block > div,
@@ -712,6 +772,7 @@ section.feature_block > div.feature_text {
    padding:2rem;
    
    /* stack in sm */
+   -ms-flex-order:2;
    order:2;
 }
 section.feature_block *.align_start {
@@ -720,7 +781,9 @@ section.feature_block *.align_start {
 }
 section.feature_block img {
    width:100%;
+
    /* stack in sm */
+   -ms-flex-order:1;
    order:1;
 }
 section.feature_block div.feature_text > h1 {margin-bottom:0.5rem;}
@@ -744,7 +807,9 @@ section.feature_block.reverse_order {
 /* feature block with no img - we assign title (1st child) on left, 
    text & button (any other) on right */
 section.feature_block > div:only-child {
+   display:-ms-grid;
    display:grid;
+   -ms-grid-columns:1fr;
    grid-template-columns:1fr;
    grid-template-areas:
       "title"
@@ -761,18 +826,21 @@ section.feature_block > div:only-child > *:nth-child(3) {grid-area:buttons;}
       grid-template-columns:1fr 1fr;
    }
    section.feature_block.reverse_order {
+      -webkit-box-orient:horizontal;
+      -webkit-box-direction:reverse;
+      -ms-flex-direction:row-reverse;
       flex-direction:row-reverse;
    }
    section.feature_block > div,
-   section.feature_block > div.feature_text {
-      order:unset;
-   }
+   section.feature_block > div.feature_text,
    section.feature_block img {
-      width:100%;
+      -webkit-box-ordinal-group:unset;
+      -ms-flex-order:unset;
       order:unset;
    }
    /* feature block with no img - we assign title on left (1st child) , text & button (any other) on right */
    section.feature_block > div:only-child {
+      -ms-grid-columns:1fr 1fr;
       grid-template-columns:1fr 1fr;
       grid-template-areas:
          "title text"
@@ -951,6 +1019,7 @@ section.cover_block .bg_img {
    left:0;
    z-index:-1;
    width:100%;
+   -o-object-fit:cover;
    object-fit:cover; 
    background-attachment:fixed;
    background-position:bottom;
@@ -999,10 +1068,14 @@ section.faqs_block > ul > li *:nth-child(2) {
    width:100%;
    max-height:0;  /* we use max-height to enable since it needs to calc transition */
    overflow:hidden;
+   -webkit-transition:max-height .35s ease-in-out;
+   -o-transition:max-height .35s ease-in-out;
    transition:max-height .35s ease-in-out; 
 }
 section.faqs_block > ul > li *:nth-child(2).open_faq {
    max-height:200px;
+   -webkit-transition:max-height .35s ease-in-out .1s;
+   -o-transition:max-height .35s ease-in-out .1s;
    transition:max-height .35s ease-in-out .1s;
 }
 .faq_toggle {cursor:pointer;}
@@ -1021,7 +1094,9 @@ footer {
    background-color:var(--bg_dark_darker);
 }
 footer > ul:not(.footnote) {
+   display:-ms-grid;
    display:grid;
+   -ms-grid-columns:1fr;
    grid-template-columns:1fr;
 }
 footer ul.footnote   {
@@ -1034,7 +1109,9 @@ footer a {color:white;text-decoration:none;}
 
 @media screen and (min-width: 1045px) {
    footer > ul:not(.footnote) {
+      display:-ms-grid;
       display:grid;
+      -ms-grid-columns:1fr 1fr 1fr;
       grid-template-columns:1fr 1fr 1fr;
       grid-template-areas:
          "footer_left footer_middle footer_right "

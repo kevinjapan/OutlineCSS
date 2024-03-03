@@ -148,7 +148,9 @@ form {
 }
 /* row */
 form > div {
+   display:-ms-grid;
    display:grid;
+   -ms-grid-columns:1fr 4fr;
    grid-template-columns:1fr 4fr;
    gap:.5rem;
    margin:1rem 1.5rem 1rem 1rem;
