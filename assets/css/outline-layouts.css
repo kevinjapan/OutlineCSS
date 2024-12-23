@@ -1,4 +1,19 @@
+/* outline css 
+"I have made this letter longer than usual, only because I have not had time to make it shorter"
+Blaise Pascal, 17th Century French philosopher and mathematician.
+*/
 /* outline css - layout */
+/* 
+to do : reduce footprint of Outline CSS and shrink to a single css file
+this file @ 23 Dec 2024 : 1120 lines     
+totals:
+-layouts.css   : 1120
+-props.css     :  225  
+-utilities     :  315  
+outline.css    :  210
+                 ----
+total @ 23 Dec : 1870 lines
+*/
 
 /* 
    Block layouts 
@@ -64,117 +79,63 @@ h6 {
 
 
 
-/* ---------------------------------------------------------
-   MAIN NAV COMPONENT
-------------------------------------------------------------*/
+
+/* main nav component : sm/mobile nav */
 nav {
-   position:var(--nav_position);
    position:-webkit-sticky;
    position:sticky;
    top:0;
    z-index:500;
-   
    display:-webkit-box;
    display:-ms-flexbox;
    display:flex;
    -webkit-box-align:center;
    -ms-flex-align:center;
    align-items:center;
-   gap:0;
-
-   width:100%;
-   margin:0;
    height:var(--nav_bar_height);
    background-color:white;
    -webkit-transition:-webkit-transform .6s ease-in;
    transition:-webkit-transform .6s ease-in;
    -o-transition:transform .6s ease-in;
    transition:transform .6s ease-in;
-   transition:transform .6s ease-in, -webkit-transform .6s ease-in;   
-
+   transition:transform .6s ease-in, -webkit-transform .6s ease-in;
 }
-
-nav div.logo_block    {
-   position:relative;
+/* logo_block covers sm navbar except hamburger - overlay in front of descending dropdown */
+nav div.logo_block {
    z-index:50;
-   
-   display:-webkit-box;
-   display:-ms-flexbox;
-   display:flex;   
-   -webkit-box-align:center;
-   -ms-flex-align:center;
-   align-items:center;
-   -webkit-box-flex:2;
-   -ms-flex-positive:2;
-   flex-grow:2;
-
-   gap:1rem;
-
-   height:var(--nav_bar_height);
-
-   color:black;
-   background-color:white;
-   font-size:1.2rem;
-}
-a.custom_logo_link {    
-
    display:-webkit-box;
    display:-ms-flexbox;
    display:flex;
-   
-   -webkit-box-pack:justify;
-   -ms-flex-pack:justify;
-   justify-content:space-between;
+   -webkit-box-flex:2;
+   -ms-flex-positive:2;
+   flex-grow:2;
+   height:var(--nav_bar_height);
+   background:white;
+}
+a.custom_logo_link {    
+   display:-webkit-box;
+   display:-ms-flexbox;
+   display:flex;
    -webkit-box-align:center;
    -ms-flex-align:center;
    align-items:center;
-   gap:1rem;
-
    color:black;
    font-size:2rem;
-   font-weight:400;
 }
-
-nav ul   {
-   list-style:none;
-}
-nav li * {
-   padding-top:0;padding-bottom:0;
-}
-
-nav a    {
+nav a {
    font-size:var(--nav_font_size);
-   cursor:pointer;
-   color:blue;
-   white-space:nowrap;
    margin-left:1rem;
+   color:black;
 }
-
+/* top level nav items - as dropdown in sm/mobile */
 nav ul.menu {
    position:absolute;
    z-index:2;
-   top:-100vh;   /* default - dropdown is hidden */
+   top:-100vh;   /* default - dropdown is hidden - only hamburger visible*/
    left:0;
-   width:100%;
-   height:100vh;
-   
-   -ms-flex-item-align:start;
-   align-self:flex-start;
-
-   -webkit-box-orient:vertical;
-   -webkit-box-direction:normal;
-   -ms-flex-direction:column;
-   flex-direction:column;
-
-   gap:0;
-   
-   padding:1rem 0 1rem 0;
-   color:black;
-   background-color:white;   
-   
-   padding-top:var(--nav_bar_height);
-   border-bottom:none;
-   
+   height:100vh;   
+   padding:var(--nav_bar_height) 0 1rem 0;
+   background-color:white;
    -webkit-transform:translateY(-100vh);
    -ms-transform:translateY(-100vh);
    transform:translateY(-100vh);
@@ -185,73 +146,25 @@ nav ul.menu {
    transition:transform .5s ease-in-out,opacity 3s ease-in-out;
    transition:transform .5s ease-in-out,opacity 3s ease-in-out,-webkit-transform .5s ease-in-out; 
 }
-
-/* mobile menu toggle */
+/* mobile menu toggle - rotating toggle_bars */
 nav > div.nav_toggle_wrap {
-   display:-webkit-box;
-   display:-ms-flexbox;
-   display:flex;
-
-   -webkit-box-orient:vertical;
-   -webkit-box-direction:normal;
-   -ms-flex-direction:column;
-   flex-direction:column;
-   
-   -webkit-box-pack:center;
-   -ms-flex-pack:center;
-   justify-content:center;
-
-   -webkit-box-align:center;
-   -ms-flex-align:center;
-   align-items:center;
-
    width:60px;
-   height:100%;
-   margin:0;
-   padding-right:1rem;
-   padding-left:0;
-   border:none;
-   /* background-color:var(--bg_primary); */
+   padding:0 1rem 0 0;
 }
 nav div.nav_toggle {
    position:relative;
    z-index:3;
-
-   display:-webkit-box;
-   display:-ms-flexbox;
-   display:flex;
-
-   -webkit-box-orient:vertical;
-   -webkit-box-direction:normal;
-   -ms-flex-direction:column;
-   flex-direction:column;
-   
-   -webkit-box-pack:center;
-   -ms-flex-pack:center;
-   justify-content:center;
-
-   -webkit-box-align:center;
-   -ms-flex-align:center;
-   align-items:center;
-
-   padding:0;
    width:100%;
    height:60px;
-   background-color:white;
    cursor:pointer;
 }
 nav div.nav_toggle .toggle_bar {
-
    position:absolute;
    top:0;
-
-   display:block;
    width:100%;
    height:5px;
    margin-bottom:5px;
-   background:white;
    background:black;
-
    -webkit-transform:rotate(0);
    -ms-transform:rotate(0);
    transform:rotate(0deg);
@@ -259,80 +172,43 @@ nav div.nav_toggle .toggle_bar {
    -o-transition:.5s ease-in-out;
    transition:.5s ease-in-out;
 }
-nav div.nav_toggle .toggle_bar:nth-child(3) {
-   margin:0;
-}
-
-/* 
-future : the toggle appears small (as does nav bar height) in mobile emulator
-         need to test in actual mobile and adjust as required.
-*/
-
 nav div.nav_toggle .toggle_bar:nth-child(1) {top:15px;}
 nav div.nav_toggle .toggle_bar:nth-child(2) {
-   top:30px;opacity:1;
-   -webkit-transition:.5s ease-in-out;
-   -o-transition:.5s ease-in-out;
-   transition:.5s ease-in-out;
-   left:0;width:100%;
+   top:30px;
+   left:0;
+   opacity:1;
 }
 nav div.nav_toggle .toggle_bar:nth-child(3) {top:45px;}
-
-/* on open dropdown */
+nav div.nav_toggle.selected_toggle {
+   -webkit-transition:.25s ease-in-out;
+   -o-transition:.25s ease-in-out;
+   transition:.25s ease-in-out; 
+}
 nav div.nav_toggle.selected_toggle .toggle_bar:nth-child(1) {
    top:30px;
    -webkit-transform:rotate(135deg);
    -ms-transform:rotate(135deg);
    transform:rotate(135deg);
-   -webkit-transition:.25s ease-in-out;
-   -o-transition:.25s ease-in-out;
-   transition:.25s ease-in-out; 
 }
 nav div.nav_toggle.selected_toggle .toggle_bar:nth-child(2) {
-   opacity:0;
-   left:30px;
+   left:20px;
    width:0;
-   -webkit-transition:.5s ease-in-out;
-   -o-transition:.5s ease-in-out;
-   transition:.5s ease-in-out; 
+   opacity:0;
 }
 nav div.nav_toggle.selected_toggle .toggle_bar:nth-child(3) {
    top:30px;
    -webkit-transform:rotate(-135deg);
    -ms-transform:rotate(-135deg);
    transform:rotate(-135deg);
-   -webkit-transition:.25s ease-in-out;
-   -o-transition:.25s ease-in-out;
-   transition:.25s ease-in-out; 
 }
-/* we hide all submenu dropdowns on mobile */
-nav ul.menu li ul,
-nav ul.menu li a  {
-   display:none;
-   text-decoration:none;
-   padding-left:2rem;
-   padding-right:2rem;
-}
-
-nav ul.nav_list > li {
-   text-align:center;
-}
-/* then restore the top level label links */
-nav ul.menu > li > a  {
-   position:relative;
-   display:block;
-   margin:.5rem;
-   margin-left:5rem;
-   padding:.5rem;
-   padding-top:.5rem;
-   padding-bottom:.5rem;
-   color:black;
-   background-color:white;
+/* we hide all submenu dropdowns on mobile.. */
+nav ul.menu li ul {display:none;}
+/* ..then style the top level label links on sm/mobile dropdown */
+nav ul.menu > li > a {
+   margin:.5rem .5rem .5rem 5rem;
    font-size:1.5rem;
 }
-
-/* toggle sm/mobile nav dropdown */
-nav ul.menu.extended_nav_dropdown {
+nav ul.menu.extended_sm_nav_dropdown {
    -webkit-transform:translateY(100vh);
    -ms-transform:translateY(100vh);
    transform:translateY(100vh);
@@ -340,205 +216,80 @@ nav ul.menu.extended_nav_dropdown {
    -webkit-transition:opacity .5s ease-in-out,-webkit-transform .5s ease-in-out;
    transition:opacity .5s ease-in-out,-webkit-transform .5s ease-in-out;
    -o-transition:transform .5s ease-in-out,opacity .5s ease-in-out;
-   transition:transform .5s ease-in-out,opacity .5s ease-in-out;
    transition:transform .5s ease-in-out,opacity .5s ease-in-out,-webkit-transform .5s ease-in-out; 
 }
-
-/* maintain <a> spacing on transitions */
-nav ul.menu li ul li a {margin:1rem; }
-
-/* 
-mobile emulator nav links are too small - future : test in actual mobiles! 
-*/
+nav ul.menu li ul li a {margin:1rem;} /* important : maintains <a> spacing on transitions */
 @media screen and (hover: none) {
    nav ul.menu {
       gap:2rem;
       padding-top:5rem;
    }
-   nav a {
-      font-size:var(--mobile_nav_font_size);
-   }
+   nav a {font-size:var(--mobile_nav_font_size);}
 }
-
-/*  
-future : our nav currently does give access to all sub-menus - but 
-         there is some discrepancy in md/lg screens in touch/ipad - 
-         no hover means the dropdown only appears once you have clicked
-         on the menu label - hence leaving the current page while showing
-         a fast disappearing dropdown menu!
-         (subsequent pages do show all sub-menu links but confusing..)
-*/
-
-
-/* 
-lg top main nav and full dropdown 
-we support from 1045px determined by four cols of reasonable text in dropdown 
-*/
-
-
+/* lg top main nav and full dropdown : from 1045px determined by four cols of reasonable text in dropdown */
 @media screen and (min-width: 1045px) {
-
-   /* reset from mobile */
-   nav div.nav_toggle_wrap, nav div.nav_toggle {display:none;}
-   nav ul.menu *, nav ul.menu li ul, nav ul.menu li a {display:block;}
-   nav ul.menu, nav ul.menu > li > a, nav ul.menu.extended_nav_dropdown {
-      transform:unset;
-      opacity:1;
-      -webkit-transition:none;
-      -o-transition:none;
-      transition:none;
-   }
-   
-   /* logo_block provides overlay in front of moving dropdown */
-   nav div.logo_block {
-      position:relative;
-      -webkit-box-flex:2;
-      -ms-flex-positive:2;
-      flex-grow:2;
-   }
-   nav ul.menu > li {
-      display:-webkit-box;
-      display:-ms-flexbox;
-      display:flex;
-      
-      -webkit-box-align:center;
-      -ms-flex-align:center;
-      align-items:center;
-
-      color:black;
-      background-color:white;
-
-      /* wordpress - we can't place height on non-existing menu_label */
-      min-height:var(--nav_bar_height);
-   }
-   nav ul.menu li a.menu_label {
-      padding-left:2rem;
-      padding-right:2rem;
-      margin:0;
-   }
+   /* top level nav items - always-visible navbar in lg/md (excludes logo_block (which grows)) */
    nav ul.menu {
-
       position:static;
-
+      z-index:var(--nav_layer);
       display:-webkit-box;
       display:-ms-flexbox;
       display:flex;
-
       -webkit-box-pack:end;
       -ms-flex-pack:end;
       justify-content:flex-end;
-
-      -webkit-box-orient:horizontal;
-      -webkit-box-direction:normal;
-      -ms-flex-direction:row;
-      flex-direction:row;
-   
+      -webkit-box-align:center;
+      -ms-flex-align:center;
+      align-items:center;
       gap:.5rem;
-
-      -webkit-box-flex:0;
-      -ms-flex-positive:0;
-      flex-grow:0;
-
-      width:unset;
-      height:100%;
-      margin:0;
-      padding:0;
-      padding-right:1rem;
-      background-color:white;
-      border-bottom:none;
-
-      transform:unset;
-      opacity:1;
-      -webkit-transition:none;
-      -o-transition:none;
-      transition:none;
+      max-height:var(--nav_bar_height);
+      padding:1rem 0 1rem 1rem;
+      background:white;
    }
+   nav ul.menu > li {
+      color:black;
+      background-color:white;  /* min-height:var(--nav_bar_height);  : WordPress - we can't place height on non-existing menu_label */
+   }
+   nav ul.menu li a.menu_label {padding:0 2rem;}   /* to do : is this WordPress specific? */
    /* reset from mobile */
-   nav div.nav_toggle_wrap, nav div.nav_toggle {display:none;}
-   nav ul.menu *, nav ul.menu li ul,nav ul.menu li a  {display:block;}
-   nav ul.menu > li > a,  
-   nav ul.menu:hover,  
-   nav ul.menu:hover > li > a {
+   nav div.nav_toggle_wrap, nav div.nav_toggle {display:none;}   
+   nav ul.menu *, nav ul.menu li ul, nav ul.menu li a  {display:block;}
+   nav ul.menu, nav ul.menu > li > a, nav ul.menu:hover, nav ul.menu:hover > li > a, nav ul.menu.extended_sm_nav_dropdown {
       transform:unset;
-      opacity:1;
       -webkit-transition:none;
       -o-transition:none;
       transition:none;
-      margin-left:0;
-   }  
-
+      opacity:1;
+   }
    nav ul.menu > li > a {
       margin:0 auto 0 auto;
-      margin-top:1rem;
       font-size:var(--nav_font_size);
    }
-   nav a {
-      font-size:var(--nav_font_size);
-   }
-   /* 
-      md/lg dropdowns 
-      renamed 'menu_dropdown' -> 'sub-menu' for WordPress nav
-   */
+   /* md/lg dropdowns : renamed 'menu_dropdown' -> 'sub-menu' to support WordPress nav */
    nav ul.menu .sub-menu {
-      /* -webkit-box-orient:horizontal;
-      -webkit-box-direction:normal;
-      -ms-flex-direction:row;
-      flex-direction:row; */
       -webkit-box-orient:vertical;
       -webkit-box-direction:normal;
       -ms-flex-direction:column;
       flex-direction:column;
-
       -ms-flex-wrap:wrap;
       flex-wrap:wrap;
-
       -webkit-box-pack:justify;
       -ms-flex-pack:justify;
       justify-content:space-between;
-
-      /* for */
       -webkit-box-align:var(--align_items_lg_dropdown);
       -ms-flex-align:var(--align_items_lg_dropdown);
       align-items:var(--align_items_lg_dropdown);
-
-
-      width:100%;
-      max-height:var(--nav_dropdown_height); 
+      max-height:var(--nav_dropdown_height);
    }
-   nav ul.menu:hover li a  {
-      display:block;
-   }
+   nav ul.menu:hover li a  {display:block;}
    nav ul.menu .sub-menu li {
-      display:-webkit-box;
-      display:-ms-flexbox;
-      display:flex;
-
-      -webkit-box-orient:vertical;
-      -webkit-box-direction:normal;
-      -ms-flex-direction:column;
-      flex-direction:column;
-
-      -webkit-box-align:start;
-      -ms-flex-align:start;
-      align-items:flex-start;
-      gap:0;
-
       max-width:20%;
-      margin-left:2rem;
-      margin-right:2rem;
-      padding:0;
-
-      color:black;
+      margin:0 2rem;
    }
    nav ul.menu .sub-menu li a {
       margin:.5rem;
-      padding:0;
-      /* color:var(--nav_dropdown_color); */
    }
-
-   /* 
-      md/lg dropdown 
-   */
+   /* md/lg dropdown : 'sub-menu' matches WordPress */
    nav ul.menu ul.sub-menu {
       position:absolute;
       top:0;
@@ -548,38 +299,26 @@ we support from 1045px determined by four cols of reasonable text in dropdown
       display:-webkit-box;
       display:-ms-flexbox;
       display:flex;
-
-      -webkit-box-pack:justify;
-      -ms-flex-pack:justify;
+      -webkit-box-pack:end;
+      -ms-flex-pack:end;
       justify-content:flex-end;
-
-      gap:.25rem;
-
       -ms-flex-wrap:wrap;
       flex-wrap:wrap;
 
-      max-width:100%;
       padding:1rem;
-      background-color:white;
+      color:var(--nav_dropdown_color);
+      background:var(--nav_dropdown_bg);
 
       -webkit-transform:translateY(-100%);
       -ms-transform:translateY(-100%);
       transform:translateY(-100%);
       opacity:0;
-      border-bottom:solid 3px transparent;
       -webkit-transition:opacity 3s ease-in-out .25s,border .25s ease-in-out,-webkit-transform .6s ease-in-out .25s;
       transition:opacity 3s ease-in-out .25s,border .25s ease-in-out,-webkit-transform .6s ease-in-out .25s;
       -o-transition:transform .6s ease-in-out .25s,opacity 3s ease-in-out .25s,border .25s ease-in-out;
-      transition:transform .6s ease-in-out .25s,opacity 3s ease-in-out .25s,border .25s ease-in-out;
       transition:transform .6s ease-in-out .25s,opacity 3s ease-in-out .25s,border .25s ease-in-out,-webkit-transform .6s ease-in-out .25s;
-      
-      color:var(--nav_dropdown_color);
-      background:var(--nav_dropdown_bg);
    }
-   /* 
-      open it and keep it open 
-      removed .menu_label from <a> for WordPress nav 
-   */
+   /* open it and keep it open : removed .menu_label from <a> for WordPress nav */
    nav ul.menu > li a:hover + ul.sub-menu,
    nav ul.menu > li a + ul.sub-menu:hover {
       -webkit-transform:translateY(var(--nav_bar_height));
@@ -590,7 +329,6 @@ we support from 1045px determined by four cols of reasonable text in dropdown
       -webkit-transition:opacity .5s ease-in-out,border .1s ease-in-out,-webkit-transform .75s ease-in-out;
       transition:opacity .5s ease-in-out,border .1s ease-in-out,-webkit-transform .75s ease-in-out;
       -o-transition:transform .75s ease-in-out,opacity .5s ease-in-out,border .1s ease-in-out;
-      transition:transform .75s ease-in-out,opacity .5s ease-in-out,border .1s ease-in-out;
       transition:transform .75s ease-in-out,opacity .5s ease-in-out,border .1s ease-in-out,-webkit-transform .75s ease-in-out;
    }
 }
@@ -1121,3 +859,7 @@ footer a {color:white;text-decoration:none;}
       grid-area:footnote;
    }
 }
+
+
+/* utility */
+.no_user_select {user-select:none;}

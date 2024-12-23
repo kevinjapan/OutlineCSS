@@ -93,8 +93,6 @@ const init_nav_scroll_listener = () => {
 init_fade_ins()
 init_nav_scroll_listener()
 
-console.log('got inside time to go, time to go away')
-
 //
 // toggle sm/mobile menu
 //
@@ -103,19 +101,19 @@ const dropdown = document.querySelector('nav ul.menu')
 nav_toggle.addEventListener('click',() => {
    if(dropdown) {
       // drop the nav list
-      dropdown.classList.toggle('extended_nav_dropdown')
+      dropdown.classList.toggle('extended_sm_nav_dropdown')
       // modify the toggle      
       nav_toggle.classList.toggle('selected_toggle')
    }
 })
 //
 // page transitions - we retract dropdown on item clicked & fade out content
-//
+// to do : create react/vue components to encapsulate this funcationality?
 const menu_items = document.querySelectorAll('.menu-item')
 menu_items.forEach((menu_item) => {
    menu_item.addEventListener('click',() => {
       if(dropdown) {
-         dropdown.classList.remove('extended_nav_dropdown')
+         dropdown.classList.remove('extended_sm_nav_dropdown')
       }
       // Fade out any 'fade_in' class elements while waiting for new page.
       // Does rely on fade out (.fade_in) being quick or looks awkward.

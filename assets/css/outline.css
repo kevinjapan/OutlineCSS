@@ -3,9 +3,16 @@
 Blaise Pascal, 17th Century French philosopher and mathematician.
 */
 
+
+/* 
+this file @ 23 Dec 2024 : 210 lines
+*/
+
 *,*::before,*::after {
    -webkit-box-sizing: border-box;
    box-sizing: border-box;
+   margin:0;
+   padding:0;
 }
 
 html {scroll-behavior: smooth;}
@@ -84,7 +91,10 @@ p {
    INLINE TEXT SEMANTICS
 */
 a {
+   color:blue;
    text-decoration:none;
+   cursor:pointer;
+   white-space:nowrap;
 }
 a:hover {
    text-decoration:none;
