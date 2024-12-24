@@ -1,10 +1,7 @@
-/* outline css 
-"I have made this letter longer than usual, only because I have not had time to make it shorter"
-Blaise Pascal, 17th Century French philosopher and mathematician.
-*/
+/* "I have made this letter longer than usual, only because I have not had time to make it shorter"
+    Blaise Pascal, 17th Century French philosopher and mathematician. */
 /* outline css - layout */
-/* 
-to do : reduce footprint of Outline CSS and shrink to a single css file
+/* to do : reduce footprint of Outline CSS and shrink to a single css file
 this file @ 23 Dec 2024 : 1120 lines     
 totals:
 -layouts.css   : 1120
@@ -13,17 +10,92 @@ totals:
 outline.css    :  210
                  ----
 total @ 23 Dec : 1870 lines
+
+targets - reduce css code footprints & merge into 1 file:
+- nav css                                 DONE
+- h1 etc headings                         DONE
+- feature_block                           DONE
+- feature_tiles                           DONE
+- cover_block                             DONE
+- footer                                  DONE
+- custom props (vars)                     DONE
+- simplify bg utilities & utilities
+- reset (from outline.css file)           DONE
+- _behaviour.js               
+
+then, move into web-dev-agent !!!
 */
 
-/* 
-   Block layouts 
-*/
+
+/* Custom Properties ----------------------  */
+:root {
+
+   /* Custom Props Color Schemes */
+   --primary_bg:  hsl(41, 44%, 57%);   /* #c2a361 */
+   --secondary_bg:hsl(64, 53%, 57%);   /* #c4cb57 */
+   --light_bg:    hsl(49, 8%, 62%);    /* #a6a396 */
+   --dark_bg:     hsl(206, 3%, 46%);   /* #727679 */
+   --accent_bg:hsl(50, 99%, 48%);
+   --semantic_bg_pos:    hsl(120, 93%, 79%);  /* green  - positive */
+   --semantic_bg_neg:    hsl(0, 100%, 75%);   /* red    - negative */
+   --semantic_bg_warn:   hsl(39, 100%, 75%);  /* orange - warning  */
+   --semantic_bg_neutral:hsl(240, 100%, 75%); /* blue   - neutral  */
+
+   /* Fonts */
+   /* sans|serif */
+   --font_family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+   /* --font_family: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; */
+   --font-size:18px;
+
+   /* Navigation */
+   /* mobile navigation */
+   --nav_mobile_dropdown_bg:white;   
+   /* md-lg screen navigation */
+   --nav_bar_height:60px; /* used by header/header bg_img */
+   --nav_bar_bg:          white;
+   --nav_bar_text_color:  hsl(0, 24%, 35%);
+   --nav_dropdown_bg:     white;
+   --nav_dropdown_color:  black;
+   /* item link highlight on hover */
+   --nav_item_bottom_border:solid 1px transparent;
+   --nav_item_on_hover_bottom_border:solid 1px hsl(50, 99%, 48%);
+   --align_items_lg_dropdown:flex-end;
+
+   /* Paragraphs  */
+   --paragraph_width:50rem;
+   --paragraph_padding:1rem;
+
+   /* z-index layers */
+   --app_status_layer:1100;
+   --over_over_over_nav_layer:1000;
+   --over_over_nav_layer:999;
+   --over_nav_layer:998;
+   --nav_layer:900;
+   --under_nav_layer:-10;
+   
+   /* Component properties */    
+   --cover_block_height:500px;   
+   --feature_tiles_gap:1rem;
+}
+
+
+/* reset */
+*,*::before,*::after {
+   -webkit-box-sizing: border-box;
+   box-sizing: border-box;
+   margin:0;
+}
+
+html {scroll-behavior: smooth;}
+
+/* Block layouts */
 body, address, article, aside, footer, header, main, nav, section {
    width:100%;
    margin:0 auto 0 auto;
    padding:0 auto 0 auto;
 }
 
+/* the sectioning root - page content ----------------------  */
 body {
    font-family: var(--font_family);
    font-size:var(--font-size);
@@ -31,56 +103,34 @@ body {
    line-height:1.5rem;
    width:100%;
    min-height:100vh;
-   margin:0;
-   padding:0;
    overflow-x:hidden;
-}
-
-/* ---------------------------------------------------------
-   SECTION HEADINGS
-------------------------------------------------------------*/
-h1, h2, h3, h4, h5, h6 {margin:0;}
-h1 {
-   font-size:var(--h1_size);
-   font-weight:var(--h1_weight);
-   line-height:var(--h1_line_height);
-   padding:1rem 1rem 2rem 1rem;
-}
-h2 {
-   font-size:var(--h2_size);
-   font-weight:var(--h2_weight);
-   line-height:var(--h2_line_height);
-   padding:.8rem 1rem 1.5rem 1rem;
-}
-h3 {
-   font-size:var(--h3_size);
-   font-weight:var(--h3_weight);
-   line-height:var(--h3_line_height);
-   padding:.6rem 1rem 1.25rem 1rem;
-}
-h4 {
-   font-size:var(--h4_size);
-   font-weight:var(--h4_weight);
-   line-height:var(--h4_line_height);
-   padding:.5rem 1rem 1rem 1rem;
-}
-h5 {
-   font-size:var(--h5_size);
-   font-weight:var(--h5_weight);
-   line-height:var(--h5_line_height); 
-   padding:.3rem 1rem .5rem 1rem;
-}
-h6 {
-   font-size:var(--h6_size);
-   font-weight:var(--h6_weight);
-   line-height:var(--h6_line_height);
-   padding:.25rem 1rem .25rem 1rem;
+   -webkit-font-smoothing: antialiased;
 }
 
 
 
+/* the content sectioning elements ----------------------  */
+address,article,aside,header{
+   margin:0;
+}
+header {
+   min-width:100%;
+   margin:0;
+}
+footer {visibility: visible;}
 
-/* main nav component : sm/mobile nav */
+h1, h2, h3, h4, h5, h6 {overflow-wrap: break-word;text-wrap: balance;padding:1rem;}
+h4, h5, h6 {padding:.5rem;}
+h1 {font-size:4rem;line-height:4.25rem;}
+h2 {font-size:3rem;line-height:3.25rem;}
+h3 {font-size:2.5rem;line-height:2.75rem;}
+h4 {font-size:2rem;line-height:2.25rem;}
+h5 {font-size:1.5rem;line-height:1.7rem;}
+h6 {font-size:1.25rem;line-height:1.5rem;}
+
+/* main {visibility: visible;} */
+
+/* NAV : main nav component : sm/mobile nav */
 nav {
    position:-webkit-sticky;
    position:sticky;
@@ -119,7 +169,6 @@ a.custom_logo_link {
    -webkit-box-align:center;
    -ms-flex-align:center;
    align-items:center;
-   color:black;
    font-size:2rem;
 }
 nav a {
@@ -136,6 +185,7 @@ nav ul.menu {
    height:100vh;   
    padding:var(--nav_bar_height) 0 1rem 0;
    background-color:white;
+   user-select:none;
    -webkit-transform:translateY(-100vh);
    -ms-transform:translateY(-100vh);
    transform:translateY(-100vh);
@@ -333,22 +383,150 @@ nav ul.menu li ul li a {margin:1rem;} /* important : maintains <a> spacing on tr
    }
 }
 
-
-
-/* ---------------------------------------------------------
-   SECTION
-   section is the base element of several component blocks 
-------------------------------------------------------------*/
-
+/* we use section as the base element of several component blocks */
 section {
    overflow-x:hidden;
 }
 
 
 
-/* SECTION.TITLE_LEAD_BLOCK
-   title & lead / big title & lead block component */
+/* the text content  elements ----------------------  */
+ul {
+   width:100%;
+   margin:0;
+   padding:0;
+   list-style:none;
+}
+p {
+   width:min(100%,var(--paragraph_width));
+   max-width:var(--paragraph-width);
+   margin:auto;
+   padding:.5rem;
+   line-height:1.5rem;
+   overflow-wrap: break-word;
+   text-wrap: pretty;
+}
 
+
+
+/* the inline text semantic elements ---------------------- */
+a {
+   color:blue;
+   text-decoration:none;
+   cursor:pointer;
+   white-space:nowrap;
+}
+a:hover {
+   text-decoration:none;
+}
+a:visited {
+   text-decoration:none;
+}
+b,br,cite {
+   margin:0;
+   padding:0;   
+}
+pre {
+   padding:0;
+   text-align:left;
+}
+pre {
+   /* we prefer wrapping over scrolling in sm */
+   white-space:pre-wrap;
+   white-space:-moz-pre-wrap;
+   white-space:-pre-wrap;
+   white-space:-o-pre-wrap;
+   word-wrap:break-word;
+}
+code {
+   margin:.5rem;
+   padding:0;
+   padding-left:1rem;
+   padding-right:1rem;
+   background:hsl(0, 0%, 92%);   
+}
+pre code {
+   display:block;
+   width:fit-content;
+}
+
+
+/* the image and multimedia elements ----------------------  */
+img, picture, video, canvas, svg {
+   display: block;
+   max-width: 100%;
+ }
+
+
+ 
+/* Form elements ----------------------  */
+
+/* button, fieldset, form, input, label, option, select, textarea */
+form {
+   width:var(--paragraph_width);
+   margin:1rem auto 3rem auto;
+   padding:1rem;
+   border:solid 1px lightgrey;
+   border-radius:.25rem;
+}
+input, button, textarea, select {
+   font: inherit;
+}
+form > div {
+   display:-ms-grid;
+   display:grid;
+   -ms-grid-columns:1fr 4fr;
+   grid-template-columns:1fr 4fr;
+   gap:.5rem;
+   margin:1rem 1.5rem 1rem 1rem;
+}
+form label {
+   padding:.5rem;
+}
+form input {
+   font-family:var(--form_font_family);
+   font-size:1.3rem;
+   height:fit-content;
+   padding:.5rem;
+}
+form textarea {
+   font-family:var(--form_font_family);
+   font-size:1.3rem;
+   min-height:8rem;
+   height:8rem;
+   max-height:16rem;
+   padding:.5rem;
+   resize: vertical;
+}
+button {
+   width:fit-content;
+   margin:2rem auto 2rem auto;
+   padding:.5rem 1rem .5rem 1rem;
+   background:transparent;
+   color:hsl(0, 0%, 60%);
+   border:solid 1px hsl(0, 0%, 60%);
+   border-radius:.25rem;
+   cursor:pointer;
+   font-size:1.1rem;
+}
+/* default is button on white bg */
+button:hover {
+   color:hsl(0, 0%, 10%);
+   border:solid 1px hsl(0, 0%, 10%);
+}
+
+
+/* Interactive elements ----------------------  */
+/* details, dialog, summary */
+
+
+
+
+/* 
+      Outline CSS Component Blocks
+*/
+
+/* section.title_lead_block ---------------------- */
 section.title_lead_block {
    text-align:center;
 }
@@ -360,9 +538,7 @@ section.title_lead_block.align_left {text-align:left;}
 section.title_lead_block.align_right {text-align:right;}
 
 
-/* ---------------------------------------------------------
-   SECTION.GALLERY   
-------------------------------------------------------------*/
+/* section.gallery ---------------------- */
 section.gallery {
    padding:3rem 1rem;
 }
@@ -378,9 +554,7 @@ section.gallery li > img {
 }
 
 
-/* ---------------------------------------------------------
-   section.animated_tiles 
-------------------------------------------------------------*/
+/* section.animated_tiles ---------------------- */
 section.animated_tiles > ul {
    display:-ms-grid;
    display:grid;
@@ -477,24 +651,24 @@ section.animated_tiles > ul > li:hover > button {
    -o-transition:opacity .5s ease-in-out;
    transition:opacity .5s ease-in-out;
 }
+section.animated_tiles button:hover {
+   color:hsl(0, 0%, 100%);
+   border:solid 1px white;
+}
 
 
 
-/* ---------------------------------------------------------
-   section.feature_block
-   two panel block - img on left, text on right (reversible) 
-------------------------------------------------------------*/
+/* section.feature_block ---------------------- */
+/* two panel block - img on left, text on right (reversible) */
 section.feature_block {
    display:-ms-grid;
    display:grid;
    -ms-grid-columns:1fr;
    grid-template-columns:1fr;
    max-width:100%;
-   margin:var(--feature_block_y_margin);
 }
 /* text overlay */
-section.feature_block > div,
-section.feature_block > div.feature_text {      
+section.feature_block > div, section.feature_block > div.feature_text {      
    display:-webkit-box;
    display:-ms-flexbox;
    display:flex;
@@ -507,34 +681,19 @@ section.feature_block > div.feature_text {
    align-items:flex-start;
    gap:1rem;
    min-width:50%;
-   padding:2rem;
-   
+   padding:1rem;
    /* stack in sm */
    -ms-flex-order:2;
    order:2;
 }
-section.feature_block *.align_start {
-   margin-left:0;
-   margin-right:auto;
-}
 section.feature_block img {
-   width:100%;
-
    /* stack in sm */
    -ms-flex-order:1;
    order:1;
 }
-section.feature_block div.feature_text > h1 {margin-bottom:0.5rem;}
 section.feature_block p {
    margin:auto 0 auto 0;
    font-size:1.1rem;
-}
-section.feature_block p.text_lg {
-   font-size:1.5rem;
-}
-section.feature_block > div > *:not(button) {
-   margin:0;
-   padding:0;
 }
 section.feature_block.reverse_order {
    -webkit-box-orient:vertical;
@@ -542,22 +701,6 @@ section.feature_block.reverse_order {
    -ms-flex-direction:column-reverse;
    flex-direction:column-reverse;
 }
-/* feature block with no img - we assign title (1st child) on left, 
-   text & button (any other) on right */
-section.feature_block > div:only-child {
-   display:-ms-grid;
-   display:grid;
-   -ms-grid-columns:1fr;
-   grid-template-columns:1fr;
-   grid-template-areas:
-      "title"
-      "text"
-      "buttons";
-}
-section.feature_block > div:only-child > *:first-child  {grid-area:title;}
-section.feature_block > div:only-child > *:nth-child(2) {grid-area:text;}
-section.feature_block > div:only-child > *:nth-child(3) {grid-area:buttons;}
-
 @media screen and (min-width: 910px) {
    section.feature_block {
       -ms-grid-columns:1fr 1fr;
@@ -576,21 +719,12 @@ section.feature_block > div:only-child > *:nth-child(3) {grid-area:buttons;}
       -ms-flex-order:unset;
       order:unset;
    }
-   /* feature block with no img - we assign title on left (1st child) , text & button (any other) on right */
-   section.feature_block > div:only-child {
-      -ms-grid-columns:1fr 1fr;
-      grid-template-columns:1fr 1fr;
-      grid-template-areas:
-         "title text"
-         "title buttons";
-   }
 }
 
 
 
-/* ---------------------------------------------------------
-   section.feature_tiles
-------------------------------------------------------------*/
+
+/* section.feature_tiles ---------------------- */
 section.feature_tiles {
    width:100%;
    height:fit-content;
@@ -641,24 +775,10 @@ section.feature_tiles *.align_start {
    margin-right:auto;
 }
 section.feature_tiles  > ul > li > img {
-   /* we don't want images to lose aspect ratio */
-   /* width:100%; - their width can expand.. containing li has overflow-x:hidden */
+   /* img width can expand: containing li has overflow-x:hidden */
    height:100%;
-   border-radius:.25rem;
+   border-radius:.25rem; /* to do : use utility styling? */
 }
-/* to do : too specific - let's generalize these.. */
-      section.feature_tiles > ul > li > h5 {
-         padding-top:0;
-         padding-bottom:0;
-         margin-bottom:0;
-      }
-      section.feature_tiles > ul > li > h4 {
-         font-size:1.5rem;
-         margin-bottom:0;
-         padding-top:1.5rem;
-         padding-bottom:0;
-         font-size:1.8rem;
-      }
 section.feature_tiles > ul > li > div:not(button) {
    position:relative;
    z-index:300;
@@ -697,23 +817,17 @@ section.feature_tiles > ul > li > button {
       -ms-grid-columns:1fr 1fr 1fr;
       grid-template-columns:1fr 1fr 1fr;
    }
-   section.feature_tiles > ul > li > h4 {
-      font-size:2rem;
-   }
 }
 
 
 
 
 
-/* --------------------------------------------------------- 
-//   SECTION.COVER_BLOCK
-//   large heading over background img - plus optional text & button
-------------------------------------------------------------*/
+/* section.cover_block ---------------------- */
+/* large heading over background img - plus optional text & button */
 section.cover_block {
    position:relative;
-   width:100%;
-   height:var(--cover_block_height);      /* defaults if no text/content */
+   height:var(--cover_block_height);
    padding-top:5rem;
    padding-bottom:5rem;
    overflow:hidden;
@@ -732,24 +846,20 @@ section.cover_block::before {
    background:black;
    opacity:0;
 }
-/* improve readability - darken_img utility */
-section.cover_block.darken_img::before {opacity:0.2;}
+/* improve readability - darken_img utility
+to do : currently duplicated for cover_block & animated_tiles - simplify*/
+section.cover_block.darken_img::before   {opacity:0.2;}
 section.cover_block.darken_img_1::before {opacity:0.1;}
 section.cover_block.darken_img_2::before {opacity:0.2;}
 section.cover_block.darken_img_3::before {opacity:0.3;}
 section.cover_block.darken_img_4::before {opacity:0.4;}
 
-
 section.cover_block:has(div) {
-   height:fit-content;        /* fit height to content if exists */
+   height:fit-content;
 }
 section.cover_block p {
    margin:auto 0 auto 0;
    font-size:1.2rem;
-}
-section.cover_block *.align_start {
-   margin-left:0;
-   margin-right:auto;
 }
 section.cover_block .bg_img {
    position:absolute;
@@ -762,7 +872,6 @@ section.cover_block .bg_img {
    background-attachment:fixed;
    background-position:bottom;
 }
-/* text overlay */
 section.cover_block div.text_overlay {
    position:relative;
    display:-webkit-box;
@@ -775,22 +884,22 @@ section.cover_block div.text_overlay {
    -ms-flex-pack:distribute;
    justify-content:space-around;
    gap:1rem;
-
    width:fit-content;
    margin-left:.5rem;
    margin-right:.5rem;
    padding:.5rem;
 }
-/* 
-future : .cover_block_video - video background cover_block 
-*/
+section.cover_block button {
+   color:hsl(0, 0%, 90%);
+   border:solid 1px hsl(0, 0%, 90%);
+}
+section.cover_block button:hover{
+   color:hsl(0, 0%, 100%);
+   border:solid 1px white;
+}
 
-
-
-/* --------------------------------------------------------- 
-   SECTION.FAQS_BLOCK
-   expand-inline faqs list
-------------------------------------------------------------*/
+/* section.faqs_block ---------------------- */
+/* expand-inline faqs list */
 section.faqs_block > ul > li {
    display:-webkit-box;
    display:-ms-flexbox;
@@ -819,9 +928,7 @@ section.faqs_block > ul > li *:nth-child(2).open_faq {
 .faq_toggle {cursor:pointer;}
 
 
-/* ---------------------------------------------------------
-   FOOTER
-------------------------------------------------------------*/
+/* section.footer ---------------------- */
 footer {
    min-height:12rem;
    margin-top:var(--footer_top_margin);
@@ -859,7 +966,3 @@ footer a {color:white;text-decoration:none;}
       grid-area:footnote;
    }
 }
-
-
-/* utility */
-.no_user_select {user-select:none;}
