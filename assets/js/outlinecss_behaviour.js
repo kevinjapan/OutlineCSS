@@ -27,45 +27,12 @@ const create_observers = (elements,active_class,options) => {
    return observers_created
 }
 
-// future : 
-// - enable transparent (configurable) nav over frontpage cover_block (hero)
-// orig code for nav transparent over frontpage cover img :
-//
-// const init_nav_behaviour = () => {
-//    const nav = document.querySelector('.nav_bar')
-//    const frontcover = document.querySelectorAll('.frontcover') // only interested in first one
-//    const newOptions = {
-//       threshold: 0,
-//       rootMargin: "-400px 0px 0px 0px"
-//    }
-//    const modifyNav = new IntersectionObserver(
-//       function(entries,modifyNav){
-//          if(nav) {
-//             entries.forEach(entry => {
-//                if(!entry.isIntersecting) {
-//                   nav.classList.remove('transparent-bg')
-//                } else {
-//                   nav.classList.add('transparent-bg')
-//                }
-//                //modifyNav.unobserve(entry.target)
-//             })
-//          }
-//    },newOptions)
-//    if(frontcover.length > 0) {
-//       nav.classList.add('transparent-bg')
-//       frontcover.forEach(frontcover => {
-//          modifyNav.observe(frontcover)
-//       })
-//    }  
-// }
 
 
 
-//
 //    Dynamic nav bar
 //    hides when user is scrolling down
 //    to prevent nav disappearing in ios safari bounce, we don't hide < 80px from top
-//
 const init_nav_scroll_listener = () => {
 
    let last_scroll = 0
@@ -84,18 +51,14 @@ const init_nav_scroll_listener = () => {
    }
 }
 
-
-
-//
 // if any issues arise with fade_in not taking effect..
 // we have fixed fade_in failing on 'back' button & '#' links in wda and te projects.
-//
+
 init_fade_ins()
 init_nav_scroll_listener()
 
-//
+
 // toggle sm/mobile menu
-//
 const nav_toggle = document.querySelector('.nav_toggle')
 const dropdown = document.querySelector('nav ul.menu')
 nav_toggle.addEventListener('click',() => {
@@ -106,7 +69,7 @@ nav_toggle.addEventListener('click',() => {
       nav_toggle.classList.toggle('selected_toggle')
    }
 })
-//
+
 // page transitions - we retract dropdown on item clicked & fade out content
 // to do : create react/vue components to encapsulate this funcationality?
 const menu_items = document.querySelectorAll('.menu-item')
@@ -127,9 +90,7 @@ menu_items.forEach((menu_item) => {
 })
 
 
-//
 //    faqs_block
-//
 const close_open_faq = () => {
    const faq = document.querySelector('.open_faq')
    if(faq) faq.classList.remove('open_faq')

@@ -36,16 +36,19 @@ then, move into web-dev-agent !!!
    --light_bg:    hsl(49, 8%, 62%);    /* #a6a396 */
    --dark_bg:     hsl(206, 3%, 46%);   /* #727679 */
    --accent_bg:hsl(50, 99%, 48%);
-   --semantic_bg_pos:    hsl(120, 93%, 79%);  /* green  - positive */
-   --semantic_bg_neg:    hsl(0, 100%, 75%);   /* red    - negative */
-   --semantic_bg_warn:   hsl(39, 100%, 75%);  /* orange - warning  */
-   --semantic_bg_neutral:hsl(240, 100%, 75%); /* blue   - neutral  */
+   --semantic_pos_bg:    hsl(120, 93%, 79%);  /* green  - positive */
+   --semantic_neg_bg:    hsl(0, 100%, 75%);   /* red    - negative */
+   --semantic_warn_bg:   hsl(39, 100%, 75%);  /* orange - warning  */
+   --semantic_neutral_bg:hsl(240, 100%, 75%); /* blue   - neutral  */
 
    /* Fonts */
    /* sans|serif */
    --font_family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
    /* --font_family: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; */
    --font-size:18px;
+
+   --light_text:white;
+   --dark_text:black;
 
    /* Navigation */
    /* mobile navigation */
@@ -278,6 +281,9 @@ nav ul.menu li ul li a {margin:1rem;} /* important : maintains <a> spacing on tr
 }
 /* lg top main nav and full dropdown : from 1045px determined by four cols of reasonable text in dropdown */
 @media screen and (min-width: 1045px) {
+   nav div.logo_block {
+      min-width:fit-content;
+   }
    /* top level nav items - always-visible navbar in lg/md (excludes logo_block (which grows)) */
    nav ul.menu {
       position:static;
@@ -387,8 +393,6 @@ nav ul.menu li ul li a {margin:1rem;} /* important : maintains <a> spacing on tr
 section {
    overflow-x:hidden;
 }
-
-
 
 /* the text content  elements ----------------------  */
 ul {
@@ -520,10 +524,8 @@ button:hover {
 /* details, dialog, summary */
 
 
-
-
 /* 
-      Outline CSS Component Blocks
+----------------------  Outline CSS Component Blocks ---------------------- 
 */
 
 /* section.title_lead_block ---------------------- */
@@ -536,7 +538,6 @@ section.title_lead_block > * {
 }
 section.title_lead_block.align_left {text-align:left;}
 section.title_lead_block.align_right {text-align:right;}
-
 
 /* section.gallery ---------------------- */
 section.gallery {
@@ -552,7 +553,6 @@ section.gallery li > img {
    width:100%;
    border-radius:.25rem;
 }
-
 
 /* section.animated_tiles ---------------------- */
 section.animated_tiles > ul {
@@ -656,8 +656,6 @@ section.animated_tiles button:hover {
    border:solid 1px white;
 }
 
-
-
 /* section.feature_block ---------------------- */
 /* two panel block - img on left, text on right (reversible) */
 section.feature_block {
@@ -720,9 +718,6 @@ section.feature_block.reverse_order {
       order:unset;
    }
 }
-
-
-
 
 /* section.feature_tiles ---------------------- */
 section.feature_tiles {
@@ -819,10 +814,6 @@ section.feature_tiles > ul > li > button {
    }
 }
 
-
-
-
-
 /* section.cover_block ---------------------- */
 /* large heading over background img - plus optional text & button */
 section.cover_block {
@@ -853,7 +844,6 @@ section.cover_block.darken_img_1::before {opacity:0.1;}
 section.cover_block.darken_img_2::before {opacity:0.2;}
 section.cover_block.darken_img_3::before {opacity:0.3;}
 section.cover_block.darken_img_4::before {opacity:0.4;}
-
 section.cover_block:has(div) {
    height:fit-content;
 }
@@ -898,8 +888,7 @@ section.cover_block button:hover{
    border:solid 1px white;
 }
 
-/* section.faqs_block ---------------------- */
-/* expand-inline faqs list */
+/* section.faqs_block ---------------------- to do : use html <details> element rather than our own custom version? */
 section.faqs_block > ul > li {
    display:-webkit-box;
    display:-ms-flexbox;
@@ -927,7 +916,6 @@ section.faqs_block > ul > li *:nth-child(2).open_faq {
 }
 .faq_toggle {cursor:pointer;}
 
-
 /* section.footer ---------------------- */
 footer {
    min-height:12rem;
@@ -950,9 +938,11 @@ footer ul.footnote   {
    margin-top:5rem;
    margin-bottom:0;
 }
-footer a {color:white;text-decoration:none;}
-
-@media screen and (min-width: 1045px) {
+footer a {
+   color:white;
+   text-decoration:none;
+}
+@media screen and (min-width: 1045px) { /* to do : improve this */
    footer > ul:not(.footnote) {
       display:-ms-grid;
       display:grid;
@@ -966,3 +956,105 @@ footer a {color:white;text-decoration:none;}
       grid-area:footnote;
    }
 }
+
+/* transition behaviours  ---------------------- */
+.fade_in {
+   opacity:0;
+   -webkit-transition:opacity .75s ease-in;
+   -o-transition:opacity .75s ease-in;
+   transition:opacity .75s ease-in;
+}
+.appear {
+   opacity:1;
+   -webkit-transition:opacity .75s ease-in;
+   -o-transition:opacity .75s ease-in;
+   transition:opacity .75s ease-in;
+}
+.invisible_nav {   /* to do : better name for this */
+   -webkit-transform:translateY(-100%);
+   transform:translateY(-100%);
+   -webkit-transition:-webkit-transform .6s ease-in;
+   transition:-webkit-transform .6s ease-in;
+   -o-transition:transform .6s ease-in;
+   transition:transform .6s ease-in, -webkit-transform .6s ease-in;
+}
+
+/* color utilities ---------------------- */
+.primary_bg {
+   background: var(--primary_bg);
+}
+.secondary_bg {
+   background: var(--secondary_bg);
+}
+.light_bg {
+   background: var(--light_bg);
+}
+.dark_bg {
+   background: var(--dark_bg);
+   color:var(--light_text);
+}
+.accent_bg {
+   background: var(--accent_bg);
+}
+.semantic_pos_bg {
+   background: var(--semantic_pos_bg);
+}
+.semantic_neg_bg {
+   background: var(--semantic_neg_bg);
+}
+.semantic_warn_bg {
+   background: var(--semantic_warn_bg);
+}
+.semantic_neutral_bg {
+   background: var(--semantic_neutral_bg);
+}
+
+/* grid / flex utilities */
+.flex {
+   display:-webkit-box;
+   display:-ms-flexbox;
+   display:flex;
+   flex-wrap:nowrap;
+}
+.align_center {
+   -webkit-box-align:center;
+   -ms-flex-align:center;
+   align-items:center;
+}
+.center_self {
+   -webkit-box-align:center;
+   -ms-flex-align:center;
+   align-self:center;
+}
+.justify_center {
+   -webkit-box-pack:center;
+   -ms-flex-pack:center;
+   justify-content:center;
+}
+/* ensure we break words cleanly in code elements */
+.break_words {
+   white-space:normal; 
+   word-wrap:break-word;
+   overflow-wrap:break-word;
+   word-break:break-word;
+}
+
+/* spacing utilities */
+.m_1  {margin:1rem;}
+.m_2  {margin:2rem;}
+.m_3  {margin:3rem;}
+.mt_1 {margin-top:1rem;}
+.mt_2 {margin-top:2rem;}
+.mt_3 {margin-top:3rem;}
+.mb_1 {margin-bottom:1rem;}
+.mb_2 {margin-bottom:2rem;}
+.mb_3 {margin-bottom:3rem;}
+.p_1  {padding:1rem;}
+.p_2  {padding:2rem;}
+.p_3  {padding:3rem;}
+.pt_1  {padding-top:1rem;}
+.pt_2  {padding-top:2rem;}
+.pt_3  {padding-top:3rem;}
+.pb_1  {padding-bottom:1rem;}
+.pb_2  {padding-bottom:2rem;}
+.pb_3  {padding-bottom:3rem;}
