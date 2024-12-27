@@ -14,13 +14,13 @@ const footer = () => {
 
    if(footer) {
 
-      // to do : replace this
       footer.innerHTML = `
          <ul>
             <li class="mb_2">
                <a href="/index.html">
-               <img src="../assets/imgs/site_icon_light.png" style="width:32px;"/>
-               <h4 style="display:inline;">Outline CSS</h4></a>
+                  <img src="../assets/imgs/site_icon_light.png"/>
+                  <h4 style="display:inline;">Outline CSS</h4>
+               </a>
             </li>
             <li>
                <ul>

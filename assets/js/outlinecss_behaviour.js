@@ -42,9 +42,9 @@ const init_nav_scroll_listener = () => {
       window.addEventListener('scroll', () => {
          let current_scroll = window.scrollY         
          if((current_scroll > last_scroll) && (current_scroll > 80)) {
-            nav_bar.classList.add('invisible_nav')    // user is scrolling downwards - hide nav bar ( if below 80px )
+            nav_bar.classList.add('hide_on_scroll_down')    // user is scrolling downwards - hide nav bar ( if below 80px )
          } else {
-            nav_bar.classList.remove('invisible_nav')    // scrolling upwards - show hide bar
+            nav_bar.classList.remove('hide_on_scroll_down')    // scrolling upwards - show hide bar
          }
          last_scroll = current_scroll
       })
@@ -71,7 +71,7 @@ nav_toggle.addEventListener('click',() => {
 })
 
 // page transitions - we retract dropdown on item clicked & fade out content
-// to do : create react/vue components to encapsulate this funcationality?
+// to do : create react/vue components to encapsulate this functionality?
 const menu_items = document.querySelectorAll('.menu-item')
 menu_items.forEach((menu_item) => {
    menu_item.addEventListener('click',() => {
