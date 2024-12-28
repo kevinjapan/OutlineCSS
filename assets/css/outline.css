@@ -200,7 +200,7 @@ nav a {
    margin-left:1rem;
    color:black;
 }
-/* top level nav items - as dropdown in sm/mobile */
+/* top level nav items - dropdown in sm/mobile */
 nav ul.menu {
    position:absolute;
    z-index:2;
@@ -353,20 +353,37 @@ nav ul.menu li ul li a {margin:1rem;} /* important : maintains <a> spacing on tr
       font-size:var(--nav_font_size);
    }
    /* md/lg dropdowns : renamed 'menu_dropdown' -> 'sub-menu' to support WordPress nav */
-   nav ul.menu .sub-menu {
+   nav ul.menu ul.sub-menu {
+      position:absolute;
+      top:0;
+      left:0;
+      z-index:-99;
+      display:-webkit-box;
+      display:-ms-flexbox;
+      display:flex;
       -webkit-box-orient:vertical;
       -webkit-box-direction:normal;
       -ms-flex-direction:column;
       flex-direction:column;
       -ms-flex-wrap:wrap;
       flex-wrap:wrap;
-      -webkit-box-pack:justify;
-      -ms-flex-pack:justify;
-      justify-content:space-between;
+      -webkit-box-pack:end;
+      -ms-flex-pack:end;
+      justify-content:flex-end;
       -webkit-box-align:var(--align_items_lg_dropdown);
       -ms-flex-align:var(--align_items_lg_dropdown);
       align-items:var(--align_items_lg_dropdown);
       max-height:var(--nav_dropdown_height);
+      padding:1rem;
+      color:var(--nav_dropdown_color);
+      background:var(--nav_dropdown_bg);
+      -webkit-transform:translateY(-100%);
+      -ms-transform:translateY(-100%);
+      transform:translateY(-100%);
+      opacity:0;
+      -webkit-transition:opacity 3s ease-in-out .25s,border .25s ease-in-out,-webkit-transform .6s ease-in-out .25s;
+      -o-transition:transform .6s ease-in-out .25s,opacity 3s ease-in-out .25s,border .25s ease-in-out;
+      transition:transform .6s ease-in-out .25s,opacity 3s ease-in-out .25s,border .25s ease-in-out,-webkit-transform .6s ease-in-out .25s;
    }
    nav ul.menu:hover li a  {display:block;}
    nav ul.menu .sub-menu li {
@@ -375,35 +392,6 @@ nav ul.menu li ul li a {margin:1rem;} /* important : maintains <a> spacing on tr
    }
    nav ul.menu .sub-menu li a {
       margin:.5rem;
-   }
-   /* md/lg dropdown : 'sub-menu' matches WordPress */
-   nav ul.menu ul.sub-menu {
-      position:absolute;
-      top:0;
-      left:0;
-      z-index:-99;
-
-      display:-webkit-box;
-      display:-ms-flexbox;
-      display:flex;
-      -webkit-box-pack:end;
-      -ms-flex-pack:end;
-      justify-content:flex-end;
-      -ms-flex-wrap:wrap;
-      flex-wrap:wrap;
-
-      padding:1rem;
-      color:var(--nav_dropdown_color);
-      background:var(--nav_dropdown_bg);
-
-      -webkit-transform:translateY(-100%);
-      -ms-transform:translateY(-100%);
-      transform:translateY(-100%);
-      opacity:0;
-      -webkit-transition:opacity 3s ease-in-out .25s,border .25s ease-in-out,-webkit-transform .6s ease-in-out .25s;
-      transition:opacity 3s ease-in-out .25s,border .25s ease-in-out,-webkit-transform .6s ease-in-out .25s;
-      -o-transition:transform .6s ease-in-out .25s,opacity 3s ease-in-out .25s,border .25s ease-in-out;
-      transition:transform .6s ease-in-out .25s,opacity 3s ease-in-out .25s,border .25s ease-in-out,-webkit-transform .6s ease-in-out .25s;
    }
    /* open it and keep it open : removed .menu_label from <a> for WordPress nav */
    nav ul.menu > li a:hover + ul.sub-menu,
@@ -414,7 +402,6 @@ nav ul.menu li ul li a {margin:1rem;} /* important : maintains <a> spacing on tr
       opacity:1;
       border-bottom:solid 3px hsl(0, 0%, 96%);
       -webkit-transition:opacity .5s ease-in-out,border .1s ease-in-out,-webkit-transform .75s ease-in-out;
-      transition:opacity .5s ease-in-out,border .1s ease-in-out,-webkit-transform .75s ease-in-out;
       -o-transition:transform .75s ease-in-out,opacity .5s ease-in-out,border .1s ease-in-out;
       transition:transform .75s ease-in-out,opacity .5s ease-in-out,border .1s ease-in-out,-webkit-transform .75s ease-in-out;
    }
@@ -599,7 +586,6 @@ section.animated_tiles > ul > li {
    -webkit-box-align:center;
    -ms-flex-align:center;
    align-items:center;
-
    padding:1rem;
    overflow:hidden;
    background:hsl(0, 0%, 20%);
