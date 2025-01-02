@@ -90,7 +90,6 @@ footer a {
 }
 
 h1, h2, h3, h4, h5, h6 {overflow-wrap: break-word;text-wrap: balance;padding:1rem;}
-h4, h5, h6 {padding:.5rem;}
 h1 {font-size:4rem;line-height:4.25rem;}
 h2 {font-size:3rem;line-height:3.25rem;}
 h3 {font-size:2.5rem;line-height:2.75rem;}
@@ -417,6 +416,7 @@ b,br,cite {
    padding:0;   
 }
 pre {
+   margin:1rem 0;
    padding:0;
    text-align:left;
 }
@@ -429,10 +429,8 @@ pre {
    word-wrap:break-word;
 }
 code {
-   margin:.5rem;
-   padding:0;
-   padding-left:1rem;
-   padding-right:1rem;
+   margin:.25rem 1rem;
+   padding:2rem;
    background:hsl(0, 0%, 92%);   
 }
 pre code {
@@ -738,7 +736,6 @@ section.feature_tiles h5,
 section.feature_tiles h6 {
    width:fit-content;
    text-align:left;
-   margin:0 auto 0 auto; /* to do : surely these are set in base level headings? */
 }
 section.feature_tiles *.align_start {
    margin-left:0;
